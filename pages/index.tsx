@@ -1,17 +1,8 @@
-import type { NextPage } from "next";
-import Head from "next/head";
-
-import { styled } from "../stitches.config";
-
-const Button = styled("button", {
-  backgroundColor: "yellow",
-  borderRadius: "9999px",
-  fontSize: "13px",
-  padding: "10px 15px",
-  "&:hover": {
-    backgroundColor: "red",
-  },
-});
+import type { GetStaticPropsContext, NextPage } from 'next';
+import * as React from 'react';
+import fs from 'fs';
+import path from 'path';
+import Head from 'next/head';
 
 const Home: NextPage = () => {
   return (
@@ -19,12 +10,16 @@ const Home: NextPage = () => {
       <Head>
         <title>Index</title>
       </Head>
-
-      <h1>Dev server test</h1>
-
-      <Button>Click me</Button>
+      {/* 
+      <h1>{frontmatter.title}</h1>
+      <Component /> */}
     </div>
   );
+};
+export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
+  return {
+    props: {},
+  };
 };
 
 export default Home;
