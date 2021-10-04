@@ -3,14 +3,14 @@ module.exports = {
   reactStrictMode: true,
 };
 
-const { withContentlayer } = require('next-contentlayer');
-
 const nextConfig = {
   webpack: (config, options) => {
     if (options.isServer) {
       require('./lib/rss');
     }
-
+    config.experiments = {
+      topLevelAwait: true,
+    };
     return config;
   },
 
