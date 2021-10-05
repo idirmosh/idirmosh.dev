@@ -16,7 +16,7 @@ export async function getPostBySlug(type, slug) {
 
   const { code, frontmatter } = await bundleMDX(src, {
     xdmOptions(options): any {
-      options.remarkPlugins = [...(options?.recmaPlugins ?? []), remarkGfm];
+      options.remarkPlugins = [...(options?.remarkPlugins ?? []), remarkGfm];
       options.rehypePlugins = [
         ...(options?.rehypePlugins ?? []),
         rehypeSlug,
