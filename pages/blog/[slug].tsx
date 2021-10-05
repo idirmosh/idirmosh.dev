@@ -8,6 +8,7 @@ import { box } from '@components/MDXComponents/box';
 export default function PostBySlug({ code, frontMatter }) {
   const Component = useMemo(() => getMDXComponent(code), [code]);
 
+  // console.log(code);
   // const Component = useMemo(() => getMDXComponent(code), [code]);
   // console.log(frontMatter);
 

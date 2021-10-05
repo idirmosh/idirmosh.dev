@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { getPostsFrontMatter } from '@lib/bundle-mdx';
 
 const Blog: NextPage = ({ posts }) => {
-  console.log(posts);
+  // console.log(posts);
   return (
     <div>
       <Head>
