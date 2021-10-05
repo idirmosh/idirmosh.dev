@@ -1,0 +1,67 @@
+---
+title: 'First MDX post in this blog'
+publishedAt: '2017-07-15'
+summary: 'Visualize my journey through the scenic lands of Norway with rich, stunning pictures and daily travel logs.'
+image: '/static/images/first-mdx-post/banner.png'
+tags: ['nextjs', 'react']
+---
+
+## The Design Graph
+
+The foundation of the Styled System API is the [Design Graph](https://www.descended.com/places-to-go) — a constraint based system for organizing styles in UI design. It consists of four parts: scales, theme, variants and components.
+
+### Scales
+
+Design Tokens is a familiar term by now. They define the visual characteristics of a brand or a product such as typography, colours, icons, and spacing. They make it easier to maintain a scalable, consistent system for UI development.
+
+Design tokens can have a broad set of responsibilities. They span both design tools & code and can support multiple render targets such as the web, iOS, Android and even embedded devices. You can think of scales as a subset of design tokens that map to specific CSS style properties. For example, typography tokens can map to font-size, font-weight and line-height scales.
+
+### Theme
+
+The theme is a coll ection of all the scales and is maintained in a theme.ts file. The shape of this theme object conforms to the System UI Theme Specification.
+
+You might have multiple versions of the theme. For example, to switch between different brands or perhaps colour modes (dark & light). Radius is excellent real-world example.
+
+### Components
+
+The theme is a collection of all the scales and is maintained in a theme.ts file. The shape of this theme object conforms to the System UI Theme Specification.
+
+<Image
+  alt={`Norway`}
+  src={`/static/images/first-mdx-post/nomad.png`}
+  width={1501 / 2}
+  height={712 / 2}
+  priority
+/>
+
+The theme is a collection of all the scales and is maintained in a theme.ts file. The shape of this theme object conforms to the System UI Theme Specification.
+
+### Variants
+
+The theme is a collection of all the scales and is maintained in a theme.ts file. The shape of this theme object conforms to the System UI Theme Specification.
+
+## Component Hierarchy
+
+Let’s look at a complete example. The Field component here is a composition of the Input, Label and Text components, which, in turn, use a composition of scales and variants. The Hint and Error texts are the Text component with the variant set to hint and different colour values. `node-jose-npm`
+
+The design system would generally be limited to Elements and Patterns. Ideally, you should define Features and Layouts in the application. There are some scenarios in which you might want to include recipes to demonstrate how one might build a particular Feature — for example, the form control recipes in **Radius**.
+
+```js
+passport.use(
+  new LocalStrategy(function (username, password, done) {
+    // Note: Returne false
+    User.findOne({ username: username }, function (err, user) {
+      if (err) {
+        return done(err);
+      }
+      if (!user) {
+        return done(null, false);
+      }
+      if (!user.verifyPassword(password)) {
+        return done(null, false);
+      }
+      return done(null, user);
+    });
+  })
+);
+```
