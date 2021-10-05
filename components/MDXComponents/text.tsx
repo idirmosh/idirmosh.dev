@@ -7,54 +7,75 @@ export const text = css({
   margin: 0,
 
   variants: {
-    size: {
-      1: {
-        fontSize: '12px',
-        lineHeight: '18px',
+    type: {
+      h1: {
+        fontSize: '36px',
+        lineHeight: '43.3px',
+        letterSpacing: '-0.8px',
+        borderBottom: '1px solid $neutral5',
+        paddingBottom: '8px',
       },
-      2: {
+      h2: {
+        fontSize: '30px',
+        lineHeight: '37.5px',
+        letterSpacing: '-0.3px',
+        borderBottom: '1px solid $neutral5',
+        paddingBottom: '8px',
+      },
+      h3: {
+        fontSize: '20px',
+        lineHeight: '25px',
+        letterSpacing: '-0.48px',
+        borderBottom: '1px solid $neutral5',
+        paddingBottom: '8px',
+      },
+      h4: {
+        fontSize: '18px',
+        lineHeight: '22.5px',
+        letterSpacing: '-0.48px',
+        borderBottom: '1px solid $neutral5',
+        paddingBottom: '8px',
+      },
+      h5: {
+        fontSize: '16px',
+        lineHeight: '20px',
+        letterSpacing: '-0.16px',
+        borderBottom: '1px solid $neutral5',
+        paddingBottom: '8px',
+      },
+      h6: {
+        fontSize: '14px',
+        lineHeight: '17.5px',
+        letterSpacing: '-0.16px',
+        borderBottom: '1px solid $neutral5',
+        paddingBottom: '8px',
+      },
+      body: {
+        fontSize: '18px',
+        lineHeight: '29.7px',
+        letterSpacing: '-0.1px',
+      },
+      code: {
+        fontSize: '16.2px',
+        lineHeight: '24px',
+        letterSpacing: '-0.1px',
+      },
+      list: {
         fontSize: '14px',
         lineHeight: '21px',
       },
-      3: {
-        fontSize: '16px',
-        lineHeight: '24px',
-      },
-      4: {
-        fontSize: '20px',
-        lineHeight: '30px',
-      },
-      5: {
-        fontSize: '24px',
-        lineHeight: '36px',
-      },
-      6: {
-        fontSize: '32px',
-        lineHeight: '48px',
-      },
-      7: {
-        fontSize: '48px',
-        lineHeight: '48px',
-      },
-      8: {
-        fontSize: '64px',
-        lineHeight: '72px',
-      },
-      9: {
-        fontSize: '72px',
-        lineHeight: '96px',
-      },
     },
+
     weight: {
       bold: {
         fontStyle: 'normal',
         fontWeight: '600',
       },
-      normal: {
+      regular: {
         fontStyle: 'normal',
         fontWeight: '400',
       },
-      medium: {
+      semibold: {
         fontStyle: 'normal',
         fontWeight: '500',
       },
@@ -62,7 +83,7 @@ export const text = css({
   },
 
   defaultVariants: {
-    size: 2,
+    type: 'body',
     weight: 'medium',
   },
 });

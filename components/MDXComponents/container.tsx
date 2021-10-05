@@ -2,6 +2,6 @@ import { css } from 'stitches.config';
 
 export const container = css({
   boxSizing: 'border-box',
-  maxWidth: '720px',
-  px: 0,
+  maxWidth: '756px',
+  margin: '0 auto',
 });

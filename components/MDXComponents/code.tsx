@@ -2,13 +2,14 @@ import { css } from 'stitches.config';
 
 export const code = css({
   boxSizing: 'border-box',
-  bc: 'hsla(206 12% 89.5% / 10%)',
-  borderRadius: '$1',
-  color: '$white',
-  lineHeight: 1,
+  backgroundColor: '$brand_faded',
+  borderRadius: '3px',
+  border: '1px solid $brand_bright',
+  color: '$neutral0',
+  lineHeight: '24px',
   fontFamily: '$mono',
-  fontSize: '0.8em',
-  letterSpacing: '-0.5px',
-  py: '2px',
-  px: '5px',
+  fontSize: '16.2',
+  letterSpacing: '-0.1px',
+  marginLeft: '$2',
+  padding: '0 5px 0 5px',
 });

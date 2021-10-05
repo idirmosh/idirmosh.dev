@@ -14,7 +14,7 @@ import img from './img';
 import Video from './Video';
 import iframe from './iframe';
 import blockquote from './blockquote';
-import pre from './pre';
+import preElm from './pre';
 import codeElm from './code';
 
 const Elms = {
@@ -34,7 +34,7 @@ const Elms = {
   Video,
   iframe,
   blockquote,
-  pre,
+  preElm,
   codeElm,
 };
 export default Elms;

@@ -4,9 +4,9 @@ export default function H2(props) {
   return (
     <h2
       className={text({
-        size: '5',
+        type: 'h2',
         weight: 'bold',
-        css: { mt: '$5', mb: '$4', mx: 'auto', color: 'blue' },
+        css: { mb: '$3', mx: 'auto' },
       })}
       {...props}
     />

@@ -3,8 +3,9 @@ import { css } from 'stitches.config';
 export const link = css({
   boxSizing: 'border-box',
   WebkitTapHighlightColor: 'rgba(0, 0, 0, 0)',
-  boxShadow: '0px 1px 0px 0px $colors$gray',
-  color: 'inherit',
+  boxShadow: '0px 1px 0px 0px $colors$brand_main',
+  fontWeight: '600',
+  color: '$brand_main',
   fontFamily: '$sans',
   textDecoration: 'none',
   transition: 'all 100ms linear 0ms',
@@ -16,7 +17,7 @@ export const link = css({
 
   '&:focus': {
     outline: 'none',
-    boxShadow: '0px 0px 0px 2px $colors$gray',
+    boxShadow: '0px 0px 0px 2px $colors$brand_main',
     color: '$gray',
   },
 
