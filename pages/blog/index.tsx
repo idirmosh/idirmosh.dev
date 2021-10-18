@@ -9,6 +9,7 @@ import * as styles from '@components/MDXComponents/styles';
 import Tags from '@components/common/Tags';
 import { avatar } from '@components/SinglePost/styles';
 import { css } from 'stitches.config';
+import { parseISO, format } from 'date-fns';
 
 const Blog: NextPage = ({ posts }: any) => {
   return (
@@ -44,7 +45,7 @@ const pcAnchor = css({
 
 const pcMeta = css({
   display: 'flex',
-  fontSize: '12px',
+  fontSize: '14px',
   marginBottom: '8px',
   color: '$neutral2',
   '> *': {
@@ -76,7 +77,7 @@ function PostCard({ post }) {
       <Link href={`/blog/${post.slug}`}>
         <a className={pcAnchor()}>
           <div className={pcMeta()}>
-            <time>{post.publishedAt}</time>
+            <time> {format(parseISO(post.publishedAt), 'MMM dd, yyyy')} </time>
             <p>{post.readingTime.text}</p>
             <p>22,438 Views</p>
           </div>

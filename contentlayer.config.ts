@@ -6,6 +6,7 @@ import rehypeSlug from 'rehype-slug';
 import rehypeCodeTitles from 'rehype-code-titles';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypePrism from 'rehype-prism-plus';
+import { format, formatDistance, formatRelative, subDays } from 'date-fns';
 
 const computedFields: ComputedFields = {
   slug: {
@@ -33,7 +34,7 @@ const Post = defineDocumentType(() => ({
   computedFields,
 }));
 const contentLayerConfig = makeSource({
-  contentDirPath: 'data',
+  contentDirPath: 'content',
   documentTypes: [Post],
   mdx: {
     remarkPlugins: [remarkGfm],

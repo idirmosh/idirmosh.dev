@@ -2,8 +2,8 @@
 title: 'From Firebase/Redis to MySQL with PlanetScale'
 publishedAt: '2021-09-06'
 summary: 'Learn how I migrated my Next.js website to use MySQL with PlanetScale, resulting in 10x faster response times for my APIs.'
-image: '/static/images/mysql-planetscale/banner.png'
-tags: ['nextjs', 'react']
+image: '/assets/mysql-planetscale/banner.png'
+tags: ['nextjs', 'web']
 ---
 
 A few weeks ago, I [moved this site](https://github.com/leerob/leerob.io/pull/326) from using [Firebase](/blog/real-time-post-views) and [Redis](/blog/serverless-redis-nextjs) to PlanetScale. [PlanetScale](https://planetscale.com) is a serverless database platform built on MySQL and Vitess. Here's why I picked PlanetScale:
@@ -59,7 +59,7 @@ There are likely better ways to do this, but my hacky solution to migrate data i
 
   <Image
     alt={`Exporting data from Firebase`}
-    src={`/static/images/mysql-planetscale/firebase.png`}
+    src={`/assets/mysql-planetscale/firebase.png`}
     width={2905 / 2}
     height={1959 / 2}
   />
@@ -68,7 +68,7 @@ There are likely better ways to do this, but my hacky solution to migrate data i
 
   <Image
     alt={`Exporting data from my Redis cluster`}
-    src={`/static/images/mysql-planetscale/redis.png`}
+    src={`/assets/mysql-planetscale/redis.png`}
     width={2540 / 2}
     height={1852 / 2}
   />
@@ -178,7 +178,7 @@ I've been monitoring the performance of my production APIs connecting to PlanetS
 
 <Image
   alt={`Checkly results from PlanetScale database`}
-  src={`/static/images/mysql-planetscale/checkly.png`}
+  src={`/assets/mysql-planetscale/checkly.png`}
   width={1490}
   height={528}
 />
@@ -192,7 +192,7 @@ This has been significantly faster than my previous Firebase implementation. Can
 
 <Image
   alt={`Checkly results after switching from Firebase to PlanetScale`}
-  src={`/static/images/mysql-planetscale/checkly-firebase.png`}
+  src={`/assets/mysql-planetscale/checkly-firebase.png`}
   width={2264 / 2}
   height={1076 / 2}
 />

@@ -15,6 +15,7 @@
     "@radix-ui/react-icons": "^1.0.3",
     "@stitches/react": "^1.2.1",
     "contentlayer": "^0.0.27",
+    "date-fns": "^2.25.0",
     "esbuild": "^0.13.3",
     "gray-matter": "^4.0.3",
     "hast-util-to-html": "^8.0.2",
