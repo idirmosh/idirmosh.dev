@@ -1,11 +1,12 @@
 import { useMemo } from 'react';
 import { getMDXComponent } from 'mdx-bundler/client';
+import { GetStaticProps, GetStaticPropsContext, GetStaticPaths, NextPage } from 'next';
 
 import * as styles from '@components/MDXComponents/styles';
 import { allPosts } from '.contentlayer/data';
 import type { Post } from '.contentlayer/types';
 
-export default function Tags({ posts }) {
+const SingleTagPage: NextPage<Post> = ({ posts }) => {
   return (
     <div className={styles.container({})}>
       <div className={styles.box({ my: '$5' })}>
@@ -14,15 +15,16 @@ export default function Tags({ posts }) {
       </div>
     </div>
   );
-}
-export async function getStaticProps({ params: { tag } }) {
-  const posts = allPosts.map((post) => post.tags.includes(tag) && post).filter((o) => o);
-  return { props: { posts } };
-}
+};
 
-export async function getStaticPaths() {
+export const getStaticProps: GetStaticProps = async ({ params: { tag } }) => {
+  const posts: Post[] = allPosts.map((post) => post.tags.includes(tag) && post).filter((o) => o);
+  return { props: { posts } };
+};
+
+export const getStaticPaths: GetStaticPaths = async () => {
   // Not the best way but works for now
-  const tags = allPosts
+  const tags: string[] = allPosts
     .reduce((acc, { tags }) => acc.concat(tags), [])
     .filter((item, pos, self) => self.indexOf(item) == pos);
 
@@ -30,4 +32,6 @@ export async function getStaticPaths() {
     paths: tags.map((tag) => ({ params: { tag } })),
     fallback: false,
   };
-}
+};
+
+export default SingleTagPage;
