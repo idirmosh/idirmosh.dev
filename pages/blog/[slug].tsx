@@ -1,32 +1,27 @@
-import { getPostBySlug, getPosts } from '@lib/bundle-mdx';
 import { useMemo } from 'react';
-import { components } from '@components/MDXComponents';
 import { getMDXComponent } from 'mdx-bundler/client';
-import { container } from '@components/MDXComponents/container';
-import { box } from '@components/MDXComponents/box';
 
-export default function PostBySlug({ code, frontMatter }) {
+import { components } from '@components/MDXComponents';
+import PostMeta from '@components/SinglePost/Meta';
+import * as styles from '@components/MDXComponents/styles';
+import Tags from '@components/common/Tags';
+import { allPosts } from '.contentlayer/data';
+import type { Post } from '.contentlayer/types';
+import PostFooter from '@components/SinglePost/Footer';
+
+export default function PostBySlug({ post }: { post: Post }) {
+  const {
+    body: { code },
+    ...frontMatter
+  } = post;
   const Component = useMemo(() => getMDXComponent(code), [code]);
-
-  // console.log(code);
-  // const Component = useMemo(() => getMDXComponent(code), [code]);
-  // console.log(frontMatter);
-
+  console.log(frontMatter.tags);
   return (
-    // <BlogLayout frontMatter={frontMatter}>
-    //   <Component
-    //     components={
-    //       {
-    //         ...components,
-    //         StaticTweet,
-    //       } as any
-    //     }
-    //   />
-    // </BlogLayout>
     <div
-      className={container({
+      className={styles.container({
         css: {
           mx: '$4',
+          padding: '0 16px',
           py: '$4',
           '@bp1': {
             mx: '$5',
@@ -38,29 +33,23 @@ export default function PostBySlug({ code, frontMatter }) {
         },
       })}
     >
-      <div className={box({ my: '$5' })}>
+      <div className={styles.box({ my: '$5' })}>
+        <PostMeta {...frontMatter} />
         <Component components={components as any} />
+        <PostFooter tags={frontMatter.tags} />
       </div>
     </div>
   );
 }
 
 export async function getStaticProps({ params: { slug } }) {
-  const post = await getPostBySlug('posts', slug);
-
-  return { props: { ...post } };
+  const post = allPosts.find((post) => post.slug === slug);
+  return { props: { post } };
 }
 
 export async function getStaticPaths() {
-  const posts = await getPosts('posts');
-
   return {
-    paths: posts.map((post) => ({
-      params: {
-        slug: post.replace(/\.mdx/, ''),
-      },
-    })),
-
+    paths: allPosts.map((post) => ({ params: { slug: post.slug } })),
     fallback: false,
   };
 }

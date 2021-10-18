@@ -3,16 +3,16 @@ import { createStitches } from '@stitches/react';
 const globalStyles = {
   theme: {
     colors: {
-      black: 'rgba(19, 19, 21, 1)',
-      white: 'rgba(255, 255, 255, 1)',
-      gray: 'rgba(128, 128, 128, 1)',
-      blue: 'rgba(3, 136, 252, 1)',
-      red: 'rgba(249, 16, 74, 1)',
-      yellow: 'rgba(255, 221, 0, 1)',
-      pink: 'rgba(232, 141, 163, 1)',
-      turq: 'rgba(0, 245, 196, 1)',
-      orange: 'rgba(255, 135, 31, 1)',
-      copy: 'rgba(170, 170, 175, 1)',
+      black: '#1a1a1a',
+      white: '#fff',
+      gray: '#5C5C5C',
+      blue: '#2D76BA',
+      red: '#BA2D2D',
+      yellow: '#BAB12D',
+      pink: '#BA2DB4',
+      turq: '#49BA2D',
+      orange: '#BA822D',
+      copy: '#B8B8B8',
 
       neutral0: '#333333',
       neutral1: '#555555',
@@ -23,13 +23,13 @@ const globalStyles = {
       neutral6: '#F4F4F4',
       neutral7: '#FFFFFF',
 
-      brand_main: '#0A0AFA',
-      brand_bright: '#E1E1FE',
-      brand_faded: '#F1F1FF',
-      brand_inverted: '#858AE3',
+      brand_main: '#3A2FC2',
+      brand_bright: '#E7E6F2',
+      brand_faded: '#F5F5FA',
+      brand_inverted: '#D1CDF7',
     },
     fonts: {
-      sans: 'Source Sans Pro, sans-serif',
+      sans: 'Inter, sans-serif',
       mono: 'Fira Mono, monospace',
     },
     sizes: {
@@ -68,8 +68,30 @@ const globalStyles = {
   },
   utils: {
     marginX: (value: string) => ({ marginLeft: value, marginRight: value }),
+    mt: (value: string) => ({
+      marginTop: value,
+    }),
+    mr: (value: string) => ({
+      marginRight: value,
+    }),
     mb: (value: string) => ({
       marginBottom: value,
+    }),
+    ml: (value: string) => ({
+      marginLeft: value,
+    }),
+
+    pt: (value: string) => ({
+      paddingTop: value,
+    }),
+    pr: (value: string) => ({
+      paddingRight: value,
+    }),
+    pb: (value: string) => ({
+      paddingBottom: value,
+    }),
+    pl: (value: string) => ({
+      paddingLeft: value,
     }),
   },
 };

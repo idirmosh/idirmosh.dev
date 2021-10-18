@@ -1,33 +1,36 @@
-/** @type {import('next').NextConfig} */
+const { withContentlayer } = require('next-contentlayer');
+
 module.exports = {
   reactStrictMode: true,
 };
 
 const nextConfig = {
+  reactStrictMode: true,
+  experimental: {
+    esmExternals: true,
+    //  swcLoader: true,
+    // swcMinify: true,
+  },
+
   webpack: (config, options) => {
+    if (!options.dev && !options.isServer) {
+      Object.assign(config.resolve.alias, {
+        react: 'preact/compat',
+        'react-dom/test-utils': 'preact/test-utils',
+        'react-dom': 'preact/compat',
+      });
+    }
+
     if (options.isServer) {
       require('./lib/rss');
     }
+
     config.experiments = {
       topLevelAwait: true,
     };
-    return config;
-  },
 
-  async redirects() {
-    return [
-      {
-        source: '/twitter',
-        destination: 'https://twitter.com/floidir',
-        permanent: true,
-      },
-      {
-        source: '/github',
-        destination: 'https://github.com/floidir',
-        permanent: true,
-      },
-    ];
+    return config;
   },
 };
 
-module.exports = nextConfig;
+module.exports = withContentlayer()(nextConfig);
