@@ -1,15 +1,16 @@
-export interface IFrontMatter {
-  title: string;
-  publishedAt: string;
-  summary: string;
-  image: string;
-  tags: string[];
-  readingTime?: { text: string; minutes: number; time: number; words: number };
-  wordCount: number;
-  slug: string;
+import { ParsedUrlQuery } from 'querystring';
+
+export interface IPageProps {
+  posts: Post[];
 }
 
-export interface IPost {
-  frontMatter: IFrontMatter;
-  code?: string;
+export interface ISinglePostProps {
+  post: Post;
+}
+
+export interface IParams {
+  params: {
+    slug: string;
+    tag: string;
+  };
 }
