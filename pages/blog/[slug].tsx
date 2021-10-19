@@ -8,14 +8,12 @@ import Tags from '@components/common/Tags';
 import { allPosts } from '.contentlayer/data';
 import type { Post } from '.contentlayer/types';
 import PostFooter from '@components/SinglePost/Footer';
+import type { NextPage } from 'next';
+import { ISinglePostProps } from 'global';
+import { IParams } from 'global';
 
-export default function PostBySlug({ post }: { post: Post }) {
-  const {
-    body: { code },
-    ...frontMatter
-  } = post;
-  const Component = useMemo(() => getMDXComponent(code), [code]);
-  console.log(frontMatter.tags);
+const PostBySlug: NextPage<ISinglePostProps> = ({ post: { body, ...frontMatter } }) => {
+  const Component = useMemo(() => getMDXComponent(body.code), [body.code]);
   return (
     <div
       className={styles.container({
@@ -40,9 +38,9 @@ export default function PostBySlug({ post }: { post: Post }) {
       </div>
     </div>
   );
-}
+};
 
-export async function getStaticProps({ params: { slug } }) {
+export async function getStaticProps({ params: { slug } }: IParams) {
   const post = allPosts.find((post) => post.slug === slug);
   return { props: { post } };
 }
@@ -53,3 +51,5 @@ export async function getStaticPaths() {
     fallback: false,
   };
 }
+
+export default PostBySlug;

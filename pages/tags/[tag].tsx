@@ -1,32 +1,31 @@
-import { useMemo } from 'react';
-import { getMDXComponent } from 'mdx-bundler/client';
-import { GetStaticProps, GetStaticPropsContext, GetStaticPaths, NextPage } from 'next';
-
+import type { GetStaticProps, GetStaticPaths, NextPage } from 'next';
 import * as styles from '@components/MDXComponents/styles';
-import { allPosts } from '.contentlayer/data';
-import type { Post } from '.contentlayer/types';
+import PostCard from '@components/Post/Card';
 
-const SingleTagPage: NextPage<Post> = ({ posts }) => {
+import { allPosts } from '.contentlayer/data';
+import { filterTags, reduceTags } from '@lib/helpers';
+import { IPageProps, IParams } from 'global';
+
+const SingleTagPage: NextPage<IPageProps> = ({ posts }) => {
   return (
     <div className={styles.container({})}>
       <div className={styles.box({ my: '$5' })}>
         <h1>Tag alone</h1>
-        <div>{posts && posts.map((p) => <h1 key={p.title}>{p.title}</h1>)}</div>
+        <div className={styles.container()}>
+          <div>{posts && posts.map((post) => <PostCard key={post.wordCount} post={post} />)}</div>
+        </div>
       </div>
     </div>
   );
 };
 
-export const getStaticProps: GetStaticProps = async ({ params: { tag } }) => {
-  const posts: Post[] = allPosts.map((post) => post.tags.includes(tag) && post).filter((o) => o);
+export const getStaticProps: GetStaticProps = async ({ params: { tag } }: IParams) => {
+  const posts = allPosts.map((post) => post.tags.includes(tag) && post).filter((o) => o);
   return { props: { posts } };
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  // Not the best way but works for now
-  const tags: string[] = allPosts
-    .reduce((acc, { tags }) => acc.concat(tags), [])
-    .filter((item, pos, self) => self.indexOf(item) == pos);
+  const tags = allPosts.reduce(reduceTags, []).filter(filterTags);
 
   return {
     paths: tags.map((tag) => ({ params: { tag } })),
