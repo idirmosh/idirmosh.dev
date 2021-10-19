@@ -25,7 +25,7 @@ export const getStaticProps: GetStaticProps = async ({ params: { tag } }: IParam
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const tags = allPosts.reduce(reduceTags, []).filter(filterTags);
+  const tags = allPosts.reduce(reduceTags, []).filter(filterTags) as string[];
 
   return {
     paths: tags.map((tag) => ({ params: { tag } })),
