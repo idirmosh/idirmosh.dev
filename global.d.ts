@@ -1,5 +1,3 @@
-import { ParsedUrlQuery } from 'querystring';
-
 export interface IPageProps {
   posts: Post[];
 }
@@ -13,4 +11,12 @@ export interface IParams {
     slug: string;
     tag: string;
   };
+}
+
+export interface ITags {
+  tags: Array<ITag>;
+}
+export interface ITag {
+  tag?: string | null;
+  key?: any;
 }
