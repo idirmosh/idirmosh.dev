@@ -1,17 +1,25 @@
 const { withContentlayer } = require('next-contentlayer');
 
-module.exports = {
-  reactStrictMode: true,
-};
+const securityHeaders = [
+  {
+    key: 'Referrer-Policy',
+    value: 'origin-when-cross-origin',
+  },
+];
 
 const nextConfig = {
   reactStrictMode: true,
   experimental: {
     esmExternals: true,
-    //  swcLoader: true,
-    // swcMinify: true,
   },
-
+  async headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers: securityHeaders,
+      },
+    ];
+  },
   webpack: (config, options) => {
     if (!options.dev && !options.isServer) {
       Object.assign(config.resolve.alias, {
