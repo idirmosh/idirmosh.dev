@@ -9,6 +9,7 @@
     "prettier": "prettier './**/*.{js,jsx,ts,tsx,json,md,mdx}' --write"
   },
   "dependencies": {
+    "@prisma/client": "^3.3.0",
     "@radix-ui/react-aspect-ratio": "^0.1.0",
     "@radix-ui/react-collapsible": "^0.1.0",
     "@radix-ui/react-dialog": "^0.1.0",
@@ -17,6 +18,7 @@
     "contentlayer": "^0.0.27",
     "date-fns": "^2.25.0",
     "esbuild": "^0.13.3",
+    "faunadb": "^4.4.1",
     "gray-matter": "^4.0.3",
     "hast-util-to-html": "^8.0.2",
     "hast-util-to-string": "^2.0.0",
@@ -35,6 +37,7 @@
     "rehype-slug": "^5.0.0",
     "remark-gfm": "^3.0.0",
     "sharp": "^0.29.1",
+    "swr": "^1.0.1",
     "unified": "^10.1.0",
     "unist-util-visit": "^4.1.0"
   },
@@ -43,6 +46,7 @@
     "@types/react": "17.0.24",
     "eslint": "^8.0.0",
     "prettier": "2.4.1",
+    "prisma": "^3.3.0",
     "typescript": "4.4.3"
   }
 }

@@ -30,7 +30,7 @@ const globalStyles = {
     },
     fonts: {
       sans: 'Inter, sans-serif',
-      mono: 'Fira Mono, monospace',
+      mono: 'ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,monospace',
     },
     sizes: {
       1: '14px',
