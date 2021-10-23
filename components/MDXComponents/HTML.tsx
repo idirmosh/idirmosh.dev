@@ -2,6 +2,7 @@ import { useState } from 'react';
 import * as Collapsible from '@radix-ui/react-collapsible';
 import Link from 'next/link';
 import NextImage from 'next/image';
+import { heading, text } from '@styles/typography';
 
 import * as styles from '@components/MDXComponents/styles';
 import { css } from '@stitches/react';
@@ -26,23 +27,23 @@ export function a({ href = '', ...props }) {
   );
 }
 export function p(props) {
-  return <p className={styles.text({ type: 'body' })} {...props} />;
+  return <p className={text({ type: 'body' })} {...props} />;
 }
 
 export function H1(props) {
-  return <h1 className={styles.heading({ type: 'h1' })} {...props} />;
+  return <h1 className={heading({ type: 'h1' })} {...props} />;
 }
 
 export function H2(props) {
-  return <h2 className={styles.heading({ type: 'h2' })} {...props} />;
+  return <h2 className={heading({ type: 'h2' })} {...props} />;
 }
 
 export function H3(props) {
-  return <h3 {...props} className={styles.heading({ type: 'h3' })} />;
+  return <h3 {...props} className={heading({ type: 'h3' })} />;
 }
 
 export function H4(props) {
-  return <h4 className={styles.heading({ type: 'h4' })} {...props} />;
+  return <h4 className={heading({ type: 'h4' })} {...props} />;
 }
 export function strong(props) {
   return <strong className={styles.text({ type: 'list', weight: 'bold' })} {...props} />;
@@ -57,20 +58,7 @@ export function blockquote(props) {
 }
 
 export function li(props) {
-  return (
-    <li
-      className={styles.text({
-        type: 'list',
-        css: {
-          '& p': {
-            margin: '0',
-            fontSize: '16px',
-          },
-        },
-      })}
-      {...props}
-    />
-  );
+  return <li className={text({ type: 'list' })} {...props} />;
 }
 export function ol(props) {
   return <ol className={styles.box({})} {...props} />;

@@ -1,33 +1,5 @@
-import { css, globalCss } from 'stitches.config';
-
-export const globalStyles = globalCss({
-  '*': {
-    margin: 0,
-    padding: 0,
-    boxSizing: 'border-box',
-  },
-
-  body: {
-    color: '$neutral0',
-    backgroundColor: '$white',
-    fontFamily: '$sans',
-  },
-
-  ul: {
-    paddingLeft: '16px',
-  },
-
-  figure: { margin: 0, borderRadius: '8px' },
-
-  'pre, code': { margin: 0, fontFamily: '$mono' },
-
-  svg: { display: 'inline-block', verticalAlign: 'middle' },
-
-  '::selection': {
-    backgroundColor: '$brand_inverted',
-    color: '$neutral0',
-  },
-});
+import type * as Stitches from '@stitches/react';
+import { config, css, globalCss } from 'stitches.config';
 
 export const divider = css({
   border: 0,

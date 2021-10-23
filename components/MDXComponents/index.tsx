@@ -5,7 +5,6 @@ import { code, box, text } from '@components/MDXComponents/styles';
 import Link from 'next/link';
 
 import * as styles from '@components/MDXComponents/styles';
-
 const CustomLink = (props) => {
   const href = props.href;
   const isInternalLink = href && (href.startsWith('/') || href.startsWith('#'));
