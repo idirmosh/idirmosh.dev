@@ -1,5 +1,11 @@
 export interface IPageProps {
   posts: Post[];
+  slugsStr: string;
+}
+export interface IView {
+  slug: string;
+  readingTime?: any;
+  viewProp?: number | undefined;
 }
 
 export interface ISinglePostProps {
@@ -19,4 +25,20 @@ export interface ITags {
 export interface ITag {
   tag?: string | null;
   key?: any;
+}
+
+export interface IEntry {
+  date: string;
+  readingTime: any;
+}
+
+export interface IStorage {
+  set: (key: string, val: any, ttl: number) => void;
+  get: (key: string) => IView;
+}
+
+export interface IFetcher {
+  url: string;
+  options: any;
+  count: number;
 }
