@@ -7,6 +7,9 @@ import rehypeCodeTitles from 'rehype-code-titles';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypePrism from 'rehype-prism-plus';
 import { format, formatDistance, formatRelative, subDays } from 'date-fns';
+import { fetcher, slugify } from './lib/helpers';
+
+const test = () => console.log('arguments');
 
 const computedFields: ComputedFields = {
   slug: {
@@ -18,6 +21,18 @@ const computedFields: ComputedFields = {
     resolve: (doc) => doc.body.raw.split(/\s+/gu).length,
   },
   readingTime: { type: 'json', resolve: (doc) => readingTime(doc.body.raw) },
+  slugHook: {
+    type: 'reference',
+    resolve: (doc) => {
+      const today = format(new Date(), 'yyyy-MM-dd');
+      const slug = doc._raw.sourceFileName.replace('.mdx', '');
+      if (today == doc.publishedAt) {
+        fetcher(`http://localhost:3000/api/views/${slug}`, {
+          method: 'POST',
+        });
+      }
+    },
+  },
 };
 
 const Post = defineDocumentType(() => ({
@@ -33,6 +48,7 @@ const Post = defineDocumentType(() => ({
   },
   computedFields,
 }));
+
 const contentLayerConfig = makeSource({
   contentDirPath: 'content',
   documentTypes: [Post],
@@ -42,6 +58,7 @@ const contentLayerConfig = makeSource({
       rehypeSlug,
       rehypeCodeTitles,
       rehypePrism,
+
       [
         rehypeAutolinkHeadings,
         {
