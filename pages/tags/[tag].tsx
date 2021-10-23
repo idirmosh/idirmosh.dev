@@ -3,7 +3,7 @@ import * as styles from '@components/MDXComponents/styles';
 import PostCard from '@components/Post/Card';
 
 import { allPosts } from '.contentlayer/data';
-import { filterTags, reduceTags } from '@lib/helpers';
+import { filterTags, keyGen, reduceTags } from '@lib/helpers';
 import { IPageProps, IParams } from 'global';
 
 const SingleTagPage: NextPage<IPageProps> = ({ posts }) => {
@@ -12,7 +12,9 @@ const SingleTagPage: NextPage<IPageProps> = ({ posts }) => {
       <div className={styles.box({ my: '$5' })}>
         <h1>Tag alone</h1>
         <div className={styles.container()}>
-          <div>{posts && posts.map((post) => <PostCard key={post.wordCount} post={post} />)}</div>
+          <div>
+            {posts && posts.map((post) => <PostCard key={keyGen(post.slug)} post={post} />)}
+          </div>
         </div>
       </div>
     </div>
