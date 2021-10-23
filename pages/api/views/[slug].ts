@@ -1,4 +1,3 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next';
 import faunadb from 'faunadb';
 import { query } from 'faunadb';
@@ -7,7 +6,6 @@ import secureRoute from '@lib/secureRoute';
 const {
   Paginate,
   Get,
-  Ref,
   Select,
   Match, 
   Index,
@@ -23,7 +21,7 @@ const {
 const secret = process.env.FAUNA_SECRET;
 
 const client = new faunadb.Client({
-  secret: 'fnAEWE6hJ8AAQo_RTkPmNoP51T1NSp98AIDNKnVF',
+  secret: secret,
   domain: 'db.us.fauna.com',
   port: 443,
   scheme: 'https',
