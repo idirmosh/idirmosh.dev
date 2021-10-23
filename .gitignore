@@ -5,7 +5,7 @@
 .next
 
 .vercel
-
+.env
 node_modules
 
 public/feed.xml
