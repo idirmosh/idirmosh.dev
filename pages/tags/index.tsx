@@ -66,10 +66,7 @@ const TagCard: FC<ITag> = ({ tag }) => {
       <Link href="/tags/[tag]" as={`/tags/${tag}`}>
         <a>
           <h3>{tag}</h3>
-          <p>
-            You can pay over time when you choose to check out with Apple Card Monthly
-            Installments.†
-          </p>
+          <p>{`Latest updates, tutorials, and news about ${tag}.`}</p>
         </a>
       </Link>
     </article>
