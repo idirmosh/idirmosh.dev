@@ -7,7 +7,7 @@ import rehypeCodeTitles from 'rehype-code-titles';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypePrism from 'rehype-prism-plus';
 import { format, formatDistance, formatRelative, subDays } from 'date-fns';
-import { fetcher, slugify } from './lib/helpers';
+import { fetcher } from './lib/helpers';
 
 const test = () => console.log('arguments');
 
