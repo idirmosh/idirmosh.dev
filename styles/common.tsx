@@ -44,7 +44,7 @@ export const anchor = css({
     },
   },
 });
-export const entry = css(flex, {
+export const meta = css(flex, {
   time: {
     '&:after': {
       content: '•',

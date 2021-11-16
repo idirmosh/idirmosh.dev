@@ -11,15 +11,13 @@ export const globalStyles = globalCss({
     '-ms-text-size-adjust': '100%',
     '-webkit-text-size-adjust': '100%',
     fontFamily: '$sans',
-    fontSize: '106.25%',
+    fontSize: '112.5%',
   },
 
   body: {
     fontFamily: '$sans',
-    fontSize: '17px',
-    lineHeight: '1.47',
+    lineHeight: '1.75',
     fontWeight: '400',
-    letterSpacing: '-0.022em',
     fontStyle: 'normal',
     color: '$neutral0',
     backgroundColor: '$white',

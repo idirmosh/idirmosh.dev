@@ -14,7 +14,7 @@ const PostCard = ({ post, viewProp }) => {
         <Link href={`/blog/${post.slug}`}>
           <a className={anchor()}>
             <Entry date={post.publishedAt} readingTime={post.readingTime} />
-            <h1 className={heading({ type: 'h3', css: { marginTop: '1rem' } })}>{post.title}</h1>
+            <h1 className={heading({ type: 'h1', css: { marginTop: '1rem' } })}>{post.title}</h1>
             <p className={text({ type: 'body', css: { marginBottom: '1rem' } })}>{post.summary}</p>
             <Views readingTime={post.readingTime} slug={post.slug} viewProp={viewProp} />
           </a>

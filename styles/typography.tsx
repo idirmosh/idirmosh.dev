@@ -3,9 +3,8 @@ import { css } from 'stitches.config';
 export const heading = css({
   margin: '1.6em 0px 1em',
   fontFamily: '$sans',
-  fontWeight: '600',
+  fontWeight: '700',
   lineHeight: '1.2',
-  letterSpacing: '-1px',
 
   variants: {
     type: {
@@ -17,7 +16,7 @@ export const heading = css({
       h2: { fontSize: '1.728rem', letterSpacing: '-1.6px' },
       h3: { fontSize: '1.44rem', letterSpacing: '-1.3px' },
       h4: { fontSize: '1.2rem', letterSpacing: '-1px' },
-      h5: { fontSize: '1rem', letterSpacing: '-0.8px' },
+      // h5: { fontSize: '1rem', letterSpacing: '-0.8px' },
     },
   },
   defaultVariants: {
@@ -26,16 +25,21 @@ export const heading = css({
 });
 
 export const text = css({
-  lineHeight: '1.7',
-  letterSpacing: '-0.3px',
+  lineHeight: '1.6',
   color: '$neutral0',
   variants: {
     type: {
+      xxSmal: {
+        fontSize: '0.64rem',
+      },
+      xSmall: {
+        fontSize: '0.694rem',
+      },
       small: {
-        fontSize: '0.87rem',
+        fontSize: '0.833rem',
       },
       body: {
-        fontSize: '1.118rem',
+        fontSize: '1rem',
         marginBottom: '1.25em',
       },
       subText: {

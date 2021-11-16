@@ -7,7 +7,7 @@ const {
   Paginate,
   Get,
   Select,
-  Match, 
+  Match,
   Index,
   Create,
   Collection,
