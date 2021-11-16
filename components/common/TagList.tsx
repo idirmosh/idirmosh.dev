@@ -4,7 +4,7 @@ import Tag from './Tag';
 
 function TagList({ tags }) {
   return (
-    <div className={tagListStyles()}>
+    <div className={tagListStyles()} aria-label="tags for this post">
       {tags && tags.map((tag) => <Tag key={tag + Math.random()} tag={tag} />)}
     </div>
   );

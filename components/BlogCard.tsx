@@ -6,18 +6,37 @@ import { css } from 'stitches.config';
 import Applause from './common/Applause';
 import TagList from './common/TagList';
 import PostMeta from './common/PostMeta';
+import Link from 'next/link';
+import Image from 'next/image';
 
 function BlogCard({ post, viewProp }) {
-  console.log(post);
+  console.log('props');
   return (
     <article className={cardWrapper()}>
-      <a href="/" className={cardMedia()}>
-        <img src={post.image} alt="none" />
-      </a>
+      <Link href={`/blog/${post.slug}`}>
+        <a href={`/blog/${post.slug}`} className={cardMedia()} aria-hidden="true">
+          <Image
+            src={post.image}
+            width={374}
+            height={374 / 1.6}
+            layout="responsive"
+            objectFit="cover"
+            alt={post.title}
+            title={post.title}
+          />
+          {/* <img alt={post.title} title={post.title} /> */}
+        </a>
+      </Link>
 
       <div className={cardContent()}>
         <PostMeta date={post.publishedAt} readTime={post.readingTime.text} />
-        <h2 className={heading({ type: 'h3', css: { margin: '0.9rem 0 0 0' } })}>{post.title}</h2>
+        <h2 className={heading({ type: 'h3', css: { margin: '0.9rem 0 0 0' } })}>
+          <Link href={`/blog/${post.slug}`}>
+            <a href={`/blog/${post.slug}`} className={titleLink()}>
+              {post.title}
+            </a>
+          </Link>
+        </h2>
         <p className={text({ type: 'small', css: { margin: '0.9rem 0 0 0' } })}>{post.summary}</p>
       </div>
       <div className={cardFooter()}>
@@ -27,6 +46,15 @@ function BlogCard({ post, viewProp }) {
     </article>
   );
 }
+
+export const titleLink = css({
+  transition: 'textDecoration .3s ease',
+  color: '$neutral0',
+
+  '&:not(:hover)': {
+    textDecoration: 'none',
+  },
+});
 
 export const cardWrapper = css({
   display: 'flex',

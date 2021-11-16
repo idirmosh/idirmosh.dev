@@ -1,4 +1,4 @@
-import Tags from '@components/common/Tags';
+// import Tags from '@components/common/Tags';
 import React from 'react';
 import Link from 'next/link';
 import { css } from 'stitches.config';
@@ -7,7 +7,7 @@ import { Github } from '../icons';
 function PostFooter({ tags }) {
   return (
     <div className={footer()}>
-      <Tags tags={tags} />
+      {/* // <Tags tags={tags} /> */}
       <div className={edit()}>
         <Github />
         <Link href="#">

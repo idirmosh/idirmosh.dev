@@ -5,10 +5,10 @@ import { Clap } from '@components/icons';
 
 function Applause() {
   return (
-    <div className={applauseStyles()}>
+    <figure className={applauseStyles()} aria-label="support this post">
       <data className={text({ type: 'xSmall' })}>546</data>
       <Clap width="32px" />
-    </div>
+    </figure>
   );
 }
 
