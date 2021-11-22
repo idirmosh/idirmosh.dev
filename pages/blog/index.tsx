@@ -2,11 +2,11 @@ import type { GetStaticProps, NextPage } from 'next';
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import { allPosts } from '.contentlayer/data';
-import PostCard from '@components/Post/Card';
 import { postMetaFilter, subscribe } from '@lib/helpers';
 import { IPageProps, IView } from 'global';
-import { box } from '@styles/common';
 import BlogCard from '@components/BlogCard';
+import BlogListWrapper from '@components/common/BlogListWrapper';
+import Layout from '@components/Layout';
 
 const Blog: NextPage<IPageProps> = ({ posts }) => {
   const [slugs, setSlugs] = useState(null);
@@ -20,34 +20,22 @@ const Blog: NextPage<IPageProps> = ({ posts }) => {
   }, []);
 
   return (
-    <div>
+    <Layout>
       <Head>
         <title>Blog</title>
       </Head>
-      <h1>hi blog</h1>
-      <div
-        className={box({
-          css: {
-            maxWidth: '768px',
-            display: 'grid',
-            'grid-template-columns': 'repeat(auto-fit, minmax(374px, 1fr))',
-            gridGap: '0.8rem',
-            margin: '0 auto',
-          },
-        })}
-      >
-        {slugs &&
-          posts &&
+
+      <BlogListWrapper>
+        {posts &&
           posts.map((post) => (
-            // <PostCard viewProp={slugs && slugs[post.slug]} key={post.slug} post={post} />
             <BlogCard viewProp={slugs && slugs[post.slug]} key={post.slug} post={post} />
           ))}
-      </div>
+      </BlogListWrapper>
 
       {/* 
       <h1>{frontmatter.title}</h1>
       <Component /> */}
-    </div>
+    </Layout>
   );
 };
 

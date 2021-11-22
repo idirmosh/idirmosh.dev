@@ -14,13 +14,13 @@ const globalStyles = {
       orange: '#BA822D',
       copy: '#B8B8B8',
 
-      neutral0: '#333333',
-      neutral1: '#555555',
-      neutral2: '#777777',
-      neutral3: '#AAAAAA',
-      neutral4: '#CCCCCC',
-      neutral5: '#EEEEEE',
-      neutral6: '#F4F4F4',
+      neutral0: '#191919',
+      neutral1: '#202124',
+      neutral2: '#303136',
+      neutral3: '#585b63',
+      neutral4: '#a5a7af',
+      neutral5: '#d2d3d7',
+      neutral6: '#f8f9fa',
       neutral7: '#FFFFFF',
 
       brand_main: '#3A2FC2',
@@ -64,7 +64,9 @@ const globalStyles = {
     },
   },
   media: {
-    bp1: '(min-width: 480px)',
+    mobile: '(max-width: 640px)',
+    tablet: '(max-width: 768px)',
+    desktop: '(max-width: 1024px)',
   },
   utils: {
     marginX: (value: string) => ({ marginLeft: value, marginRight: value }),

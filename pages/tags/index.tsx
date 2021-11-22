@@ -3,7 +3,6 @@ import * as styles from '@components/MDXComponents/styles';
 import { allPosts } from '.contentlayer/data';
 import type { Post } from '.contentlayer/types';
 import { filterTags, keyGen, randGen, reduceTags } from '@lib/helpers';
-import PostCard from '@components/Post/Card';
 import { ITag, ITags } from 'global';
 import { FC } from 'react';
 import { css } from 'stitches.config';
@@ -60,7 +59,7 @@ const styules = css({
   },
 });
 
-const TagCard: FC<ITag> = ({ tag }) => {
+const TagCard = ({ tag }) => {
   return (
     <article className={styules()}>
       <Link href="/tags/[tag]" as={`/tags/${tag}`}>

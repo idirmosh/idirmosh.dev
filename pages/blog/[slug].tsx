@@ -2,12 +2,9 @@ import { useMemo } from 'react';
 import { getMDXComponent } from 'mdx-bundler/client';
 
 import { components } from '@components/MDXComponents';
-import PostMeta from '@components/SinglePost/Meta';
 import * as styles from '@components/MDXComponents/styles';
-import Tags from '@components/common/Tags';
 import { allPosts } from '.contentlayer/data';
 import type { Post } from '.contentlayer/types';
-import PostFooter from '@components/SinglePost/Footer';
 import type { NextPage } from 'next';
 import { ISinglePostProps } from 'global';
 import { IParams } from 'global';
@@ -32,9 +29,9 @@ const PostBySlug: NextPage<ISinglePostProps> = ({ post: { body, ...frontMatter }
       })}
     >
       <div className={styles.box({ my: '$5' })}>
-        <PostMeta {...frontMatter} />
+        {/* <PostMeta {...frontMatter} /> */}
         <Component components={components as any} />
-        <PostFooter tags={frontMatter.tags} />
+        {/* <PostFooter tags={frontMatter.tags} /> */}
       </div>
     </div>
   );

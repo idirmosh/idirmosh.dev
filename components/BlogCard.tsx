@@ -1,40 +1,35 @@
-import { meta } from '@styles/common';
 import { heading, text } from '@styles/typography';
-import { format, parseISO } from 'date-fns';
 import React from 'react';
 import { css } from 'stitches.config';
 import Applause from './common/Applause';
 import TagList from './common/TagList';
 import PostMeta from './common/PostMeta';
-import Link from 'next/link';
+import Link from '@components/common/Link';
 import Image from 'next/image';
+import { wrapper } from '@styles/common';
+import { BLOG_CARD_WIDTH } from '@lib/constants';
 
-function BlogCard({ post, viewProp }) {
+function BlogCard({ post, viewProp = 'test' }) {
   console.log('props');
   return (
     <article className={cardWrapper()}>
-      <Link href={`/blog/${post.slug}`}>
-        <a href={`/blog/${post.slug}`} className={cardMedia()} aria-hidden="true">
-          <Image
-            src={post.image}
-            width={374}
-            height={374 / 1.6}
-            layout="responsive"
-            objectFit="cover"
-            alt={post.title}
-            title={post.title}
-          />
-          {/* <img alt={post.title} title={post.title} /> */}
-        </a>
+      <Link href={`/blog/${post.slug}`} className={cardMedia()} aria-hidden="true">
+        <Image
+          src={post.image}
+          width={374}
+          height={374 / 1.6}
+          layout="responsive"
+          objectFit="cover"
+          alt={post.title}
+          title={post.title}
+        />
       </Link>
 
       <div className={cardContent()}>
         <PostMeta date={post.publishedAt} readTime={post.readingTime.text} />
         <h2 className={heading({ type: 'h3', css: { margin: '0.9rem 0 0 0' } })}>
-          <Link href={`/blog/${post.slug}`}>
-            <a href={`/blog/${post.slug}`} className={titleLink()}>
-              {post.title}
-            </a>
+          <Link href={`/blog/${post.slug}`} className={titleLink()}>
+            {post.title}
           </Link>
         </h2>
         <p className={text({ type: 'small', css: { margin: '0.9rem 0 0 0' } })}>{post.summary}</p>
@@ -60,17 +55,18 @@ export const cardWrapper = css({
   display: 'flex',
   alignItems: 'flex-start',
   flexDirection: 'column',
-  minWidth: '342px',
+  minWidth: `${BLOG_CARD_WIDTH}px`,
   height: 'auto',
-  margin: '4px',
   borderRadius: '10px',
   overflow: 'hidden',
   border: '1px solid $neutral4',
+  '&:hover': {
+    backgroundColor: '$neutral6',
+  },
 });
 
 export const cardMedia = css({
-  width: '374px',
-  //height: '170px',
+  width: '100%',
   overflow: 'hidden',
   img: {
     width: '100%',

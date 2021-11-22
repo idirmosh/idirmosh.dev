@@ -23,7 +23,7 @@ export interface ITags {
   tags: Array<ITag>;
 }
 export interface ITag {
-  tag?: string | null;
+  tag?: string | undefined;
   key?: any;
 }
 

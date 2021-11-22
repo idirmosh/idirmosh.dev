@@ -1,23 +1,16 @@
 import type { GetStaticProps, GetStaticPaths, NextPage } from 'next';
-import * as styles from '@components/MDXComponents/styles';
-import PostCard from '@components/Post/Card';
-
 import { allPosts } from '.contentlayer/data';
 import { filterTags, keyGen, reduceTags } from '@lib/helpers';
 import { IPageProps, IParams } from 'global';
+import BlogCard from '@components/BlogCard';
+import BlogListWrapper from '@components/common/BlogListWrapper';
 
 const SingleTagPage: NextPage<IPageProps> = ({ posts }) => {
   return (
-    <div className={styles.container({})}>
-      <div className={styles.box({ my: '$5' })}>
-        <h1>Tag alone</h1>
-        <div className={styles.container()}>
-          <div>
-            {posts && posts.map((post) => <PostCard key={keyGen(post.slug)} post={post} />)}
-          </div>
-        </div>
-      </div>
-    </div>
+    <BlogListWrapper>
+      <h1>Tag alone</h1>
+      {posts && posts.map((post) => <BlogCard key={keyGen(post.slug)} post={post} />)}
+    </BlogListWrapper>
   );
 };
 
