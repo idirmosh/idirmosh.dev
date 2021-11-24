@@ -2,14 +2,17 @@ import { globalCss } from 'stitches.config';
 
 export const globalStyles = globalCss({
   '.menu-close, .menu-open': {
-    transition: 'all 0.1s cubic-bezier(0.4, 0.01, 0.165, 0.99)',
+    transition: 'all .2s cubic-bezier(0.4, 0.01, 0.165, 0.99)',
     transform: 'rotate(0deg) scale(1)',
   },
+  '.menu-close': {
+    transform: 'rotate(0deg) scale(0.5)',
+  },
   '.menu-close.enter-active': {
-    transform: 'rotate(90deg) scale(1.2)',
+    transform: 'rotate(180deg) scale(1.2)',
   },
   '.menu-close.enter-done': {
-    transform: 'rotate(0deg)',
+    transform: 'rotate(0deg) scale(1)',
   },
 
   '.menu-open.enter-active': {

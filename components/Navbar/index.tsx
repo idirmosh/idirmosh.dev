@@ -8,7 +8,7 @@ import { CSSTransition } from 'react-transition-group';
 import Logo from '../common/Logo';
 import MobileMenu from './MobileMenu';
 import SkipContent from './SkipContent';
-import NavMenuList from './NavMenuItems';
+import NavMenuList from './NavMenuList';
 import MenuBotton from './MenuBotton';
 
 const menus = [
@@ -64,8 +64,8 @@ function Navbar() {
   const headerStyles = css({
     position: 'sticky',
     top: '0',
-    backgroundColor: 'transparent',
-    'backdrop-filter': 'blur(10px)',
+    borderBottom: '1px solid $neutral6',
+    backgroundColor: '$neutral7',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-around',
@@ -73,8 +73,6 @@ function Navbar() {
     width: '100%',
     zIndex: '999',
     '@mobile': {
-      'backdrop-filter': 'blur(0)',
-      backgroundColor: '$neutral7',
       borderBottom: '1px solid $neutral6',
     },
   });
