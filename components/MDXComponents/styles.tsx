@@ -67,38 +67,6 @@ export const badge = css({
   },
 });
 
-export const link = css({
-  WebkitTapHighlightColor: 'rgba(0, 0, 0, 0)',
-
-  fontWeight: '500',
-  color: '$brand_main',
-  fontFamily: '$sans',
-  textDecoration: 'none',
-  transition: 'all 100ms linear 0ms',
-
-  '&:hover': {
-    transition: 'all 100ms linear 0ms',
-    boxShadow: '0px 1px 0px 0px $colors$brand_inverted',
-  },
-
-  '&:focus, &:active': {
-    outlineWidth: '1px',
-    outlineStyle: 'dotted',
-    outlineColor: '$neutral1',
-  },
-
-  variants: {
-    variant: {
-      ghost: {
-        boxShadow: 'none',
-        '&:focus': {
-          boxShadow: 'none',
-        },
-      },
-    },
-  },
-});
-
 export const button = css({
   boxSizing: 'border-box',
   appearance: 'none',

@@ -6,7 +6,7 @@ import { css } from 'stitches.config';
 function Tag({ tag }) {
   return (
     <Link href={`/tags/${tag}`}>
-      <a href={`/tags/${tag}`} className={tagStyles(text({ type: 'xSmall' }))}>
+      <a href={`/tags/${tag}`} className={tagStyles(text({ type: 'small' }))}>
         {tag}
       </a>
     </Link>
@@ -21,7 +21,7 @@ export const tagStyles = css({
   backgroundColor: 'transparent',
   textDecoration: 'none',
   lineHeight: '1',
-  padding: '0.35rem 0.5rem',
+  padding: '0.3rem 0.6rem',
   textTransform: 'capitalize',
   borderRadius: '2em',
   boxShadow: '0px 0px 0px 1px $colors$neutral4',
@@ -29,7 +29,7 @@ export const tagStyles = css({
   '&:hover': {
     backgroundColor: '$brand_main',
     color: '$white',
-    boxShadow: '0px',
+    boxShadow: 'none',
   },
 });
 

@@ -32,35 +32,52 @@ export const globalStyles = globalCss({
     '-ms-text-size-adjust': '100%',
     '-webkit-text-size-adjust': '100%',
     fontFamily: '$sans',
-    fontSize: '112.5%',
+    //  fontSize: '112.5%',
   },
 
   body: {
-    fontFamily: '$sans',
-    lineHeight: '1.75',
+    fontFamily: 'sans-serif',
+    fontSize: '1em',
+    lineHeight: '1.5',
     fontWeight: '400',
-    fontStyle: 'normal',
-    color: '$neutral0',
+    color: '$neutral2',
     backgroundColor: '$white',
     position: 'relative',
   },
-
-  'ul,ol,li,dl,dt,dd,h1,h2,h3,h4,h5,h6,hgroup,p,blockquote,figure,form,fieldset,input,pre,abbr,button':
-    {
-      margin: 0,
-      padding: 0,
-    },
-  'li > p': {
-    fontSize: '1rem !important',
-    marginBottom: '1em !important',
+  'p, ul, ol': {
+    margin: '0',
+    padding: '0',
+    marginBottom: '1em',
+    lineHeight: '1.5',
+    fontSize: '1rem',
   },
   'ul, ol': {
-    marginLeft: '1.17647em',
+    listStyle: 'none',
   },
-
+  'article ul': {
+    paddingLeft: '2.1875em',
+    'list-style-type': 'square',
+    marginTop: '0.3125em',
+    li: {
+      paddingLeft: '5px',
+    },
+  },
+  'article li': {
+    marginBottom: '7px',
+  },
+  'a, button, [role="button"], input, label, select, textarea': {
+    'touch-action': 'manipulation',
+  },
   figure: { margin: 0, borderRadius: '8px' },
 
-  'pre, code': { margin: 0, fontFamily: '$mono' },
+  'pre, code, kbd': {
+    fontFamily: '$mono',
+    'font-variant-ligatures': 'none',
+    whiteSpace: 'pre-wrap',
+    margin: '0',
+    overflowX: 'auto',
+    textAlign: 'left',
+  },
 
   svg: { display: 'inline-block', verticalAlign: 'middle' },
 

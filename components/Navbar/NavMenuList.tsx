@@ -2,32 +2,58 @@ import { flexRow, linkReset } from '@styles/common';
 import { text } from '@styles/typography';
 import { css } from 'stitches.config';
 import Link from '../common/Link';
+import { useRouter } from 'next/router';
 
 const NavMenuList = ({ menus }) => {
-  const item = css({
-    fontSize: '.9rem',
-    fontWeight: '500',
-    color: '$neutral2',
-    marginLeft: '1rem !important',
-    transition: 'all 0.2s ease',
-    touchAction: 'pan-y',
-    '-webkit-tap-highlight-color': 'transparent',
-    '&:hover': {
-      color: '$neutral0',
-      textDecoration: 'underline',
-      'text-underline-position': 'under',
-    },
-    padding: '0',
-    '@mobile': {
-      display: 'none',
-    },
-  });
+  const router = useRouter();
 
-  return menus.map((link) => (
-    <Link href={link.href} title={link.text} key={link.id} className={item(linkReset())}>
-      {link.text}
-    </Link>
-  ));
+  return menus.map((link) => {
+    let isActive = router.pathname == link.href;
+    const activeStyle = () => {
+      return {
+        position: 'relative',
+        zIndex: '0',
+        borderBottom: 'none',
+        fontWeight: '600',
+        color: '$neutral0',
+        '&:before': {
+          content: '',
+          position: 'absolute',
+          zIndex: '-1',
+          top: '-2px',
+          left: '-7px',
+          width: 'calc(100% + 14px)',
+          height: '1.75rem',
+          borderRadius: '0.5rem',
+          backgroundColor: '$neutral6',
+        },
+      };
+    };
+
+    const reset = css({
+      marginBottom: '0',
+      '@mobile': {
+        display: 'none !important',
+      },
+    });
+    return (
+      <Link
+        href={link.href}
+        title={link.text}
+        key={link.id}
+        className={reset(
+          linkReset(
+            text({
+              type: 'menu',
+              css: isActive && activeStyle(),
+            })
+          )
+        )}
+      >
+        {link.text}
+      </Link>
+    );
+  });
 };
 
 export default NavMenuList;

@@ -9,8 +9,6 @@ import rehypePrism from 'rehype-prism-plus';
 import { format, formatDistance, formatRelative, subDays } from 'date-fns';
 import { fetcher } from './lib/helpers';
 
-const test = () => console.log('arguments');
-
 const computedFields: ComputedFields = {
   slug: {
     type: 'string',
@@ -21,18 +19,18 @@ const computedFields: ComputedFields = {
     resolve: (doc) => doc.body.raw.split(/\s+/gu).length,
   },
   readingTime: { type: 'json', resolve: (doc) => readingTime(doc.body.raw) },
-  slugHook: {
-    type: 'reference',
-    resolve: (doc) => {
-      const today = format(new Date(), 'yyyy-MM-dd');
-      const slug = doc._raw.sourceFileName.replace('.mdx', '');
-      if (today == doc.publishedAt) {
-        fetcher(`http://localhost:3000/api/views/${slug}`, {
-          method: 'POST',
-        });
-      }
-    },
-  },
+  // slugHook: {
+  //   type: 'reference',
+  //   resolve: (doc) => {
+  //     const today = format(new Date(), 'yyyy-MM-dd');
+  //     const slug = doc._raw.sourceFileName.replace('.mdx', '');
+  //     if (today == doc.publishedAt) {
+  //       fetcher(`http://localhost:3000/api/views/${slug}`, {
+  //         method: 'POST',
+  //       });
+  //     }
+  //   },
+  // },
 };
 
 const Post = defineDocumentType(() => ({
@@ -55,9 +53,9 @@ const contentLayerConfig = makeSource({
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [
-      rehypeSlug,
       rehypeCodeTitles,
       rehypePrism,
+      rehypeSlug,
 
       [
         rehypeAutolinkHeadings,

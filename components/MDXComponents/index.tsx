@@ -1,97 +1,125 @@
-import React from 'react';
-import rangeParser from 'parse-numeric-range';
-import * as html from '@components/MDXComponents/HTML';
-import { code, box, text } from '@components/MDXComponents/styles';
-import Link from 'next/link';
-
-import * as styles from '@components/MDXComponents/styles';
-const CustomLink = (props) => {
-  const href = props.href;
-  const isInternalLink = href && (href.startsWith('/') || href.startsWith('#'));
-
-  if (isInternalLink) {
-    return (
-      <Link href={href}>
-        <a className={styles.link()} {...props}>
-          {props.children}
-        </a>
-      </Link>
-    );
-  }
-
-  return <a target="_blank" rel="noopener noreferrer" className={styles.link()} {...props} />;
-};
+import { useState } from 'react';
+import * as Collapsible from '@radix-ui/react-collapsible';
+import {
+  blockquote,
+  box,
+  button,
+  code,
+  divider,
+  Image,
+  img,
+  pre,
+} from '@components/MDXComponents/styles';
+import Link from '@components/common/Link';
+import { heading, text } from '@styles/typography';
+import NextImage from 'next/image';
 
 export const components = {
   Box: ({ css, as: Comp = 'div', ...props }: any) => <Comp className={box(css)} {...props} />,
-  h1: html.H1,
-  h2: html.H2,
-  h3: html.H3,
-  h4: html.H4,
-  p: html.p,
-  a: CustomLink,
-  hr: html.hr,
-  ul: html.ul,
-  ol: html.ol,
-  li: html.li,
-  strong: html.strong,
-  Image: html.Image,
-  img: html.img,
-  Video: html.Video,
-  iframe: html.iframe,
-  blockquote: html.blockquote,
-  pre: html.Pre,
-  code: html.Code,
-  // RegisterLink: ({ id, index, href }) => {
-  //   const isExternal = href.startsWith('http');
+  h1: (props) => <h1 className={heading({ type: 'h1' })} {...props} />,
+  h2: (props) => <h2 className={heading({ type: 'h2' })} {...props} />,
+  h3: (props) => <h3 className={heading({ type: 'h3' })} {...props} />,
+  h4: (props) => <h4 className={heading({ type: 'h4' })} {...props} />,
+  h5: (props) => <h5 className={heading({ type: 'h5' })} {...props} />,
+  p: (props) => <p className={text()} {...props} />,
+  a: ({ href = '', ...props }) => {
+    if (href.startsWith('http')) {
+      return (
+        <Link
+          className={text({ type: 'external-link' })}
+          href={href}
+          target="_blank"
+          rel="noopener"
+          {...props}
+        >
+          {props.children}
+        </Link>
+      );
+    }
 
-  //   React.useEffect(() => {
-  //     const codeBlock = document.getElementById(id);
-  //     if (!codeBlock) return;
-
-  //     const allHighlightWords = codeBlock.querySelectorAll('.highlight-word');
-  //     const target = allHighlightWords[index - 1];
-  //     if (!target) return;
-
-  //     target.replaceWith(
-  //       Object.assign(document.createElement('a'), {
-  //         href,
-  //         innerHTML: target.innerHTML,
-  //         className: target.className,
-  //         ...(isExternal ? { target: '_blank', rel: 'noopener' } : {}),
-  //       })
-  //     );
-  //   }, []);
-
-  //   return null;
-  // },
-  // H: ({ id, index, ...props }) => {
-  //   const triggerRef = React.useRef<HTMLElement>(null);
-
-  //   React.useEffect(() => {
-  //     const trigger = triggerRef.current;
-
-  //     const codeBlock = document.getElementById(id);
-  //     if (!codeBlock) return;
-
-  //     const allHighlightWords = codeBlock.querySelectorAll('.highlight-word');
-  //     const targetIndex = rangeParser(index).map((i) => i - 1);
-  //     // exit if the `index` passed is bigger than the total number of highlighted words
-  //     if (Math.max(...targetIndex) >= allHighlightWords.length) return;
-
-  //     const addClass = () => targetIndex.forEach((i) => allHighlightWords[i].classList.add('on'));
-  //     const removeClass = () =>
-  //       targetIndex.forEach((i) => allHighlightWords[i].classList.remove('on'));
-
-  //     trigger.addEventListener('mouseenter', addClass);
-  //     trigger.addEventListener('mouseleave', removeClass);
-
-  //     return () => {
-  //       trigger.removeEventListener('mouseenter', addClass);
-  //       trigger.removeEventListener('mouseleave', removeClass);
-  //     };
-  //   }, []);
-
-  //   return <code className={code({ css: { cursor: 'default' } })} ref={triggerRef} {...props} />;
-  // },
+    return (
+      <Link href={href} className={text({ type: 'link' })}>
+        {props.children}
+      </Link>
+    );
+  },
+  hr: (props) => <hr className={divider({ size: '1', css: { my: '$5' } })} {...props} />,
+  ul: (props) => <ul className={box({})} {...props} />,
+  ol: (props) => <ol className={box({})} {...props} />,
+  li: (props) => <li className={text()} {...props} />,
+  strong: (props) => <strong className={text({ css: { fontWeight: '700' } })} {...props} />,
+  Image: ({ children, ...props }) => (
+    <figure className={Image()}>
+      <NextImage {...(props as any)} />
+      {children && <figcaption>{children}</figcaption>}
+    </figure>
+  ),
+  img: ({ children, ...props }) => {
+    return ({ children, ...props }) => (
+      <div
+        className={img({
+          css: { borderRadius: '6px' },
+          my: '$5',
+          mx: '-$3',
+          '@bp1': { mx: '-$5' },
+        })}
+      >
+        <NextImage {...(props as any)} />
+      </div>
+    );
+  },
+  Video: (props) => (
+    <p className={text({ size: '4', css: { mb: '$4', color: '$copy' } })} {...props} />
+  ),
+  iframe: (props) => (
+    <div className={box({ mb: '$4' })}>
+      <iframe {...props} />
+    </div>
+  ),
+  blockquote: (props) => <blockquote className={blockquote({})} {...props} />,
+  pre: ({ children, theme, showLineNumbers, ...props }) => (
+    <pre
+      className={pre({
+        theme,
+        showLineNumbers: typeof showLineNumbers === 'string',
+      })}
+    >
+      {children}
+    </pre>
+  ),
+  code: ({ children, id, collapsible, className }) => {
+    const isCollapsible = typeof collapsible !== 'undefined';
+    const [isOpen, setIsOpen] = useState(!isCollapsible);
+    const isInline = typeof children === 'string';
+    const content = (
+      <code
+        className={`${className} ${isInline ? text({ type: 'code' }) : ''}`}
+        children={children}
+        id={id}
+      />
+    );
+    return isCollapsible ? (
+      <Collapsible.Root defaultOpen={isOpen} onOpenChange={(newOpen) => setIsOpen(newOpen)}>
+        <Collapsible.Trigger
+          className={button({
+            css: {
+              display: 'block',
+              ml: 'auto',
+              color: '$white',
+              borderRadius: '$2',
+              fontSize: '$2',
+              borderColor: '$gray',
+              fontFamily: '$mono',
+              '&:hover': { borderColor: '$white' },
+            },
+          })}
+        >
+          {isOpen ? 'Hide' : 'Show'} code
+        </Collapsible.Trigger>
+        <Collapsible.Content>{content}</Collapsible.Content>
+      </Collapsible.Root>
+    ) : (
+      content
+    );
+  },
 };

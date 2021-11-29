@@ -50,6 +50,9 @@ export const anchor = css({
   },
 });
 export const meta = css(flex, {
+  textTransform: 'uppercase',
+  color: '$neutral3',
+  margin: '1.8rem 0 0 0',
   time: {
     '&:after': {
       content: '•',
@@ -86,6 +89,7 @@ export const flexRow = css({
 export const flexColumn = css({
   display: 'flex',
   flexDirection: 'column',
+  alignItems: 'flex-start',
 });
 
 export const clickableIcon = css({
@@ -120,26 +124,20 @@ export const linedAnchor = css({
 });
 
 export const btn = css({
-  '-webkit-font-smoothing': 'antialiased',
-  'text-rendering': 'optimizeLegibility',
-  border: 'none',
-  outline: 'none',
-  lineHeight: '1',
-  backgroundColor: '$brand_main',
+  backgroundColor: '$neutral1',
   color: '$neutral7',
-  padding: '0.6rem 0.9rem',
-  width: 'fit-content',
-  textDecoration: 'none',
-  borderRadius: '999px',
-  fontSize: '0.6rem',
-  letterSpacing: '1px',
+  borderRadius: '4px',
+  padding: '.5rem .8rem',
+  lineHeight: '1.7',
+  transition: 'all .2s',
   fontWeight: '500',
-  textTransform: 'uppercase',
-  transition: 'background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, font-weight 0.2s ease',
+  margin: '0',
   '&:hover': {
-    boxShadow: '0px 0px 0px 1px $colors$brand_main',
-    color: '$brand_main',
     backgroundColor: 'transparent',
-    fontWeight: '700',
+    boxShadow: '0px 0px 0px 1px $colors$neutral2',
+    color: '$neutral2',
+  },
+  '@mobile': {
+    display: 'none',
   },
 });

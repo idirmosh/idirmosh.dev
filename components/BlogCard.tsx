@@ -27,12 +27,12 @@ function BlogCard({ post, viewProp = 'test' }) {
 
       <div className={cardContent()}>
         <PostMeta date={post.publishedAt} readTime={post.readingTime.text} />
-        <h2 className={heading({ type: 'h3', css: { margin: '0.9rem 0 0 0' } })}>
+        <h2 className={heading({ type: 'h2' })}>
           <Link href={`/blog/${post.slug}`} className={titleLink()}>
             {post.title}
           </Link>
         </h2>
-        <p className={text({ type: 'small', css: { margin: '0.9rem 0 0 0' } })}>{post.summary}</p>
+        <p className={text({ type: 'medium' })}>{post.summary}</p>
       </div>
       <div className={cardFooter()}>
         <TagList tags={post.tags} />
@@ -59,7 +59,7 @@ export const cardWrapper = css({
   height: 'auto',
   borderRadius: '10px',
   overflow: 'hidden',
-  border: '1px solid $neutral4',
+  border: '1px solid $neutral5',
   '&:hover': {
     backgroundColor: '$neutral6',
   },
