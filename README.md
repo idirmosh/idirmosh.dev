@@ -1,4 +1,4 @@
-# flowidir.dev
+# idirmosh.dev
 
 ## Personal Portfolio Project 2021
 
@@ -7,7 +7,7 @@ This is a future personal portfolio project meant to be the one and the only
 ### Run in Development
 
 ```bash
-$ git clone https://github.com/flowidir/flowidir.dev.git
+$ git clone https://github.com/idirmosh/idirmosh.dev.git
 $ cd leerob.io
 $ yarn
 $ yarn dev
