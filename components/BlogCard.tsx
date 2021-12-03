@@ -9,7 +9,7 @@ import Image from 'next/image';
 import { meta, wrapper } from '@styles/common';
 import { BLOG_CARD_WIDTH } from '@lib/constants';
 
-function BlogCard({ post, viewProp = 'test' }) {
+function BlogCard({ post }) {
   return (
     <article className={cardWrapper()}>
       <Link href={`/blog/${post.slug}`} className={cardMedia()} aria-hidden="true">
