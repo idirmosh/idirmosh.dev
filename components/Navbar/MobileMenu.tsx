@@ -23,6 +23,7 @@ function MobileMenu({ menus, isOpen }) {
   });
 
   const item = css({
+    flexDirection: 'row',
     width: '100%',
     padding: '.4rem 1.4rem',
     lineHeight: '1.7 !important',
@@ -50,13 +51,22 @@ function MobileMenu({ menus, isOpen }) {
 
   return (
     <div className={container()}>
-      <div className={flexColumn({ css: { width: '100%', marginTop: '1rem' } })}>
+      <div className={flexColumn({ css: { width: '100%', marginTop: '1.2rem' } })}>
         {menus.map((link) => (
           <Link
-            href="#"
+            href={link.href}
             title={link.text}
             key={link.id}
-            className={item(flexColumn(linkReset(heading({ type: 'h5', css: { margin: '0' } }))))}
+            className={item(
+              flexColumn(
+                linkReset(
+                  heading({
+                    type: 'h5',
+                    css: { margin: '0', display: 'flex', flexDirection: 'column' },
+                  })
+                )
+              )
+            )}
           >
             {link.text} <span className={text({ type: 'small' })}>{link.desc}</span>
           </Link>

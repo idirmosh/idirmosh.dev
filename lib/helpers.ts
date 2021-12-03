@@ -43,3 +43,11 @@ export const subscribe = async (setter: any, url: string, options: any = {}): Pr
     }
   }
 };
+
+// sort an array of posts by date
+export const sortPosts = (a, b) => {
+  const getDate = (date) => new Date(date).getTime();
+  const first = getDate(a.publishedAt);
+  const sec = getDate(b.publishedAt);
+  return first < sec ? 1 : -1;
+};

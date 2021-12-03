@@ -1,4 +1,7 @@
 import type { GetStaticPropsContext, NextPage } from 'next';
+import { allPosts } from '.contentlayer/data';
+const { isFuture, format } = require('date-fns');
+
 import * as React from 'react';
 import fs, { link } from 'fs';
 import path from 'path';
@@ -9,6 +12,9 @@ import Layout from '@components/Layout';
 import { heading, text } from '@styles/typography';
 import { css } from 'stitches.config';
 import Link from '@components/common/Link';
+import { parseISO } from 'date-fns';
+import { keyGen, postMetaFilter, sortPosts, trimStr } from '@lib/helpers';
+import { Post } from 'types/post';
 
 const WrapperSpacer = () => {
   const spacer = css({
@@ -19,7 +25,7 @@ const WrapperSpacer = () => {
   return <div className={spacer()}></div>;
 };
 
-const Home: NextPage = () => {
+const Home: NextPage = ({ featuredPosts }) => {
   const paragraph = css({
     color: '$neutral2',
     fontSize: '1rem !important',
@@ -34,12 +40,12 @@ const Home: NextPage = () => {
       <Layout>
         <WrapperSpacer />
         <HomeEntry />
-        <Featured />
+        <Featured posts={featuredPosts} />
       </Layout>
     </div>
   );
 };
-function Featured() {
+function Featured({ posts }) {
   const link = css({
     justifyContent: 'space-between',
     textDecoration: 'none',
@@ -68,33 +74,31 @@ function Featured() {
     >
       <div className={groupe()}>
         <h4 className={heading({ type: 'h3', css: { marginBottom: '24px', color: '$neutral1' } })}>
-          Writting
+          Writing
         </h4>
         <div>
-          <Link href="/" className={flexRow(link())}>
-            <h6 className={heading({ type: 'h4', css: { color: '$neutral2' } })}>
-              What new on Rocket Log Pro
-            </h6>
-            <time className={text({ type: 'small', css: { color: '$neutral3' } })}>
-              Jan 29, 2021
-            </time>
-          </Link>
-          <Link href="/" className={flexRow(link())}>
-            <h6 className={heading({ type: 'h4', css: { color: '$neutral2' } })}>
-              What new on Rocket Log Pro
-            </h6>
-            <time className={text({ type: 'small', css: { color: '$neutral3' } })}>
-              Jan 29, 2021
-            </time>
-          </Link>
-          <Link href="/" className={flexRow(link())}>
-            <h6 className={heading({ type: 'h4', css: { color: '$neutral2' } })}>
-              What new on Rocket Log Pro
-            </h6>
-            <time className={text({ type: 'small', css: { color: '$neutral3' } })}>
-              Jan 29, 2021
-            </time>
-          </Link>
+          {posts &&
+            posts.map((post) => (
+              <Link key={keyGen(post.slug)} href="/" className={flexRow(link())}>
+                <h6
+                  className={heading({
+                    type: 'h4',
+                    css: {
+                      color: '$neutral2',
+                      maxWidth: '26ch',
+                      overflow: 'hidden',
+                      whiteSpace: 'nowrap',
+                      textOverflow: 'ellipsis',
+                    },
+                  })}
+                >
+                  {post.title}
+                </h6>
+                <time className={text({ type: 'small', css: { color: '$neutral3' } })}>
+                  {post.publishedAt}
+                </time>
+              </Link>
+            ))}
         </div>
       </div>
     </div>
@@ -173,9 +177,16 @@ function HomeEntry() {
 }
 
 export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
+  const filtered = allPosts.sort(sortPosts).slice(0, 3);
+
   return {
-    props: {},
+    props: {
+      featuredPosts: filtered,
+    },
   };
 };
+// 2017-07-15
+// 2017-07-15
+// 2021-09-06
 
 export default Home;

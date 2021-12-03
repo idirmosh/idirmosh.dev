@@ -43,10 +43,7 @@ const Blog: NextPage<IPageProps> = ({ posts, tagsCount }) => {
         </Link>
       </div>
       <BlogListWrapper>
-        {posts &&
-          posts.map((post) => (
-            <BlogCard viewProp={slugs && slugs[post.slug]} key={post.slug} post={post} />
-          ))}
+        {posts && posts.map((post) => <BlogCard key={post.slug} post={post} />)}
       </BlogListWrapper>
 
       {/* 
