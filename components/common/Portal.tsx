@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react';
+import { FC, ReactNode, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 
-function Portal({ children }) {
+const Portal: FC<ReactNode | null> = ({ children }) => {
   const [mounted, setMounted] = useState(false);
+  let div = '#mobile-menu';
 
   useEffect(() => {
     setMounted(true);
@@ -10,7 +11,7 @@ function Portal({ children }) {
     return () => setMounted(false);
   }, []);
 
-  return mounted ? createPortal(children, document.querySelector('#mobile-menu')) : null;
-}
+  return mounted ? createPortal(children, document.querySelector(div)) : null;
+};
 
 export default Portal;
