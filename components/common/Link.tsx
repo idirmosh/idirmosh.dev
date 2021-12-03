@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { FC, ReactNode } from 'react';
 import NextLink from 'next/link';
 
-function Link(props) {
+type Props = {
+  href: string;
+  children: ReactNode;
+  rest?: any;
+};
+
+const Link: FC<Props> = ({ href, children, ...rest }) => {
   return (
-    <NextLink href={props.href}>
-      <a {...props}>{props.children}</a>
+    <NextLink href={href}>
+      <a {...rest}>{children}</a>
     </NextLink>
   );
-}
+};
 
 export default Link;
