@@ -118,8 +118,8 @@ export const input = css({
 });
 
 export const pre = css({
-  $$background: '$colors$brand_faded',
-  $$text: '$colors$neutral0',
+  $$background: '$colors$neutral6',
+  $$text: '$colors$neutral3',
   $$syntax1: '$colors$orange',
   $$syntax2: '$colors$turq',
   $$syntax3: '$colors$pink',

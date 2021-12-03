@@ -27,7 +27,9 @@ export const flex = css({
 export const wrapper = css({
   maxWidth: `${MAIN_WIDTH}px`,
   margin: '0 auto',
-  padding: '0',
+  '@tablet': {
+    padding: `0 ${BLOG_CARD_GAP}px`,
+  },
   '@mobile': {
     padding: `0 ${BLOG_CARD_GAP}px`,
   },
@@ -50,9 +52,10 @@ export const anchor = css({
   },
 });
 export const meta = css(flex, {
-  textTransform: 'uppercase',
   color: '$neutral3',
-  margin: '1.8rem 0 0 0',
+  'time, span': {
+    margin: '0',
+  },
   time: {
     '&:after': {
       content: '•',
@@ -100,10 +103,11 @@ export const clickableIcon = css({
   width: '1.6rem',
   borderRadius: '9999px',
   transition: 'all .5s ease 0s',
-  boxShadow: '0 0 0 1px $colors$neutral5',
+  boxShadow: '0 0 0 1px $colors$neutral4',
   cursor: 'pointer',
+  backgroundColor: '$neutral7',
   svg: {
-    fill: '$neutral3',
+    fill: '$neutral2',
   },
   '&:hover': {
     backgroundColor: '$neutral2',

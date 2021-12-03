@@ -1,16 +1,16 @@
-import { box, btn, clickableIcon, flexRow, linkReset, wrapper } from '@styles/common';
-import { useState } from 'react';
+import { btn, linkReset, wrapper } from '@styles/common';
 import { css } from 'stitches.config';
 import Link from '../common/Link';
-import { Moon, MenuOpen, MenuClose } from '../common/icons';
 import Portal from '../common/Portal';
-import { CSSTransition } from 'react-transition-group';
 import Logo from '../common/Logo';
 import MobileMenu from './MobileMenu';
 import SkipContent from './SkipContent';
 import NavMenuList from './NavMenuList';
 import MenuBotton from './MenuBotton';
 import { text } from '@styles/typography';
+import { useState } from 'react';
+
+import ThemeToggler from './ThemeToggler';
 
 const menus = [
   { id: 1, text: 'About', href: '/about', desc: 'A little about this' },
@@ -24,13 +24,6 @@ function CTA() {
     <Link href="/contact" className={btn(linkReset(text({ type: 'small' })))}>
       Reach out
     </Link>
-  );
-}
-function ThemeToggler() {
-  return (
-    <div className={clickableIcon()} title="Enable Dark Mode" aria-label="Enable Dark Mode">
-      <Moon width="18" />
-    </div>
   );
 }
 

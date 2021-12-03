@@ -8,6 +8,9 @@ const securityHeaders = [
 ];
 
 const nextConfig = {
+  images: {
+    domains: ['pbs.twimg.com'],
+  },
   reactStrictMode: true,
   experimental: {
     esmExternals: true,

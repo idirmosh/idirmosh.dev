@@ -6,11 +6,10 @@ import TagList from './common/TagList';
 import PostMeta from './common/PostMeta';
 import Link from '@components/common/Link';
 import Image from 'next/image';
-import { wrapper } from '@styles/common';
+import { meta, wrapper } from '@styles/common';
 import { BLOG_CARD_WIDTH } from '@lib/constants';
 
 function BlogCard({ post, viewProp = 'test' }) {
-  console.log('props');
   return (
     <article className={cardWrapper()}>
       <Link href={`/blog/${post.slug}`} className={cardMedia()} aria-hidden="true">
@@ -26,7 +25,16 @@ function BlogCard({ post, viewProp = 'test' }) {
       </Link>
 
       <div className={cardContent()}>
-        <PostMeta date={post.publishedAt} readTime={post.readingTime.text} />
+        <PostMeta
+          className={meta({
+            css: {
+              textTransform: 'uppercase',
+              margin: '1.8rem 0 1rem 0',
+            },
+          })}
+          date={post.publishedAt}
+          readTime={post.readingTime.text}
+        />
         <h2 className={heading({ type: 'h2' })}>
           <Link href={`/blog/${post.slug}`} className={titleLink()}>
             {post.title}

@@ -77,16 +77,9 @@ export const components = {
     </div>
   ),
   blockquote: (props) => <blockquote className={blockquote({})} {...props} />,
-  pre: ({ children, theme, showLineNumbers, ...props }) => (
-    <pre
-      className={pre({
-        theme,
-        showLineNumbers: typeof showLineNumbers === 'string',
-      })}
-    >
-      {children}
-    </pre>
-  ),
+  pre: ({ children, theme, showLineNumbers, ...props }) => {
+    return <pre className={pre()}>{children}</pre>;
+  },
   code: ({ children, id, collapsible, className }) => {
     const isCollapsible = typeof collapsible !== 'undefined';
     const [isOpen, setIsOpen] = useState(!isCollapsible);

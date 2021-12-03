@@ -1,6 +1,6 @@
 import React from 'react';
 import NextDocument, { Html, Head, Main, NextScript } from 'next/document';
-import { getCssText } from 'stitches.config';
+import { darkTheme, getCssText } from 'stitches.config';
 import { globalStyles } from '@styles/global';
 
 const INTER_FONT =

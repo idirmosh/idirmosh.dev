@@ -41,7 +41,7 @@ export const globalStyles = globalCss({
     lineHeight: '1.5',
     fontWeight: '400',
     color: '$neutral2',
-    backgroundColor: '$white',
+    backgroundColor: '$neutral7',
     position: 'relative',
   },
   'p, ul, ol': {

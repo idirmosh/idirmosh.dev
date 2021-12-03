@@ -71,3 +71,23 @@ export const Mail = (props) => (
     <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
   </svg>
 );
+
+export const CopyURL = (props) => (
+  <svg xmlns="http://www.w3.org/2000/svg" {...props} viewBox="0 0 24 24">
+    <path d="M0 0h24v24H0V0z" fill="none" />
+    <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z" />
+  </svg>
+);
+
+export const Facebook = (props) => (
+  <svg xmlns="http://www.w3.org/2000/svg" {...props} viewBox="0 0 24 24">
+    <path d="M13.397 20.997v-8.196h2.765l.411-3.209h-3.176V7.548c0-.926.258-1.56 1.587-1.56h1.684V3.127A22.336 22.336 0 0 0 14.201 3c-2.444 0-4.122 1.492-4.122 4.231v2.355H7.332v3.209h2.753v8.202h3.312z"></path>
+  </svg>
+);
+
+export const LeftArrow = (props) => (
+  <svg xmlns="http://www.w3.org/2000/svg" {...props} viewBox="0 0 24 24">
+    <path d="M0 0h24v24H0z" fill="none" />
+    <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" />
+  </svg>
+);

@@ -1,39 +1,24 @@
 import { useMemo } from 'react';
 import { getMDXComponent } from 'mdx-bundler/client';
-
 import { components } from '@components/MDXComponents';
-import * as styles from '@components/MDXComponents/styles';
 import { allPosts } from '.contentlayer/data';
-import type { Post } from '.contentlayer/types';
 import type { NextPage } from 'next';
 import { ISinglePostProps } from 'global';
 import { IParams } from 'global';
+import Layout from '@components/Layout';
+import { wrapper } from '@styles/common';
+import ArticleHeader from '@components/ArticleHeader';
 
 const PostBySlug: NextPage<ISinglePostProps> = ({ post: { body, ...frontMatter } }) => {
   const Component = useMemo(() => getMDXComponent(body.code), [body.code]);
+
   return (
-    <div
-      className={styles.container({
-        css: {
-          mx: '$4',
-          padding: '0 16px',
-          py: '$4',
-          '@bp1': {
-            mx: '$5',
-            py: '$5',
-          },
-          '@bp2': {
-            mx: '$6',
-          },
-        },
-      })}
-    >
-      <div className={styles.box({ my: '$5' })}>
-        {/* <PostMeta {...frontMatter} /> */}
+    <Layout>
+      <article className={wrapper({})}>
+        <ArticleHeader post={frontMatter} />
         <Component components={components as any} />
-        {/* <PostFooter tags={frontMatter.tags} /> */}
-      </div>
-    </div>
+      </article>
+    </Layout>
   );
 };
 
