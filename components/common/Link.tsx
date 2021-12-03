@@ -4,7 +4,8 @@ import NextLink from 'next/link';
 type Props = {
   href: string;
   children: ReactNode;
-  rest?: any;
+  title?: string;
+  [x: string]: any;
 };
 
 const Link: FC<Props> = ({ href, children, ...rest }) => {
