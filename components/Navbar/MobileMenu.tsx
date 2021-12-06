@@ -7,7 +7,8 @@ import { CSSTransition } from 'react-transition-group';
 
 function MobileMenu({ menus, isOpen }) {
   const container = css({
-    display: 'none',
+    display: 'flex',
+    flexDirection: 'column',
     width: '100vw',
     height: 'calc(100vh - 69px)',
     background: '$neutral7',
@@ -16,9 +17,7 @@ function MobileMenu({ menus, isOpen }) {
     top: '69px',
     zIndex: '999',
     '@mobile': {
-      display: 'flex',
-      flexDirection: 'column',
-      width: '100%',
+      display: 'none',
     },
   });
 

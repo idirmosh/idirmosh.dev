@@ -76,18 +76,7 @@ function Navbar() {
       padding: '1rem 0',
     },
   });
-  const shadow = css({
-    backgroundImage:
-      'url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAAOBAMAAAD3WtBsAAAAFVBMVEUAAAAAAAAAAAAAAAAAAAAAAAD29va1cB7UAAAAB3RSTlMCCwQHGBAaZf6MKAAAABpJREFUCNdjSGNIY3BhCGUQBEJjIFQCQigAACyJAjLNW4w5AAAAAElFTkSuQmCC)',
-    position: 'absolute',
-    backgroundSize: '1px 7px',
-    height: '7px',
-    left: '0',
-    right: '0',
-    bottom: '-6px',
-    pointerEvents: 'none',
-    backgroundRepeat: 'repeat-x',
-  });
+
   return (
     <>
       <header className={headerStyles()}>
@@ -111,7 +100,6 @@ function Navbar() {
             )}
           </nav>
         </div>
-        <div className={shadow()}></div>
       </header>
 
       <div id="skip-nav"></div>

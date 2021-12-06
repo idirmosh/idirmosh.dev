@@ -32,8 +32,9 @@ const NavMenuList = ({ menus }) => {
 
     const reset = css({
       marginBottom: '0',
+      display: 'none !important',
       '@mobile': {
-        display: 'none !important',
+        display: 'block !important',
       },
     });
     return (

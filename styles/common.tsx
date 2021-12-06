@@ -131,6 +131,7 @@ export const linedAnchor = css({
 });
 
 export const btn = css({
+  display: 'none',
   backgroundColor: '$neutral1',
   color: '$neutral7',
   borderRadius: '4px',
@@ -145,6 +146,6 @@ export const btn = css({
     color: '$neutral2',
   },
   '@mobile': {
-    display: 'none',
+    display: 'block',
   },
 });

@@ -6,7 +6,10 @@ function MenuBotton(props) {
   const { isOpen, ...rest } = props;
 
   const button = css({
-    display: 'none',
+    display: 'flex',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+
     width: '32px',
     height: '32px',
     cursor: 'pointer',
@@ -16,9 +19,7 @@ function MenuBotton(props) {
       fill: '$neutral1',
     },
     '@mobile': {
-      display: 'flex',
-      justifyContent: 'space-around',
-      alignItems: 'center',
+      display: 'none',
     },
   });
   return (
