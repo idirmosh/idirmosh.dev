@@ -7,7 +7,7 @@ import PostMeta from './common/PostMeta';
 import Link from '@components/common/Link';
 import Image from 'next/image';
 import { meta, wrapper } from '@styles/common';
-import { BLOG_CARD_WIDTH } from '@lib/constants';
+import { MAIN_CARD_WIDTH } from '@lib/constants';
 
 function BlogCard({ post }) {
   return (
@@ -63,7 +63,7 @@ export const cardWrapper = css({
   display: 'flex',
   alignItems: 'flex-start',
   flexDirection: 'column',
-  minWidth: `${BLOG_CARD_WIDTH}px`,
+  minWidth: `${MAIN_CARD_WIDTH}px`,
   height: 'auto',
   borderRadius: '10px',
   overflow: 'hidden',

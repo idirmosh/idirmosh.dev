@@ -1,4 +1,4 @@
-import { MAIN_WIDTH, BLOG_CARD_GAP } from '@lib/constants';
+import { MAIN_WIDTH, BLOG_WIDTH, BLOG_CARD_GAP } from '@lib/constants';
 import { css } from 'stitches.config';
 export const box = css({});
 export const line = css({
@@ -24,15 +24,18 @@ export const flex = css({
     },
   },
 });
+
+export const singlePostWrapper = css({
+  maxWidth: `${BLOG_WIDTH}px`,
+  paddingLeft: '1.25rem',
+  paddingRight: '1.25rem',
+  margin: '0 auto',
+});
 export const wrapper = css({
   maxWidth: `${MAIN_WIDTH}px`,
   margin: '0 auto',
-  '@tablet': {
-    padding: `0 ${BLOG_CARD_GAP}px`,
-  },
-  '@mobile': {
-    padding: `0 ${BLOG_CARD_GAP}px`,
-  },
+  paddingLeft: '1.25rem',
+  paddingRight: '1.25rem',
 });
 export const views = css({
   color: '$brand_main',

@@ -6,7 +6,7 @@ import type { NextPage } from 'next';
 import { ISinglePostProps } from 'global';
 import { IParams } from 'global';
 import Layout from '@components/Layout';
-import { wrapper } from '@styles/common';
+import { singlePostWrapper, wrapper } from '@styles/common';
 import ArticleHeader from '@components/ArticleHeader';
 
 const PostBySlug: NextPage<ISinglePostProps> = ({ post: { body, ...frontMatter } }) => {
@@ -14,7 +14,7 @@ const PostBySlug: NextPage<ISinglePostProps> = ({ post: { body, ...frontMatter }
 
   return (
     <Layout>
-      <article className={wrapper({})}>
+      <article className={singlePostWrapper({})}>
         <ArticleHeader post={frontMatter} />
         <Component components={components as any} />
       </article>
