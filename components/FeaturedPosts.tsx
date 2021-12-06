@@ -12,7 +12,7 @@ function FeaturedPosts({ posts }: { posts: Post[] }) {
     display: 'grid',
     gridTemplateColumns: 'repeat(12,minmax(0,1fr))',
     gap: '32px',
-    margin: '4rem auto',
+    margin: '6rem auto',
     '@desktop': {
       margin: '10rem auto',
     },

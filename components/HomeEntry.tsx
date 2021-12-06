@@ -9,7 +9,7 @@ function HomeEntry() {
     gridTemplateColumns: 'repeat(12,minmax(0,1fr))',
     gridTemplateRows: 'none',
     alignItems: 'center',
-    margin: '4rem auto',
+    margin: '6rem auto',
     '@desktop': {
       margin: '10rem auto',
     },
