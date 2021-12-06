@@ -29,6 +29,7 @@ function HomeEntry() {
   const title = css({
     fontSize: '1.9rem',
     lineHeight: '1.1',
+    letterSpacing: '-.05em',
     // fointWeight: '700',
 
     margin: '1.25rem 0',
