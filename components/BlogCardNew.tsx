@@ -75,7 +75,10 @@ function BlogCardNew({ post }) {
       borderRadius: '7px',
     },
     img: {
-      borderRadius: '6px',
+      borderRadius: '2px',
+      '@tablet': {
+        borderRadius: '6px',
+      },
     },
   });
   return (

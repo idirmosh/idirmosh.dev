@@ -97,7 +97,7 @@ function ProjectCard() {
     color: '$neutral3',
   });
   return (
-    <Link href="#" className={card()}>
+    <div href="#" className={card()}>
       <div>
         <Image
           width={MAIN_CARD_WIDTH - 40}
@@ -136,7 +136,7 @@ function ProjectCard() {
           </Link>
         </div>
       </div>
-    </Link>
+    </div>
   );
 }
 export const getStaticProps = async ({ params }: GetStaticPropsContext) => {

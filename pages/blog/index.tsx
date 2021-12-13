@@ -10,6 +10,7 @@ import Layout from '@components/Layout';
 import { box, flexRow, linkReset, singlePostWrapper, wrapper } from '@styles/common';
 import Link from '@components/common/Link';
 import { heading, text } from '@styles/typography';
+import { input } from '@components/MDXComponents/styles';
 
 const Blog: NextPage<IPageProps> = ({ posts, tagsCount }) => {
   const [slugs, setSlugs] = useState(null);
@@ -29,20 +30,45 @@ const Blog: NextPage<IPageProps> = ({ posts, tagsCount }) => {
       </Head>
       <div
         className={flexRow(
-          wrapper({
+          singlePostWrapper({
             css: {
               justifyContent: 'space-between',
-              padding: '24px 0',
+              padding: '24px 16px',
+              margin: '2rem auto',
             },
           })
         )}
       >
-        <h5 className={heading({ type: 'h2' })}>Latest Articles</h5>
-        <Link href="/tags" className={text({ type: 'link' })}>
+        <h5 className={heading({ type: 'h3', css: { margin: '0' } })}>Latest Articles</h5>
+        <Link href="/tags" className={text({ type: 'link', css: { margin: '0' } })}>
           See all topics ({tagsCount})
         </Link>
       </div>
+
       <div className={singlePostWrapper()}>
+        {/* <div>
+          <input
+            className={input({
+              css: {
+                border: 'none',
+                padding: '1.2rem',
+                width: '100%',
+                borderRadius: '999px',
+                boxShadow: '0 0 0 1px $colors$neutral5',
+                color: '$neutral3',
+                transition: '.2s box-shadow',
+                '&::placeholder': {
+                  color: '$neutral5',
+                },
+                '&:focus': {
+                  boxShadow: '0 0 0 1px $colors$brand_main',
+                },
+              },
+            })}
+            type="search"
+            placeholder="Search articles"
+          />
+        </div> */}
         {posts && posts.map((post) => <BlogCardNew key={post.slug} post={post} />)}
       </div>
 
