@@ -141,4 +141,11 @@ export const globalStyles = globalCss({
   //   backgroundColor: '$brand_inverted',
   //   color: '$neutral0',
   // },
+
+  '.custom-img': {
+    'object-fit': 'contain',
+    width: '100% !important',
+    position: 'relative !important',
+    height: 'unset !important',
+  },
 });

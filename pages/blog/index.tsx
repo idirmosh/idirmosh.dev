@@ -4,10 +4,10 @@ import Head from 'next/head';
 import { allPosts } from '.contentlayer/data';
 import { filterTags, postMetaFilter, reduceTags, subscribe } from '@lib/helpers';
 import { IPageProps, IView } from 'global';
-import BlogCard from '@components/BlogCard';
+import BlogCardNew from '@components/BlogCardNew';
 import BlogListWrapper from '@components/common/BlogListWrapper';
 import Layout from '@components/Layout';
-import { box, flexRow, linkReset, wrapper } from '@styles/common';
+import { box, flexRow, linkReset, singlePostWrapper, wrapper } from '@styles/common';
 import Link from '@components/common/Link';
 import { heading, text } from '@styles/typography';
 
@@ -42,9 +42,9 @@ const Blog: NextPage<IPageProps> = ({ posts, tagsCount }) => {
           See all topics ({tagsCount})
         </Link>
       </div>
-      <BlogListWrapper>
-        {posts && posts.map((post) => <BlogCard key={post.slug} post={post} />)}
-      </BlogListWrapper>
+      <div className={singlePostWrapper()}>
+        {posts && posts.map((post) => <BlogCardNew key={post.slug} post={post} />)}
+      </div>
 
       {/* 
       <h1>{frontmatter.title}</h1>
