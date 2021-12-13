@@ -99,9 +99,13 @@ export const flexColumn = css({
 });
 
 export const clickableIcon = css({
-  display: 'flex',
-  justifyContent: 'space-around',
-  alignItems: 'center',
+  // display: 'flex',
+  // justifyContent: 'space-around',
+  // alignItems: 'center',
+
+  gridColumn: '13/13',
+  alignSelf: 'center',
+  margin: '0 auto',
   height: '1.6rem',
   width: '1.6rem',
   borderRadius: '9999px',
@@ -131,6 +135,9 @@ export const linedAnchor = css({
 });
 
 export const btn = css({
+  gridColumn: '10/12',
+  alignSelf: 'center',
+
   display: 'none',
   backgroundColor: '$neutral1',
   color: '$neutral7',
@@ -145,6 +152,9 @@ export const btn = css({
     boxShadow: '0px 0px 0px 1px $colors$neutral2',
     color: '$neutral2',
   },
+  // '@desktop': {
+  //   gridColumn: '11/12',
+  // },
   '@mobile': {
     display: 'block',
   },

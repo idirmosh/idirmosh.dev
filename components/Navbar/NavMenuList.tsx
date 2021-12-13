@@ -31,6 +31,8 @@ const NavMenuList = ({ menus }) => {
     };
 
     const reset = css({
+      // gridColumnStart: '3',
+      // gridColumnEnd: '10',
       marginBottom: '0',
       display: 'none !important',
       '@mobile': {

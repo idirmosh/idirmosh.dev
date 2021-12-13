@@ -41,7 +41,7 @@ function FeaturedWorks() {
   const container = css({
     display: 'grid',
     gridTemplateColumns: `repeat(1,minmax(0,1fr))`,
-    gridGap: '1.5rem',
+    gridGap: '4rem',
 
     '@mobile': {
       gridTemplateColumns: `repeat(2,minmax(0,1fr))`,
@@ -60,7 +60,9 @@ function FeaturedWorks() {
   return (
     <div className={box({ css: { margin: '10rem auto' } })}>
       <div className={wrapper()}>
-        <h2 className={heading({ type: 'h2', css: { marginBottom: '24px', color: '$neutral1' } })}>
+        <h2
+          className={heading({ type: 'h2', css: { marginBottom: '2.4rem', color: '$neutral1' } })}
+        >
           Projects
         </h2>
       </div>
@@ -82,13 +84,13 @@ function ProjectCard() {
     // minWidth: `${MAIN_CARD_WIDTH}px`,
   });
   const content = css({
-    marginTop: '0.5rem',
+    marginTop: '0.8rem',
     paddingRight: '1.6rem',
   });
 
   const title = css({
     display: 'inline-block',
-    margin: '0 .25rem 0 0 !important',
+    margin: '0 .4rem 0 0 !important',
     color: '$neutral1',
   });
   const desc = css({
@@ -112,6 +114,27 @@ function ProjectCard() {
           — A map-based property search engine that provides renters, buyers, and agents fast and
           efficient property search experience.
         </span>
+        <div className={box({ css: { marginTop: '.4rem' } })}>
+          <Link
+            href="#"
+            className={text({
+              type: 'external-link',
+              css: { paddingRight: '1rem', fontSize: '.875rem' },
+            })}
+          >
+            Demo
+          </Link>
+
+          <Link
+            href="#"
+            className={text({
+              type: 'external-link',
+              css: { fontSize: '.875rem' },
+            })}
+          >
+            Source Code
+          </Link>
+        </div>
       </div>
     </Link>
   );

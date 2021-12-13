@@ -54,12 +54,15 @@ function FeaturedPosts({ posts }: { posts: Post[] }) {
         <h2 className={heading({ type: 'h2', css: { marginBottom: '24px', color: '$neutral1' } })}>
           Writing
         </h2>
+        <p>Latest articles</p>
         <div className={box({ css: { marginBottom: '1.5rem' } })}>
           {posts &&
             posts.map((post) => (
               <Link key={keyGen(post.slug)} href="/" className={flexRow(link())}>
                 <h6
-                  className={title(heading({ type: 'h4', css: { margin: '0' } }))}
+                  className={title(
+                    heading({ type: 'h4', css: { margin: '0', fontWeight: '500' } })
+                  )}
                   title={post.title}
                 >
                   {post.title}

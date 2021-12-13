@@ -4,11 +4,20 @@ import { css } from 'stitches.config';
 import Link from './Link';
 
 function Logo() {
-  const styles = css({});
+  const styles = css({
+    gridColumn: '4/10',
+    '@mobile': {
+      gridColumn: '1/4',
+    },
+  });
 
   const test = css({
     display: 'flex',
     alignItems: 'center',
+
+    flexDirection: 'row',
+    alignSelf: 'center',
+
     img: {
       display: 'block',
       width: '100%',

@@ -1,4 +1,4 @@
-import { btn, linkReset, wrapper } from '@styles/common';
+import { box, btn, linkReset, wrapper } from '@styles/common';
 import { css } from 'stitches.config';
 import Link from '../common/Link';
 import Portal from '../common/Portal';
@@ -31,10 +31,19 @@ function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const menu = css({
-    width: '100%',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between',
+    display: 'grid',
+    gridTemplateColumns: 'repeat(12,minmax(0,1fr))',
+    gap: '0',
+    '@tablet': {
+      gap: '0.4rem',
+    },
+    '@desktop': {
+      gap: '0.8rem',
+    },
+    //width: '100%',
+    // display: 'flex',
+    //alignItems: 'center',
+    //justifyContent: 'space-between',
     zIndex: '1',
   });
   const navWrapper = css({
@@ -63,17 +72,18 @@ function Navbar() {
   });
   const navbarStyles = css({
     position: 'relative',
-    flex: '1',
+    //flex: '1',
     height: '72px',
-    display: 'flex',
+    padding: '1rem 0',
+    //display: 'flex',
     alignItems: 'center',
 
     '@tablet': {
-      height: 'unset',
-      flexDirection: 'column',
-      alignItems: 'flex-start',
-      justifyContent: 'flex-start',
-      padding: '1rem 0',
+      // height: 'unset',
+      // flexDirection: 'column',
+      // alignItems: 'flex-start',
+      // justifyContent: 'flex-start',
+      // padding: '1rem 0',
     },
   });
 
@@ -86,8 +96,22 @@ function Navbar() {
             <div className={menu()}>
               <MenuBotton isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} />
               <Logo />
-
-              {menus && <NavMenuList menus={menus} />}
+              <div
+                className={box({
+                  css: {
+                    display: 'none',
+                    '@mobile': {
+                      display: 'flex',
+                      flexDirection: 'row',
+                      gridColumn: '5/9',
+                      alignSelf: 'center',
+                      justifyContent: 'space-around',
+                    },
+                  },
+                })}
+              >
+                {menus && <NavMenuList menus={menus} />}
+              </div>
 
               <CTA />
               <ThemeToggler />

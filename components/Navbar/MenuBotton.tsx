@@ -6,10 +6,12 @@ function MenuBotton(props) {
   const { isOpen, ...rest } = props;
 
   const button = css({
-    display: 'flex',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-
+    // display: 'flex',
+    // justifyContent: 'space-around',
+    // alignItems: 'center',
+    margin: '0 auto',
+    gridColumn: '1/1',
+    alignSelf: 'center',
     width: '32px',
     height: '32px',
     cursor: 'pointer',

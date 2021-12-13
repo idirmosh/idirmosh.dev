@@ -1,88 +1,144 @@
 import { globalCss } from 'stitches.config';
 
 export const globalStyles = globalCss({
-  '.menu-close, .menu-open': {
-    transition: 'all .2s cubic-bezier(0.4, 0.01, 0.165, 0.99)',
-    transform: 'rotate(0deg) scale(1)',
+  ':root': {
+    MozTabSize: '4',
+    tabSize: '4',
   },
-  '.menu-close': {
-    transform: 'rotate(0deg) scale(0.5)',
-  },
-  '.menu-close.enter-active': {
-    transform: 'rotate(180deg) scale(1.2)',
-  },
-  '.menu-close.enter-done': {
-    transform: 'rotate(0deg) scale(1)',
-  },
-
-  '.menu-open.enter-active': {
-    //hamburger animation laters
-  },
-  '.menu-open.enter-done': {
-    //hamburger animation laters
-  },
-
-  '*': {
-    margin: 0,
-    padding: 0,
-    boxSizing: 'border-box',
-  },
-
+  '*,::before,::after': { boxSizing: 'border-box' },
   html: {
-    '-ms-text-size-adjust': '100%',
-    '-webkit-text-size-adjust': '100%',
-    fontFamily: '$sans',
-    //  fontSize: '112.5%',
+    lineHeight: 1.15,
+    WebkitTextSizeAdjust: '100%',
   },
-
   body: {
-    fontFamily: 'sans-serif',
+    margin: '0',
+    fontFamily: '$sans',
+  },
+  hr: { height: '0', color: 'inherit' },
+  'abbr[title]': { textDecoration: 'underline dotted' },
+  'b,strong': { fontWeight: 'bolder' },
+  'code,kbd,samp,pre': {
+    fontFamily: '$sans',
     fontSize: '1em',
-    lineHeight: '1.5',
-    fontWeight: '400',
-    color: '$neutral2',
-    backgroundColor: '$neutral7',
+  },
+  small: { fontSize: '80%' },
+  'sub,sup': {
+    fontSize: '75%',
+    lineHeight: 0,
     position: 'relative',
+    verticalAlign: 'baseline',
   },
-  'p, ul, ol': {
+  sub: { bottom: '-0.25em' },
+  sup: { top: '-0.5em' },
+  table: { textIndent: '0', borderColor: 'inherit' },
+  'button,input,optgroup,select,textarea': {
+    fontFamily: 'inherit',
+    fontSize: '100%',
+    lineHeight: 1.15,
     margin: '0',
-    padding: '0',
-    marginBottom: '1em',
-    lineHeight: '1.5',
-    fontSize: '1rem',
   },
-  'ul, ol': {
-    listStyle: 'none',
+  'button,select': { textTransform: 'none' },
+  "button,[type='button'],[type='reset'],[type='submit']": {
+    WebkitAppearance: 'button',
   },
-  'article ul': {
-    paddingLeft: '2.1875em',
-    'list-style-type': 'square',
-    marginTop: '0.3125em',
-    li: {
-      paddingLeft: '5px',
-    },
+  '::-moz-focus-inner': { borderStyle: 'none', padding: '0' },
+  ':-moz-focusring': { outline: '1px dotted ButtonText' },
+  ':-moz-ui-invalid': { boxShadow: 'none' },
+  legend: { padding: '0' },
+  progress: { verticalAlign: 'baseline' },
+  '::-webkit-inner-spin-button,::-webkit-outer-spin-button': {
+    height: 'auto',
   },
-  'article li': {
-    marginBottom: '7px',
+  "[type='search']": { WebkitAppearance: 'textfield', outlineOffset: '-2px' },
+  '::-webkit-search-decoration': { WebkitAppearance: 'none' },
+  '::-webkit-file-upload-button': {
+    WebkitAppearance: 'button',
+    font: 'inherit',
   },
-  'a, button, [role="button"], input, label, select, textarea': {
-    'touch-action': 'manipulation',
-  },
-  figure: { margin: 0, borderRadius: '8px' },
+  summary: { display: 'list-item' },
 
-  'pre, code, kbd': {
-    fontFamily: '$mono',
-    'font-variant-ligatures': 'none',
-    whiteSpace: 'pre-wrap',
-    margin: '0',
-    overflowX: 'auto',
-    textAlign: 'left',
-  },
+  // '.menu-close, .menu-open': {
+  //   transition: 'all .2s cubic-bezier(0.4, 0.01, 0.165, 0.99)',
+  //   transform: 'rotate(0deg) scale(1)',
+  // },
+  // '.menu-close': {
+  //   transform: 'rotate(0deg) scale(0.5)',
+  // },
+  // '.menu-close.enter-active': {
+  //   transform: 'rotate(180deg) scale(1.2)',
+  // },
+  // '.menu-close.enter-done': {
+  //   transform: 'rotate(0deg) scale(1)',
+  // },
 
-  svg: { display: 'inline-block', verticalAlign: 'middle' },
+  // '.menu-open.enter-active': {
+  //   //hamburger animation laters
+  // },
+  // '.menu-open.enter-done': {
+  //   //hamburger animation laters
+  // },
 
-  '::selection': {
-    backgroundColor: '$brand_inverted',
-    color: '$neutral0',
-  },
+  // '*': {
+  //   margin: 0,
+  //   padding: 0,
+  //   boxSizing: 'border-box',
+  // },
+
+  // html: {
+  //   '-ms-text-size-adjust': '100%',
+  //   '-webkit-text-size-adjust': '100%',
+  //   fontFamily: '$sans',
+  //   //  fontSize: '112.5%',
+  // },
+
+  // body: {
+  //   fontFamily: 'sans-serif',
+  //   fontSize: '1em',
+  //   lineHeight: '1.5',
+  //   fontWeight: '400',
+  //   color: '$neutral2',
+  //   backgroundColor: '$neutral7',
+  //   position: 'relative',
+  // },
+  // 'p, ul, ol': {
+  //   margin: '0',
+  //   padding: '0',
+  //   marginBottom: '1em',
+  //   lineHeight: '1.5',
+  //   fontSize: '1rem',
+  // },
+  // 'ul, ol': {
+  //   listStyle: 'none',
+  // },
+  // 'article ul': {
+  //   paddingLeft: '2.1875em',
+  //   'list-style-type': 'square',
+  //   marginTop: '0.3125em',
+  //   li: {
+  //     paddingLeft: '5px',
+  //   },
+  // },
+  // 'article li': {
+  //   marginBottom: '7px',
+  // },
+  // 'a, button, [role="button"], input, label, select, textarea': {
+  //   'touch-action': 'manipulation',
+  // },
+  // figure: { margin: 0, borderRadius: '8px' },
+
+  // 'pre, code, kbd': {
+  //   fontFamily: '$mono',
+  //   'font-variant-ligatures': 'none',
+  //   whiteSpace: 'pre-wrap',
+  //   margin: '0',
+  //   overflowX: 'auto',
+  //   textAlign: 'left',
+  // },
+
+  // svg: { display: 'inline-block', verticalAlign: 'middle' },
+
+  // '::selection': {
+  //   backgroundColor: '$brand_inverted',
+  //   color: '$neutral0',
+  // },
 });
