@@ -11,6 +11,7 @@ import { BLOG_CARD_GAP, MAIN_CARD_WIDTH } from '@lib/constants';
 import Image from 'next/image';
 import { heading, text } from '@styles/typography';
 import Link from '@components/common/Link';
+import data from '../content/data/home';
 
 const WrapperSpacer = () => {
   const spacer = css({
@@ -21,7 +22,7 @@ const WrapperSpacer = () => {
   return <div className={spacer()}></div>;
 };
 
-const Home = ({ featuredPosts }) => {
+const Home = ({ featuredPosts, about, socials, work }) => {
   return (
     <div>
       <Head>
@@ -29,15 +30,15 @@ const Home = ({ featuredPosts }) => {
       </Head>
       <Layout>
         {/* <WrapperSpacer /> */}
-        <HomeEntry />
+        <HomeEntry about={about} socials={socials} />
         <FeaturedPosts posts={featuredPosts} />
-        <FeaturedWorks />
+        <FeaturedWorks work={work} />
       </Layout>
     </div>
   );
 };
 
-function FeaturedWorks() {
+function FeaturedWorks({ work }) {
   const container = css({
     display: 'grid',
     gridTemplateColumns: `repeat(1,minmax(0,1fr))`,
@@ -97,7 +98,7 @@ function ProjectCard() {
     color: '$neutral3',
   });
   return (
-    <div href="#" className={card()}>
+    <div className={card()}>
       <div>
         <Image
           width={MAIN_CARD_WIDTH - 40}
@@ -145,6 +146,9 @@ export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
   return {
     props: {
       featuredPosts: filtered,
+      about: data.about,
+      socials: data.socials,
+      work: data.work,
     },
   };
 };

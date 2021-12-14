@@ -91,3 +91,10 @@ export const LeftArrow = (props) => (
     <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" />
   </svg>
 );
+
+export const Done = (props) => (
+  <svg xmlns="http://www.w3.org/2000/svg" {...props} viewBox="0 0 24 24">
+    <path d="M0 0h24v24H0V0z" fill="none" />
+    <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" />
+  </svg>
+);

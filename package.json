@@ -42,7 +42,8 @@
     "sharp": "^0.29.1",
     "swr": "^1.0.1",
     "unified": "^10.1.0",
-    "unist-util-visit": "^4.1.0"
+    "unist-util-visit": "^4.1.0",
+    "yaml": "^1.10.2"
   },
   "devDependencies": {
     "@types/node": "16.10.1",

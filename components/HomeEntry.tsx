@@ -3,9 +3,8 @@ import { heading, text } from '@styles/typography';
 import { css } from 'stitches.config';
 import Image from 'next/image';
 import Link from './common/Link';
-import { link } from 'fs';
-
-function HomeEntry() {
+import { keyGen } from '@lib/helpers';
+function HomeEntry({ about, socials }) {
   const entry = css({
     display: 'grid',
     gridTemplateColumns: 'repeat(12,minmax(0,1fr))',
@@ -74,63 +73,30 @@ function HomeEntry() {
       color: '$brand_main',
     },
   });
+  const paragraph = css({
+    fontSize: '1.125rem',
+    lineHeight: '1.75rem',
+    fointWeight: '400',
+    letterSpacing: '-.025em',
+  });
   return (
     <div className={wrapper(entry())}>
       <div className={content()}>
-        <Image
-          alt="Idir Hamouch"
-          width={64}
-          height={64}
-          className={avatar()}
-          src="https://pbs.twimg.com/profile_images/1374070746817908740/mIfVlbBb_400x400.jpg"
-        />
-        <p className={heading(title())}>
-          I’m a self-taught full-stack developer based in Florida, USA.
-        </p>
-        <p
-          className={text({
-            css: {
-              fontSize: '1.125rem',
-              lineHeight: '1.75rem',
-              fointWeight: '400',
-              letterSpacing: '-.025em',
-            },
-          })}
-        >
-          I have multiple years of experience in the JavaScript ecosystem and have a blog where I
-          write about technology, share the things I've learned, and ponder the future of the field.
-        </p>
-        <p
-          className={text({
-            css: {
-              fontSize: '1.125rem',
-              lineHeight: '1.75rem',
-              fointWeight: '400',
-              letterSpacing: '-.025em',
-            },
-          })}
-        >
-          I am passionate about building things for the web, writing clean & maintainable code, and
-          keeping up with the newest technology trends while looking ahead to what’s on the horizon.
-        </p>
+        <Image alt="Idir Hamouch" width={64} height={64} className={avatar()} src={about.avatar} />
+        <p className={heading(title())}>{about.title}</p>
+        <p className={text(paragraph())}>{about.para1}</p>
+        <p className={text(paragraph())}>{about.para2}</p>
       </div>
       <nav
         className={box({
           css: { gridRow: '2', display: 'flex', marginLeft: '-14px' },
         })}
       >
-        <Link className={link()} href="#">
-          Github
-        </Link>
-        <Link className={link()} href="#">
-          Twitter
-        </Link>
-        <Link className={link()} href="#">
-          Linkedin
-        </Link>
-        <Link className={link()} href="#">
-          Resume
-        </Link>
+        {socials.map((social) => (
+          <Link key={keyGen(social.name)} className={link()} href={social.link} target="_blank">
+            {social.name}
+          </Link>
+        ))}
       </nav>
     </div>
   );
