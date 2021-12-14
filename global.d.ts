@@ -2,6 +2,7 @@ export interface IPageProps {
   posts: Post[];
   tagsCount: number;
   slugsStr: string;
+  tag?: string;
 }
 export interface IView {
   slug: string;
