@@ -10,7 +10,7 @@ function Label({ id, children }) {
       textAlign: 'center',
       display: 'table-cell',
       verticalAlign: 'middle',
-      width: '20px !important',
+      minWidth: '20px !important',
       height: '20px !important',
       appearance: 'none',
       border: '1px solid $neutral3',
