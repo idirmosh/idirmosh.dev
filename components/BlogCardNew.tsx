@@ -34,9 +34,9 @@ function BlogCardNew({ post }) {
   });
   const title = css({
     margin: '0.5rem 0',
-    fontSize: '1rem',
-    marginBottom: '0.5rem',
-    lineHeight: '1.25rem',
+    fontSize: '1.25rem',
+    marginBottom: '0.75rem',
+    lineHeight: '1.75rem',
 
     '@tablet': {
       fontSize: '1.25rem',
@@ -64,7 +64,7 @@ function BlogCardNew({ post }) {
 
   const image = css({
     display: 'grid',
-    minWidth: '70px',
+    minWidth: '94px',
     aspectRatio: '4 / 3',
     border: '1px solid $neutral4',
     borderRadius: '3px',
