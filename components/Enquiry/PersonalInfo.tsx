@@ -6,9 +6,12 @@ function PersonalInfo() {
   const info = css({
     display: 'grid',
     gridAutoColumns: 'auto',
-    gridTemplateColumns: '1fr 1fr',
+    gridTemplateColumns: '1fr',
     gridRowGap: '1rem',
     gridColumnGap: '1rem',
+    '@mobile': {
+      gridTemplateColumns: '1fr 1fr',
+    },
   });
 
   const input = css({
