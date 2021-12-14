@@ -7,10 +7,9 @@ function ProjectDetails() {
     width: '100%',
     padding: '1.2rem 1.2rem 80px',
 
-    marginTop: '1rem',
+    margin: '1.2rem 0 2.1rem 0',
     fontSize: '1rem',
     border: 'none',
-
     boxShadow: '0 0 0 1px $colors$neutral5',
     borderRadius: '9px',
     backgroundColor: '$neutral6',

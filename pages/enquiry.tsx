@@ -9,6 +9,7 @@ import AcceptPolicy from '@components/Enquiry/AcceptPolicy';
 import { css } from 'stitches.config';
 import Link from '@components/common/Link';
 import { heading } from '@styles/typography';
+import Label from '@components/Enquiry/Label';
 
 function Enquiry() {
   const button = css({
@@ -40,13 +41,57 @@ function Enquiry() {
           </div>
           <PersonalInfo />
           <PriceRange />
+          <ServicesNeeded />
           <ProjectDetails />
           <AcceptPolicy />
-          <div>
+          <div className={box({ css: { marginTop: '1.2rem' } })}>
             <input className={button()} type="submit" value="Send Request" />
           </div>
         </div>
       </Layout>
+    </div>
+  );
+}
+
+function ServicesNeeded() {
+  const container = css({
+    display: 'grid',
+    gridAutoColumns: 'auto',
+    gridTemplateRows: 'auto auto',
+    gridTemplateColumns: 'repeat(3,1fr)',
+    gap: '1rem',
+    margin: '1.2rem 0 3rem 0',
+  });
+
+  return (
+    <div>
+      <label className={heading({ type: 'h4' })}>Services needed</label>
+      <div className={container()}>
+        <Label id="web">
+          <input id="web" type="checkbox" />
+          <span className={heading({ type: 'h5', css: { margin: '0' } })}>Web Development</span>
+        </Label>
+        <Label id="mobile">
+          <input id="mobile" type="checkbox" />
+          <span className={heading({ type: 'h5', css: { margin: '0' } })}>Mobile Development</span>
+        </Label>
+        <Label id="support">
+          <input id="support" type="checkbox" />
+          <span className={heading({ type: 'h5', css: { margin: '0' } })}>
+            Maintenance & Support
+          </span>
+        </Label>
+        <Label id="technical">
+          <input id="technical" type="checkbox" />
+          <span className={heading({ type: 'h5', css: { margin: '0' } })}>
+            Technical Consultancy
+          </span>
+        </Label>
+        <Label id="other">
+          <input id="other" type="checkbox" />
+          <span className={heading({ type: 'h5', css: { margin: '0' } })}>Other Services</span>
+        </Label>
+      </div>
     </div>
   );
 }
