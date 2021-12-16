@@ -19,12 +19,13 @@ function ThemeToggler() {
   const isLight = resolvedTheme === 'light';
 
   const togglebtn = css({
+    minWidth: '1.8rem',
+    height: '1.8rem',
     display: 'flex',
     justifyContent: 'space-around',
     alignItems: 'center',
-    margin: '0 auto',
-    minWidth: '1.8rem',
-    height: '1.8rem',
+    //margin: '0 auto',
+    marginLeft: 'auto',
     borderRadius: '.7rem',
     transition: 'all .5s ease 0s',
     boxShadow: '0 0 0 1px $colors$neutral4',
