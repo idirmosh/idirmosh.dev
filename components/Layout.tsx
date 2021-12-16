@@ -1,10 +1,10 @@
 import React, { FC, ReactNode } from 'react';
-import Navbar from '@components/Navbar';
+import NavbarNew from '@components/NavbarNew';
 
 const Layout: FC<{ children: ReactNode }> = ({ children }) => {
   return (
     <>
-      <Navbar />
+      <NavbarNew />
       {children}
     </>
   );
