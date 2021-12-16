@@ -1,7 +1,7 @@
-import { clickableIcon } from '@styles/common';
-import { Moon } from '../common/icons';
+import { Moon, Sun } from '../common/icons';
 import { useEffect, useState } from 'react';
 import { useTheme } from 'next-themes';
+import { css } from 'stitches.config';
 
 function ThemeToggler() {
   const [mounted, setMounted] = useState(false);
@@ -13,17 +13,42 @@ function ThemeToggler() {
 
   const toggleTheme = () => {
     const targetTheme = resolvedTheme === 'light' ? 'dark' : 'light';
-
     setTheme(targetTheme);
   };
+
+  const isLight = resolvedTheme === 'light';
+
+  const togglebtn = css({
+    display: 'flex',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    margin: '0 auto',
+    minWidth: '1.8rem',
+    height: '1.8rem',
+    borderRadius: '.7rem',
+    transition: 'all .5s ease 0s',
+    boxShadow: '0 0 0 1px $colors$neutral4',
+    cursor: 'pointer',
+    backgroundColor: '$neutral7',
+    svg: {
+      fill: isLight ? '$neutral3' : '$yellow',
+    },
+    '&:hover': {
+      backgroundColor: isLight ? '$neutral3' : '$yellow',
+      boxShadow: '0',
+      svg: {
+        fill: '$neutral7',
+      },
+    },
+  });
   return (
     <div
-      className={clickableIcon()}
+      className={togglebtn()}
       onClick={toggleTheme}
-      title="Enable Dark Mode"
-      aria-label="Enable Dark Mode"
+      title={isLight ? 'Enable Dark Mode' : 'Enable Light Mode'}
+      aria-label={isLight ? 'Enable Dark Mode' : 'Enable Light Mode'}
     >
-      <Moon width="18" />
+      {isLight ? <Moon width="18" /> : <Sun width="18" />}
     </div>
   );
 }
