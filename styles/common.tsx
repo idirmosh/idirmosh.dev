@@ -98,33 +98,6 @@ export const flexColumn = css({
   alignItems: 'flex-start',
 });
 
-export const clickableIcon = css({
-  // display: 'flex',
-  // justifyContent: 'space-around',
-  // alignItems: 'center',
-
-  gridColumn: '13/13',
-  alignSelf: 'center',
-  margin: '0 auto',
-  height: '1.6rem',
-  width: '1.6rem',
-  borderRadius: '9999px',
-  transition: 'all .5s ease 0s',
-  boxShadow: '0 0 0 1px $colors$neutral4',
-  cursor: 'pointer',
-  backgroundColor: '$neutral7',
-  svg: {
-    fill: '$neutral2',
-  },
-  '&:hover': {
-    backgroundColor: '$neutral2',
-    boxShadow: '0',
-    svg: {
-      fill: '$neutral7',
-    },
-  },
-});
-
 export const linedAnchor = css({
   //textDecoration: 'underline',
   'text-underline-position': 'under',
