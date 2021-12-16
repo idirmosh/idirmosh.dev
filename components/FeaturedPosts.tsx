@@ -11,18 +11,20 @@ function FeaturedPosts({ posts }: { posts: Post[] }) {
   const container = css({
     display: 'grid',
     gridTemplateColumns: 'repeat(12,minmax(0,1fr))',
-    gap: '32px',
+    gap: '0px',
     margin: '6rem auto',
+    '@tablet': {
+      gap: '2rem',
+    },
     '@desktop': {
       margin: '10rem auto',
     },
   });
   const groupe = css({
-    gridColumnStart: '1',
-    gridColumnEnd: '13',
+    gridColumn: '1/13',
+
     '@desktop': {
-      gridColumnStart: '1',
-      gridColumnEnd: '7',
+      gridColumn: '1/7',
       // TODO: uncomment when there is two cards
       //'&:last-of-type': {
       //  gridColumnStart: '7',
@@ -40,7 +42,7 @@ function FeaturedPosts({ posts }: { posts: Post[] }) {
 
   const title = css({
     color: '$neutral2',
-    maxWidth: '24ch',
+    maxWidth: '22ch',
     overflow: 'hidden',
     whiteSpace: 'nowrap',
     textOverflow: 'ellipsis',

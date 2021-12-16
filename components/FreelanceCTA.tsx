@@ -5,22 +5,20 @@ import { css } from 'stitches.config';
 function FreelanceCTA() {
   const cta = css({
     margin: '12rem auto',
-    padding: '3rem',
+    padding: '3rem 1rem',
     borderRadius: '.5rem',
     textAlign: 'center',
   });
   const title = css({
-    fontSize: '2.4rem',
-    lineHeight: '1.1',
+    fontSize: '1.5rem',
+    lineHeight: '1.2',
     letterSpacing: '-.05em',
-    margin: '1.25rem 0',
+    margin: '0',
     '@mobile': {
-      fontSize: '2.9rem',
-      lineHeight: '1',
+      fontSize: '2.5rem',
     },
     '@tablet': {
-      fontSize: '3.5rem',
-      lineHeight: '1',
+      fontSize: '3rem',
     },
   });
   const btn = css({
