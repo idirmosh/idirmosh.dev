@@ -30,11 +30,13 @@ function NavbarNew() {
     margin: '0 0 .12rem 0 !important',
     display: 'flex',
     flexDirection: 'row',
+    lineHeight: '1.2',
   });
   const sub = css({
     margin: '0 !important',
     fontWeight: '400',
     color: '$neutral3',
+    lineHeight: '1.2',
   });
   const audioS = css({
     display: 'flex',
@@ -63,13 +65,13 @@ function NavbarNew() {
       <div className={wrapper()}>
         <nav className={navbar()}>
           <div className={logo()}>
-            <h1 className={name(heading({ type: 'h4' }))}>
+            <h1 className={name(heading({ type: 'h3' }))}>
               Idir Hamouch
-              <span className={audioS()} onMouseEnter={() => new Audio(audio).play()}>
+              <span className={audioS()} onClick={() => new Audio(audio).play()}>
                 <Icons.Audio width="14px" />
               </span>
             </h1>
-            <span className={sub(text({ type: 'medium' }))}>making the web a better place</span>
+            <p className={sub(text({ type: 'medium' }))}>making the web a better place</p>
           </div>
 
           {/* <ul className={menu()}>
