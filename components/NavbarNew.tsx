@@ -30,6 +30,7 @@ function NavbarNew() {
     margin: '0 0 .12rem 0 !important',
     display: 'flex',
     flexDirection: 'row',
+    alignItems: 'center',
     lineHeight: '1.2',
   });
   const sub = css({
