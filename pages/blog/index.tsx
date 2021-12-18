@@ -1,6 +1,5 @@
 import type { GetStaticProps, NextPage } from 'next';
 import { useEffect, useState } from 'react';
-import Head from 'next/head';
 import { allPosts } from '.contentlayer/data';
 import { filterTags, postMetaFilter, reduceTags, subscribe } from '@lib/helpers';
 import { IPageProps, IView } from 'global';
@@ -11,6 +10,8 @@ import { box, flexRow, linkReset, singlePostWrapper, wrapper } from '@styles/com
 import Link from '@components/common/Link';
 import { heading, text } from '@styles/typography';
 import { input } from '@components/MDXComponents/styles';
+import Head from '@components/Head';
+import { NAME } from '@lib/constants';
 
 const Blog: NextPage<IPageProps> = ({ posts, tagsCount }) => {
   const [slugs, setSlugs] = useState(null);
@@ -25,9 +26,10 @@ const Blog: NextPage<IPageProps> = ({ posts, tagsCount }) => {
 
   return (
     <Layout>
-      <Head>
-        <title>Blog</title>
-      </Head>
+      <Head
+        title={`The ${NAME}'s Blog`}
+        description="I write about JavaScript, TypeScript, React, and share the things I've learned."
+      />
       <div
         className={flexRow(
           singlePostWrapper({

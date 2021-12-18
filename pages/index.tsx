@@ -10,11 +10,15 @@ import data from '../content/data/home';
 import FeaturedWorks from '@components/FeaturedWorks';
 import FreelanceCTA from '@components/FreelanceCTA';
 import Head from '@components/Head';
+import { NAME } from '@lib/constants';
 
 const Home = ({ featuredPosts, about, socials, work }) => {
   return (
     <div>
-      <Head title="Home titkle" description="desc" />
+      <Head
+        title={NAME}
+        description="Hi, I'm Idir Hamouch. I’m a self-taught full-stack javaScript developer, I am passionate about building things for the web using newest technologies."
+      />
       <Layout>
         <HomeEntry about={about} socials={socials} />
         <FeaturedPosts posts={featuredPosts} />

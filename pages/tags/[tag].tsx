@@ -1,13 +1,12 @@
 import type { GetStaticProps, GetStaticPaths, NextPage } from 'next';
 import { allPosts } from '.contentlayer/data';
-import { filterTags, keyGen, reduceTags } from '@lib/helpers';
+import { capitalize, filterTags, keyGen, reduceTags } from '@lib/helpers';
 import { IPageProps, IParams } from 'global';
-import BlogCard from '@components/BlogCard';
-import BlogListWrapper from '@components/common/BlogListWrapper';
 import Layout from '@components/Layout';
-import { box, singlePostWrapper } from '@styles/common';
+import { singlePostWrapper } from '@styles/common';
 import BlogCardNew from '@components/BlogCardNew';
 import { css } from 'stitches.config';
+import Head from '@components/Head';
 
 const SingleTagPage: NextPage<IPageProps> = ({ posts, tag }) => {
   const title = css({
@@ -28,6 +27,10 @@ const SingleTagPage: NextPage<IPageProps> = ({ posts, tag }) => {
   const container = css({ margin: '3.4rem 0' });
   return (
     <Layout>
+      <Head
+        title={`${capitalize(tag)} Tutorials`}
+        description={`Latest ${capitalize(tag)} tutorials.`}
+      />
       <div className={singlePostWrapper({})}>
         <div className={container()}>
           <h1 className={title()}>{tag}</h1>

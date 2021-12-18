@@ -52,3 +52,9 @@ export const sortPosts = (a, b) => {
   const sec = getDate(b.publishedAt);
   return first < sec ? 1 : -1;
 };
+
+// capitalize string
+export const capitalize = (str) => {
+  const lower = str.toLowerCase();
+  return str.charAt(0).toUpperCase() + lower.slice(1);
+};

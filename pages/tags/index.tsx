@@ -10,6 +10,7 @@ import Layout from '@components/Layout';
 import { box, singlePostWrapper } from '@styles/common';
 import Link from '@components/common/Link';
 import { heading, text } from '@styles/typography';
+import Head from '@components/Head';
 
 const TagsPage: NextPage<ITags> = ({ tags }) => {
   const container = css({
@@ -25,6 +26,7 @@ const TagsPage: NextPage<ITags> = ({ tags }) => {
   const info = css({ margin: '2rem AUTO' });
   return (
     <Layout>
+      <Head title="Tags" description="Latest articles about web development." />
       <div className={singlePostWrapper()}>
         <div className={info()}>
           <h1>TAGS</h1>

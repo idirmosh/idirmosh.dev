@@ -6,7 +6,10 @@ import { css } from 'stitches.config';
 import { box, flexColumn, flexRow, meta } from '@styles/common';
 import Link from './common/Link';
 import PostMeta from './common/PostMeta';
+import Head from './Head';
+import { NAME } from '@lib/constants';
 function ArticleHeader({ post }) {
+  console.log(post);
   const header = css({
     margin: '2rem auto',
   });
@@ -74,6 +77,11 @@ function ArticleHeader({ post }) {
 
   return (
     <header className={header()}>
+      <Head
+        title={`${post.title} - The ${NAME}'s Blog`}
+        description={post.summary}
+        image={post.image}
+      />
       <Link href="/blog" className={back()}>
         <LeftArrow width="20px" />
         <p className={text({ css: { margin: '0', display: 'inline-block', lineHeight: '1' } })}>

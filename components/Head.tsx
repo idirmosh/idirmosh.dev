@@ -18,7 +18,7 @@ function Head({
   const asPath = ORIGIN_URL + router.asPath;
   const siteType = router.asPath === '/' ? 'website' : 'article';
   const isBlogPost = router.asPath.startsWith('/blog/');
-  const siteImg = image ? image : ORIGIN_URL + '/avatar.png';
+  const siteImg = image ? ORIGIN_URL + image : ORIGIN_URL + '/avatar.png';
 
   return (
     <NextHead>

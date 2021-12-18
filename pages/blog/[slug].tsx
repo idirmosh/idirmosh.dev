@@ -8,6 +8,8 @@ import { IParams } from 'global';
 import Layout from '@components/Layout';
 import { singlePostWrapper, wrapper } from '@styles/common';
 import ArticleHeader from '@components/ArticleHeader';
+import Head from '@components/Head';
+import { NAME } from '@lib/constants';
 
 const PostBySlug: NextPage<ISinglePostProps> = ({ post: { body, ...frontMatter } }) => {
   const Component = useMemo(() => getMDXComponent(body.code), [body.code]);
