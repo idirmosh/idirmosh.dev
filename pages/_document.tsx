@@ -1,15 +1,12 @@
 import React from 'react';
 import NextDocument, { Html, Head, Main, NextScript } from 'next/document';
-import { darkTheme, getCssText } from 'stitches.config';
-import { globalStyles } from '@styles/global';
+import { getCssText } from 'stitches.config';
 
 const INTER_FONT =
   'https://fonts.googleapis.com/css?family=Inter:400,500,600,700,800,900&display=swap';
 
 export default class Document extends NextDocument {
   render() {
-    globalStyles();
-
     return (
       <Html lang="en">
         <Head>
