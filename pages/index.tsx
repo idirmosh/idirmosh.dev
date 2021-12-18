@@ -1,6 +1,6 @@
 import type { GetStaticPropsContext } from 'next';
 import { allPosts } from '.contentlayer/data';
-import Head from 'next/head';
+
 import Layout from '@components/Layout';
 import { css } from 'stitches.config';
 import { sortPosts } from '@lib/helpers';
@@ -9,22 +9,12 @@ import HomeEntry from '@components/HomeEntry';
 import data from '../content/data/home';
 import FeaturedWorks from '@components/FeaturedWorks';
 import FreelanceCTA from '@components/FreelanceCTA';
-
-const WrapperSpacer = () => {
-  const spacer = css({
-    display: 'block',
-    width: '100%',
-    height: '80px',
-  });
-  return <div className={spacer()}></div>;
-};
+import Head from '@components/Head';
 
 const Home = ({ featuredPosts, about, socials, work }) => {
   return (
     <div>
-      <Head>
-        <title>Index</title>
-      </Head>
+      <Head title="Home titkle" description="desc" />
       <Layout>
         <HomeEntry about={about} socials={socials} />
         <FeaturedPosts posts={featuredPosts} />
