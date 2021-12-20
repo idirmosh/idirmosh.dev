@@ -27,6 +27,7 @@
     "**/*.ts",
     "**/*.tsx",
     "lib/mdx.js",
-    "./node_modules/@types"
+    "./node_modules/@types",
+    "next-sitemap.js"
   ]
 }

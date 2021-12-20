@@ -6,7 +6,7 @@ import Link from './common/Link';
 import Image from 'next/image';
 import { MAIN_CARD_WIDTH } from '@lib/constants';
 
-function ProjectCard() {
+function ProjectCard({ project }) {
   const card = css({
     textDecoration: 'none',
     width: '100%',
@@ -34,18 +34,16 @@ function ProjectCard() {
           layout="responsive"
           objectFit="cover"
           alt="sds"
-          src="https://pbs.twimg.com/profile_images/1374070746817908740/mIfVlbBb_400x400.jpg"
+          src={project.preview}
         />
       </div>
       <div className={content()}>
-        <span className={title(heading({ type: 'h4' }))}>99.co </span>
-        <span className={desc(text({ type: 'medium' }))}>
-          — A map-based property search engine that provides renters, buyers, and agents fast and
-          efficient property search experience.
-        </span>
+        <span className={title(heading({ type: 'h4' }))}>{project.name} </span>
+        <span className={desc(text({ type: 'medium' }))}>— {project.description}</span>
         <div className={box({ css: { marginTop: '.4rem' } })}>
           <Link
-            href="#"
+            href={project.demo}
+            target="_blank"
             className={text({
               type: 'external-link',
               css: { paddingRight: '1rem', fontSize: '.875rem' },
@@ -55,7 +53,8 @@ function ProjectCard() {
           </Link>
 
           <Link
-            href="#"
+            href={project.source}
+            target="_blank"
             className={text({
               type: 'external-link',
               css: { fontSize: '.875rem' },

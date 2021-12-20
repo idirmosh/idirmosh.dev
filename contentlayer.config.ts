@@ -47,6 +47,16 @@ const Post = defineDocumentType(() => ({
   computedFields,
 }));
 
+const Page = defineDocumentType(() => ({
+  name: 'Page',
+  filePathPattern: 'pages/*.mdx',
+  bodyType: 'mdx',
+  fields: {
+    name: { type: 'string', required: true },
+  },
+  computedFields,
+}));
+
 const contentLayerConfig = makeSource({
   contentDirPath: 'content',
   documentTypes: [Post],

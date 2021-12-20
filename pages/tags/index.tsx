@@ -1,5 +1,4 @@
 import type { GetStaticProps, NextPage } from 'next';
-import * as styles from '@components/MDXComponents/styles';
 import { allPosts } from '.contentlayer/data';
 import type { Post } from '.contentlayer/types';
 import { filterTags, keyGen, randGen, reduceTags } from '@lib/helpers';
@@ -7,27 +6,27 @@ import { ITag, ITags } from 'global';
 import { FC } from 'react';
 import { css } from 'stitches.config';
 import Layout from '@components/Layout';
-import { box, singlePostWrapper } from '@styles/common';
+import { box, blogWrapper, Grid } from '@styles/common';
 import Link from '@components/common/Link';
 import { heading, text } from '@styles/typography';
 import Head from '@components/Head';
 
 const TagsPage: NextPage<ITags> = ({ tags }) => {
-  const container = css({
-    display: 'grid',
-    gridAutoColumns: 'auto',
-    gridTemplateColumns: '1fr',
-    gridRowGap: '1rem',
-    gridColumnGap: '1rem',
+  const container = css(Grid, {
+    gridAutoColumns: 'auto !important',
+    gridTemplateColumns: '1fr !important',
+    gridRowGap: '$3',
+    gridColumnGap: '$3',
     '@mobile': {
-      gridTemplateColumns: '1fr 1fr',
+      gridTemplateColumns: '1fr 1fr !important',
     },
   });
-  const info = css({ margin: '2rem AUTO' });
+  const info = css({ margin: '2rem auto' });
   return (
     <Layout>
       <Head title="Tags" description="Latest articles about web development." />
-      <div className={singlePostWrapper()}>
+      <div className={blogWrapper()}>
+        {/* TODO:Improve this */}
         <div className={info()}>
           <h1>TAGS</h1>
         </div>
@@ -43,7 +42,7 @@ const TagsPage: NextPage<ITags> = ({ tags }) => {
 
 const TagCard = ({ tag }) => {
   const card = css({
-    padding: '1rem 0',
+    padding: '$3 0',
     '&:hover': {
       boxShadow: '0 2px 2px -2px $colors$neutral4',
     },

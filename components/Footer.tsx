@@ -16,13 +16,14 @@ function Footer() {
     <footer className={footer()}>
       <div className={wrapper()}>
         <div>
+          <div></div>
           <p className={paragraph(text({ type: 'small' }))}>
             All rights reserved © Idir Hamouch 2021.
           </p>
-          <p className={paragraph(text({ type: 'small' }))}>
-            Find out the <Link href="/blog/tech-stach">technology stack</Link> of my website.
-          </p>
         </div>
+        <p className={paragraph(text({ type: 'small' }))}>
+          Find out the <Link href="/blog/tech-stach">Technology Stack</Link> of my website.
+        </p>
       </div>
     </footer>
   );

@@ -1,5 +1,5 @@
 import { format } from 'date-fns';
-import { box, flexRow, wrapper } from '@styles/common';
+import { box, flexRow, Grid, wrapper } from '@styles/common';
 import { heading, text } from '@styles/typography';
 import { css } from 'stitches.config';
 import Link from '@components/common/Link';
@@ -8,24 +8,11 @@ import { keyGen } from '@lib/helpers';
 import { Post } from '.contentlayer/types';
 
 function FeaturedPosts({ posts }: { posts: Post[] }) {
-  const container = css({
-    display: 'grid',
-    gridTemplateColumns: 'repeat(12,minmax(0,1fr))',
-    gap: '0px',
-    margin: '6rem auto',
-    '@tablet': {
-      gap: '2rem',
-    },
-    '@desktop': {
-      margin: '10rem auto',
-    },
-  });
   const groupe = css({
     gridColumn: '1/13',
-
     '@desktop': {
       gridColumn: '1/7',
-      // TODO: uncomment when there is two cards
+      //TODO: uncomment when there is two cards
       //'&:last-of-type': {
       //  gridColumnStart: '7',
       //  gridColumnEnd: '13',
@@ -46,26 +33,20 @@ function FeaturedPosts({ posts }: { posts: Post[] }) {
     overflow: 'hidden',
     whiteSpace: 'nowrap',
     textOverflow: 'ellipsis',
+    margin: '0 !important',
     '@mobile': {
       maxWidth: '100%',
     },
   });
   return (
-    <div className={wrapper(container())}>
+    <Grid className={wrapper()}>
       <div className={groupe()}>
-        <h2 className={heading({ type: 'h2', css: { marginBottom: '24px', color: '$neutral1' } })}>
-          Writing
-        </h2>
-        <div className={box({ css: { marginBottom: '1.5rem' } })}>
+        <h2 className={heading({ type: 'h2' })}>Writing</h2>
+        <div className={box({ css: { marginBottom: '$4' } })}>
           {posts &&
             posts.map((post) => (
               <Link key={keyGen(post.slug)} href={`/blog/${post.slug}`} className={flexRow(link())}>
-                <h6
-                  className={title(
-                    heading({ type: 'h4', css: { margin: '0', fontWeight: '500' } })
-                  )}
-                  title={post.title}
-                >
+                <h6 className={title(heading({ type: 'h4' }))} title={post.title}>
                   {post.title}
                 </h6>
                 <time className={text({ type: 'small', css: { color: '$neutral3', margin: '0' } })}>
@@ -78,7 +59,7 @@ function FeaturedPosts({ posts }: { posts: Post[] }) {
           View all posts
         </Link>
       </div>
-    </div>
+    </Grid>
   );
 }
 

@@ -9,7 +9,6 @@ import PostMeta from './common/PostMeta';
 import Head from './Head';
 import { NAME } from '@lib/constants';
 function ArticleHeader({ post }) {
-  console.log(post);
   const header = css({
     margin: '2rem auto',
   });
@@ -88,7 +87,7 @@ function ArticleHeader({ post }) {
           Back to Blog
         </p>
       </Link>
-      <h1 className={heading({ type: 'h1', css: { margin: '1rem auto' } })}> {post.title} </h1>
+      <h1 className={heading({ type: 'h1' })}> {post.title} </h1>
       <div className={metaWrapper(flexRow())}>
         <div className={flexRow({ css: { alignItems: 'center' } })}>
           <Link className={flexRow(avatar())} href="/about">

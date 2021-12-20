@@ -6,51 +6,41 @@ import TagList from './common/TagList';
 import PostMeta from './common/PostMeta';
 import Link from '@components/common/Link';
 import Image from 'next/image';
-import { meta, wrapper } from '@styles/common';
+import { box, flexRow, meta, wrapper } from '@styles/common';
 import { MAIN_CARD_WIDTH } from '@lib/constants';
 
 function BlogCardNew({ post }) {
   const cardWrapper = css({
-    display: 'flex',
     alignItems: 'flex-start',
-    flexDirection: 'row',
     justifyContent: 'space-between',
-    borderBottom: '1px solid $neutral5',
-    paddingBottom: '1rem',
-    marginBottom: '2rem',
+    borderBottom: '1px solid $neutral6',
+    paddingBottom: '$3',
+    marginBottom: '$4',
   });
   const link = css({
     transition: 'textDecoration .3s ease',
     color: 'inherit',
-    fontSise: 'inherit',
-
     '&:not(:hover)': {
       textDecoration: 'none',
     },
   });
 
-  const cardContent = css({
-    padding: '0 2rem 0 0',
-  });
   const title = css({
-    margin: '0.5rem 0',
+    margin: '$3 0',
     fontSize: '1.25rem',
-    marginBottom: '0.75rem',
-    lineHeight: '1.75rem',
-
+    marginBottom: '$1',
+    lineHeight: '1.2',
+    color: '$neutral1',
     '@tablet': {
-      fontSize: '1.25rem',
-      marginBottom: '0.5rem',
-      lineHeight: '1.75rem',
+      marginBottom: '$2',
     },
     '@desktop': {
       fontSize: '1.5rem',
-      marginBottom: '.5rem',
-      lineHeight: '1.75rem',
     },
   });
   const summary = css({
     display: 'none',
+    color: '$neutral3',
     '@tablet': {
       display: 'block',
     },
@@ -59,7 +49,7 @@ function BlogCardNew({ post }) {
     display: 'flex',
     justifyContent: 'space-between',
     width: '100%',
-    margin: '1.4rem 0 0 0',
+    margin: '$4 0 0 0',
   });
 
   const image = css({
@@ -69,8 +59,8 @@ function BlogCardNew({ post }) {
     border: '1px solid $neutral4',
     borderRadius: '3px',
     '@tablet': {
-      minWidth: '144px',
-      height: '144px',
+      minWidth: '$6',
+      height: '$6',
       aspectRatio: '1/1',
       borderRadius: '7px',
     },
@@ -82,17 +72,15 @@ function BlogCardNew({ post }) {
     },
   });
   return (
-    <article className={cardWrapper()}>
-      <div className={cardContent()}>
+    <article className={flexRow(cardWrapper())}>
+      <div className={box({ css: { padding: '0 $4 0 0' } })}>
         <PostMeta className={meta({})} date={post.publishedAt} readTime={post.readingTime.text} />
         <h2 className={title()}>
           <Link href={`/blog/${post.slug}`} className={link()}>
             {post.title}
           </Link>
         </h2>
-        <p className={summary(text({ type: 'medium', css: { marginTop: '.5rem' } }))}>
-          {post.summary}
-        </p>
+        <p className={summary(text({ css: { margin: '0' } }))}>{post.summary}</p>
         <div className={footer()}>
           <TagList tags={post.tags} />
         </div>

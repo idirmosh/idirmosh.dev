@@ -1,3 +1,4 @@
+import { keyGen } from '@lib/helpers';
 import { box, wrapper } from '@styles/common';
 import { heading } from '@styles/typography';
 import React from 'react';
@@ -9,7 +10,7 @@ function FeaturedWorks({ work }) {
     display: 'grid',
     gridTemplateColumns: `repeat(1,minmax(0,1fr))`,
     gridGap: '4rem',
-
+    marginTop: '$4 !important',
     '@mobile': {
       gridTemplateColumns: `repeat(2,minmax(0,1fr))`,
       gridGap: '2rem',
@@ -25,20 +26,11 @@ function FeaturedWorks({ work }) {
   });
 
   return (
-    <div className={box({ css: { margin: '10rem auto' } })}>
-      <div className={wrapper()}>
-        <h2
-          className={heading({ type: 'h2', css: { marginBottom: '2.4rem', color: '$neutral1' } })}
-        >
-          Projects
-        </h2>
-      </div>
-
-      <div className={wrapper(container())}>
-        <ProjectCard />
-        <ProjectCard />
-        <ProjectCard />
-        <ProjectCard />
+    <div className={wrapper({ css: { margin: '$6 auto' } })}>
+      <h2 className={heading({ type: 'h2' })}>Projects</h2>
+      <div className={container()}>
+        {work &&
+          work.map((project) => <ProjectCard key={keyGen(project.name)} project={project} />)}
       </div>
     </div>
   );

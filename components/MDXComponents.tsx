@@ -1,18 +1,10 @@
 import { useState } from 'react';
 import * as Collapsible from '@radix-ui/react-collapsible';
-import {
-  blockquote,
-  box,
-  button,
-  code,
-  divider,
-  Image,
-  img,
-  pre,
-} from '@components/MDXComponents/styles';
+
 import Link from '@components/common/Link';
 import { heading, text } from '@styles/typography';
 import NextImage from 'next/image';
+import { blockquote, box, button, divider, Image, img, pre } from '@styles/common';
 
 export const components = {
   Box: ({ css, as: Comp = 'div', ...props }: any) => <Comp className={box(css)} {...props} />,

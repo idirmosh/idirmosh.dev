@@ -1,4 +1,7 @@
+import { ORIGIN_URL } from '@lib/constants';
+
 export default {
+  open: false,
   about: {
     avatar: 'https://pbs.twimg.com/profile_images/1374070746817908740/mIfVlbBb_400x400.jpg',
     title: 'I’m a self-taught full-stack developer based in Florida, USA.',
@@ -17,17 +20,17 @@ export default {
       link: 'https://twitter.com/Idirmosh',
     },
     {
-      name: 'Linkdin',
+      name: 'Linkedin',
       link: 'https://linkedin.com/in/Idirmosh',
     },
   ],
   work: [
     {
-      preview: '',
-      name: '',
-      description: '',
-      demo: '',
-      source: '',
+      preview: ORIGIN_URL + '/projects/joly.png',
+      name: 'JollyWellHealth',
+      description: 'A micro website for friend build with Next.js and ChakraUI',
+      demo: 'https://camilewellhealth-meedinbox.vercel.app/',
+      source: 'https://github.com/idirmosh/camilewellhealth',
     },
   ],
 };
