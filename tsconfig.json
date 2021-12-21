@@ -4,7 +4,8 @@
     "paths": {
       "@components/*": ["components/*"],
       "@styles/*": ["styles/*"],
-      "@lib/*": ["lib/*"]
+      "@lib/*": ["lib/*"],
+      "@types/*": ["types/*"]
     },
     "target": "es2017",
     "lib": ["dom", "dom.iterable", "esnext"],
@@ -27,7 +28,6 @@
     "**/*.ts",
     "**/*.tsx",
     "lib/mdx.js",
-    "./node_modules/@types",
-    "next-sitemap.js"
+    "./node_modules/@types"
   ]
 }

@@ -1,14 +1,20 @@
-const { promises: fs } = require('fs');
-const path = require('path');
-const RSS = require('rss');
-const matter = require('gray-matter');
-const { NAME, ORIGIN_URL } = require('./constants');
+import path from 'path';
+import RSS from 'rss';
+import { promises as fs } from 'fs';
+import { NAME, ORIGIN_URL } from './constants';
+import { reduceTags, filterTags } from './helpers';
+import { allPosts } from '.contentlayer/data';
+import matter from 'gray-matter';
+
+const categories = allPosts.reduce(reduceTags, []).filter(filterTags);
 
 async function generate() {
   const feed = new RSS({
-    title: NAME,
+    title: NAME + "'s Blog",
+    webMaster: NAME,
     site_url: ORIGIN_URL,
     feed_url: ORIGIN_URL + '/feed.xml',
+    categories: categories,
     description: "Recent articles from the Idir Hamouch's blog.",
   });
 

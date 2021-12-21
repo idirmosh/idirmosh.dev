@@ -1,5 +1,4 @@
 const { withContentlayer } = require('next-contentlayer');
-
 const securityHeaders = [
   {
     key: 'Referrer-Policy',
