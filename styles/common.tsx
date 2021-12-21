@@ -26,7 +26,10 @@ export const flex = css({
     },
   },
 });
-
+export const ulist = css({
+  paddingLeft: '$3',
+  marginBottom: '$4',
+});
 export const views = css({
   color: '$brand_main',
   fontWeight: '500',
@@ -146,13 +149,13 @@ export const container = css({
 
 export const code = css({
   backgroundColor: '$brand_faded',
-  borderRadius: '3px',
+  borderRadius: '$4',
   border: '1px solid $brand_bright',
   color: '$neutral0',
-  lineHeight: '24px',
+  lineHeight: '1.6',
   fontFamily: '$mono',
-  fontSize: '15px',
-  padding: '0 3px',
+  fontSize: '1rem',
+  padding: '0 $1',
 });
 
 export const badge = css({
@@ -260,18 +263,18 @@ export const pre = css({
   $$addedWordText: '$colors$turq',
 
   border: '1px solid $brand_bright',
-  borderRadius: '6px',
+  borderRadius: '4px',
   boxSizing: 'border-box',
   padding: '$3',
   overflow: 'auto',
   fontFamily: '$mono',
-  fontSize: '14px',
-  lineHeight: '$3',
+  fontSize: '.89rem',
+  lineHeight: '1.6',
   whiteSpace: 'pre',
   position: 'relative',
   backgroundColor: '$$background',
   color: '$$text',
-  margin: '32px 0',
+  margin: '$4 0',
 
   '[data-preview] + &': {
     marginTop: '0',
@@ -325,8 +328,8 @@ export const pre = css({
 
   '.token.deleted:not(.prefix), .token.inserted:not(.prefix)': {
     display: 'block',
-    px: '$4',
-    mx: '-20px',
+    padding: '0 $4',
+    margin: '0 -20px',
   },
 
   '.token.deleted:not(.prefix)': {
@@ -352,7 +355,7 @@ export const pre = css({
     backgroundColor: '$$bgAndShadow',
     display: 'inline-block',
     boxShadow: '$$xOffset 0 0 0 $$bgAndShadow, -$$xOffset 0 0 0 $$bgAndShadow',
-    borderRadius: '$1',
+    borderRadius: '4px',
 
     // reset the color for tokens inside highlighted words
     '.token': {
@@ -412,35 +415,12 @@ export const pre = css({
         },
       },
     },
-    theme: {
-      orange: {
-        $$background: 'rgb(255 135 31 / 10%)',
-        $$syntax1: '$colors$pink',
-        $$syntax2: '$colors$turq',
-        $$syntax3: '$colors$orange',
-        $$syntax4: '$colors$orange',
-      },
-      pink: {
-        $$background: 'hsl(345deg 66% 73% / 20%)',
-        $$syntax1: '$colors$orange',
-        $$syntax2: '$colors$turq',
-        $$syntax3: '$colors$pink',
-        $$syntax4: '$colors$pink',
-      },
-      turq: {
-        $$background: 'rgba(0, 245, 196, 0.15)',
-        $$syntax1: '$colors$orange',
-        $$syntax2: '$colors$pink',
-        $$syntax3: '$colors$turq',
-        $$syntax4: '$colors$turq',
-      },
-    },
   },
 });
 
 export const img = css({
   display: 'block',
-  margin: '32px 0',
+  margin: '$4 0',
   img: {
     display: 'block',
     maxWidth: '100%',
@@ -451,7 +431,7 @@ export const img = css({
 
 export const Image = css({
   display: 'block',
-  margin: '32px 0',
+  margin: '$4 0',
   img: {
     display: 'block',
     maxWidth: '100%',

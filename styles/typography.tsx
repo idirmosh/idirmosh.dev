@@ -62,6 +62,7 @@ export const text = css({
         margin: '$1 0 0 0',
         textTransform: 'uppercase',
         letterSpacing: '-.025em',
+        display: 'inline-block',
       },
       link: {
         color: '$brand_main',

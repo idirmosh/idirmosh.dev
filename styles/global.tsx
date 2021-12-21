@@ -20,8 +20,7 @@ export const globalStyles = globalCss({
   'abbr[title]': { textDecoration: 'underline dotted' },
   'b,strong': { fontWeight: 'bolder' },
   'code,kbd,samp,pre': {
-    fontFamily: '$sans',
-    fontSize: '1em',
+    fontFamily: '$mono',
   },
   small: { fontSize: '80%' },
   'sub,sup': {
@@ -32,7 +31,17 @@ export const globalStyles = globalCss({
   },
   sub: { bottom: '-0.25em' },
   sup: { top: '-0.5em' },
-  table: { textIndent: '0', borderColor: 'inherit' },
+  table: {
+    display: 'block',
+    maxWidth: 'fit-content',
+    overflowX: 'auto',
+    whiteSpace: 'nowrap',
+    textIndent: '0',
+    borderColor: 'inherit',
+  },
+  thead: {
+    borderBottom: '1px solid red',
+  },
   'button,input,optgroup,select,textarea': {
     fontFamily: 'inherit',
     fontSize: '100%',

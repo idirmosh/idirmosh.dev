@@ -4,7 +4,7 @@ import * as Collapsible from '@radix-ui/react-collapsible';
 import Link from '@components/common/Link';
 import { heading, text } from '@styles/typography';
 import NextImage from 'next/image';
-import { blockquote, box, button, divider, Image, img, pre } from '@styles/common';
+import { blockquote, box, button, divider, Image, img, pre, ulist } from '@styles/common';
 
 export const components = {
   Box: ({ css, as: Comp = 'div', ...props }: any) => <Comp className={box(css)} {...props} />,
@@ -36,9 +36,11 @@ export const components = {
     );
   },
   hr: (props) => <hr className={divider({ size: '1', css: { my: '$5' } })} {...props} />,
-  ul: (props) => <ul className={box({})} {...props} />,
-  ol: (props) => <ol className={box({})} {...props} />,
-  li: (props) => <li className={text()} {...props} />,
+  ul: (props) => <ul className={ulist()} {...props} />,
+  ol: (props) => <ol className={ulist()} {...props} />,
+  li: (props) => (
+    <li className={text({ type: 'medium', css: { marginBottom: '$2' } })} {...props} />
+  ),
   strong: (props) => <strong className={text({ css: { fontWeight: '700' } })} {...props} />,
   Image: ({ children, ...props }) => (
     <figure className={Image()}>

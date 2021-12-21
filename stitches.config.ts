@@ -31,7 +31,7 @@ export const { styled, css, globalCss, keyframes, getCssText, theme, createTheme
 
       fonts: {
         sans: 'Inter, sans-serif',
-        mono: 'ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,monospace',
+        mono: 'Fira Mono, monospace',
       },
       space: {
         1: '4px',

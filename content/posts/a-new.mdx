@@ -45,6 +45,27 @@ SELECT * FROM guestbook
 ORDER BY updated_at DESC;
 ```
 
+### Backend (as a Service)
+
+These are (typically) managed services that automate the creation of code based on your [database schema](https://www.youtube.com/watch?v=3BZz8R7mqu0).
+You might see these referred to as "in a box" solutions. For example, Hasura provides a GraphQL API in a box as part of the platform.
+
+- ✅ &nbsp;Yes, or included directly in the platform
+- ⛔️ &nbsp;Not supported or available
+- 🚧 &nbsp;Requires some work
+
+| Name                                           | Type     | Open Source | Self Hosted Option | AuthN Included | GraphQL |
+| ---------------------------------------------- | -------- | ----------- | ------------------ | -------------- | ------- |
+| [Firebase](https://firebase.google.com/)       | NoSQL    | ⛔️         | ⛔️                | ✅             | ⛔️     |
+| [MongoDB](https://www.mongodb.com/)            | NoSQL    | ✅          | ✅                 | ✅             | ⛔️     |
+| [Fauna](https://fauna.com/)                    | NoSQL    | ⛔️         | ⛔️                | ✅             | ✅      |
+| [Userbase](https://userbase.com/)              | NoSQL    | ✅          | ✅                 | ✅             | ⛔️     |
+| [PlanetScale](https://www.planetscale.com/)    | SQL      | ✅          | ⛔️                | 🚧             | ⛔️     |
+| [Hasura](https://hasura.io/)                   | Postgres | ✅          | ✅                 | 🚧             | ✅      |
+| [Nhost](https://nhost.io/)                     | Postgres | ✅          | ✅                 | ✅             | ✅      |
+| [Supabase](https://supabase.io/)               | Postgres | ✅          | ✅                 | ✅             | ⛔️     |
+| [AWS Amplify](https://aws.amazon.com/amplify/) | Both     | ✅          | ✅                 | ✅             | ✅      |
+
 ## Why MySQL and PlanetScale?
 
 SQL is boring, proven technology. It's been around for years and will continue to be around for years. I've used it before in prior jobs, but still felt I could understand it better. I also enjoy using PostgreSQL (and recommend Supabase) and strongly considered that solution as well. I'm planning to build a different project with Supabase soon.
