@@ -15,19 +15,16 @@ const siteMap = async (req: NextApiRequest, res: NextApiResponse) => {
   const sitemapStream = new SitemapStream({ hostname: ORIGIN_URL });
   const pipeline = sitemapStream.pipe(createGzip());
 
-  // write static pages to sitemap
   staticUrls.forEach((url) => {
     sitemapStream.write({ url });
   });
 
-  // write user-generated pages to sitemap
   dynamicUrls.forEach((url) => {
     sitemapStream.write({ url });
   });
 
   sitemapStream.end();
 
-  // stream write the response
   pipeline.pipe(res).on('error', (err) => {
     throw err;
   });
