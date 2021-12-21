@@ -55,20 +55,13 @@ export const text = css({
         fontSize: '0.75rem',
         lineHeight: '1rem',
       },
-      menu: {
-        letterSpacing: '0.02em',
-        display: 'block',
-        fontSize: '0.875rem',
-        fontWeight: '500',
-        color: '$neutral3',
-        whiteSpace: 'nowrap',
-        fontFamily: '$sans',
-        transitionProperty: 'border-color, fill',
-        transitionDuration: '300ms',
-
-        '&:hover': {
-          color: '$neutral0',
-        },
+      menuCap: {
+        fontSize: '.76rem',
+        fontWeight: '100',
+        lineHeight: '1',
+        margin: '$1 0 0 0',
+        textTransform: 'uppercase',
+        letterSpacing: '-.025em',
       },
       link: {
         color: '$brand_main',
