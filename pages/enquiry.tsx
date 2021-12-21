@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Layout from '@components/Layout';
-import { box, singlePostWrapper } from '@styles/common';
+import { box, blogWrapper } from '@styles/common';
 import PriceRange from '@components/Enquiry/PrinceRange';
 import PersonalInfo from '@components/Enquiry/PersonalInfo';
 import ProjectDetails from '@components/Enquiry/ProjectDetails';
@@ -28,7 +28,7 @@ function Enquiry() {
         <title>Index</title>
       </Head>
       <Layout>
-        <div className={singlePostWrapper({ css: { margin: '3.2rem auto' } })}>
+        <div className={blogWrapper({ css: { margin: '3.2rem auto' } })}>
           <div className={box({ css: { marginBottom: '2rem' } })}>
             <h1 className={heading({ type: 'h1' })}>
               Interested?

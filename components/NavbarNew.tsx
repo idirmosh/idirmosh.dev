@@ -1,11 +1,11 @@
 import { flexRow, wrapper } from '@styles/common';
 import React, { useState } from 'react';
 import { css } from 'stitches.config';
-import ThemeToggler from './Navbar/ThemeToggler';
 import Portal from './common/Portal';
 import MobileMenu from './MobileMenu';
 import Logo from './Logo';
 import { text } from '@styles/typography';
+import ThemeToggler from './common/ThemeToggler';
 
 function NavbarNew() {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,7 +13,7 @@ function NavbarNew() {
   const navbar = css({
     borderBottom: '1px solid $neutral6',
     marginBottom: '2rem',
-    height: '70px',
+    height: '96px',
   });
   const menuBtn = css({
     marginRight: '16px',

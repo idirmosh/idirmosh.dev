@@ -3,7 +3,7 @@ import { allPosts } from '.contentlayer/data';
 import { capitalize, filterTags, keyGen, reduceTags } from '@lib/helpers';
 import { IPageProps, IParams } from 'global';
 import Layout from '@components/Layout';
-import { singlePostWrapper } from '@styles/common';
+import { blogWrapper } from '@styles/common';
 import BlogCardNew from '@components/BlogCardNew';
 import { css } from 'stitches.config';
 import Head from '@components/Head';
@@ -31,7 +31,7 @@ const SingleTagPage: NextPage<IPageProps> = ({ posts, tag }) => {
         title={`${capitalize(tag)} Tutorials`}
         description={`Latest ${capitalize(tag)} tutorials.`}
       />
-      <div className={singlePostWrapper({})}>
+      <div className={blogWrapper({})}>
         <div className={container()}>
           <h1 className={title()}>{tag}</h1>
         </div>

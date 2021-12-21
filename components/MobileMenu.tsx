@@ -5,7 +5,8 @@ import { css } from 'stitches.config';
 import MobileMenuCloseButton from './common/MobileMenuCloseButton';
 import MobileMenuLink from './common/MobileMenuLink';
 import MobileMenuSocialLink from './common/MobileMenuSocialLink';
-import ThemeToggler from './Navbar/ThemeToggler';
+import ThemeToggler from './common/ThemeToggler';
+
 function MobileMenu({ handleMenu }) {
   const menu = css({
     padding: '0',
