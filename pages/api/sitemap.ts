@@ -10,10 +10,10 @@ const siteMap = async (req: NextApiRequest, res: NextApiResponse) => {
   res.setHeader('Content-Type', 'application/xml');
   res.setHeader('Content-Encoding', 'gzip');
 
-  const dynamicUrls = allPosts.map((post) => '/blog/' + post.slug);
-
   const sitemapStream = new SitemapStream({ hostname: ORIGIN_URL });
   const pipeline = sitemapStream.pipe(createGzip());
+
+  const dynamicUrls = allPosts.map((post) => '/blog/' + post.slug);
 
   staticUrls.forEach((url) => {
     sitemapStream.write({ url });
