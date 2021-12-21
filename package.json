@@ -42,10 +42,12 @@
     "remark-gfm": "^3.0.0",
     "rss": "^1.2.2",
     "sharp": "^0.29.1",
+    "sitemap": "^7.0.0",
     "swr": "^1.0.1",
     "unified": "^10.1.0",
     "unist-util-visit": "^4.1.0",
-    "yaml": "^1.10.2"
+    "yaml": "^1.10.2",
+    "zlib": "^1.0.5"
   },
   "devDependencies": {
     "@types/node": "16.10.1",

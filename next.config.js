@@ -8,6 +8,12 @@ const securityHeaders = [
 ];
 
 const nextConfig = {
+  rewrites: async () => [
+    {
+      source: '/sitemap.xml',
+      destination: '/api/sitemap',
+    },
+  ],
   images: {
     domains: ['pbs.twimg.com', 'localhost'],
   },
