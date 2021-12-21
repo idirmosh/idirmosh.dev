@@ -1,4 +1,5 @@
 const { withContentlayer } = require('next-contentlayer');
+
 const securityHeaders = [
   {
     key: 'Referrer-Policy',
@@ -43,6 +44,7 @@ const nextConfig = {
 
     config.experiments = {
       topLevelAwait: true,
+      layers: true,
     };
 
     config.module.rules.push({

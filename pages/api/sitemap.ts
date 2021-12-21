@@ -4,7 +4,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { allPosts } from '.contentlayer/data';
 import { ORIGIN_URL } from '@lib/constants';
 
-const staticUrls = ['/', '/about'];
+const staticUrls = ['/', ''];
 
 const siteMap = async (req: NextApiRequest, res: NextApiResponse) => {
   res.setHeader('Content-Type', 'application/xml');

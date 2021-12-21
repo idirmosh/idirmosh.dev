@@ -1,9 +1,7 @@
 import type { GetStaticPropsContext } from 'next';
 import { allPosts } from '.contentlayer/data';
-
 import Layout from '@components/Layout';
-import { css } from 'stitches.config';
-import { sortPosts } from '@lib/helpers';
+import { sizeLogger, sortPosts } from '@lib/helpers';
 import FeaturedPosts from '@components/FeaturedPosts';
 import HomeEntry from '@components/HomeEntry';
 import data from '../content/data/home';
@@ -30,11 +28,16 @@ const Home = ({ featuredPosts, about, socials, work, open }) => {
 };
 
 export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
-  const filtered = allPosts.sort(sortPosts).slice(0, 3);
+  const filter = ({ title, slug, publishedAt }) => {
+    return { title, slug, publishedAt };
+  };
+  const posts = allPosts.sort(sortPosts).slice(0, 3).map(filter);
+
+  //sizeLogger(posts);
 
   return {
     props: {
-      featuredPosts: filtered,
+      featuredPosts: posts,
       about: data.about,
       socials: data.socials,
       work: data.work,
@@ -42,8 +45,5 @@ export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
     },
   };
 };
-// 2017-07-15
-// 2017-07-15
-// 2021-09-06
 
 export default Home;

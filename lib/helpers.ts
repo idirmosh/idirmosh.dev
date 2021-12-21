@@ -58,3 +58,8 @@ export const capitalize = (str) => {
   const lower = str.toLowerCase();
   return str.charAt(0).toUpperCase() + lower.slice(1);
 };
+
+export const sizeLogger = (obj) => {
+  const value = (JSON.stringify(obj).length / Math.pow(1024, 1)).toFixed(2);
+  console.log(`Object Size is: ${value}kbs`);
+};
