@@ -63,3 +63,15 @@ export const sizeLogger = (obj) => {
   const value = (JSON.stringify(obj).length / Math.pow(1024, 1)).toFixed(2);
   console.log(`Object Size is: ${value}kbs`);
 };
+
+// copy val to cliboard
+export async function copyToClipboard(val: string) {
+  try {
+    if ('clipboard' in navigator) {
+      await navigator.clipboard.writeText(val);
+      return true;
+    } else true;
+  } catch {
+    return false;
+  }
+}
