@@ -2,7 +2,7 @@ import { text } from '@styles/typography';
 import React, { useEffect, useState } from 'react';
 import { css } from 'stitches.config';
 import { flexRow, linkReset } from '@styles/common';
-import { CopyURL, Facebook, Twitter } from './icons';
+import { CopyURL, Twitter } from './icons';
 import Link from './Link';
 import { copyToClipboard } from '@lib/helpers';
 
