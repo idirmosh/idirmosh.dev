@@ -51,12 +51,21 @@ function NavbarNew() {
     },
     '&:nth-child(1)': {
       top: '0',
+      '&:after': {
+        'transition-delay': '.1s',
+      },
     },
     '&:nth-child(2)': {
       top: '6px',
+      '&:after': {
+        'transition-delay': '.2s',
+      },
     },
     '&:nth-child(3)': {
       top: '12px',
+      '&:after': {
+        'transition-delay': '.3s',
+      },
     },
   });
   return (
@@ -64,9 +73,9 @@ function NavbarNew() {
       <nav className={flexRow(navbar())}>
         <div className={menuBtn()} onClick={() => setIsOpen(!isOpen)}>
           <div className={iconMenu()}>
-            <div className={bar()}></div>
-            <div className={bar()}></div>
-            <div className={bar()}></div>
+            <div className={`${bar()} bar`}></div>
+            <div className={`${bar()} bar`}></div>
+            <div className={`${bar()} bar`}></div>
           </div>
           <span className={text({ type: 'menuCap' })}>Menu</span>
         </div>

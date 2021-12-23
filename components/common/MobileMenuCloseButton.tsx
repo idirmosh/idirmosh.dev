@@ -20,7 +20,6 @@ function MobileMenuCloseButton(props) {
       height: '3px',
       background: '$neutral0',
       transform: 'rotate(45deg)',
-      transition: 'all .3s ease-in-out',
     },
     '&:after': {
       content: '',
@@ -31,7 +30,9 @@ function MobileMenuCloseButton(props) {
       height: '3px',
       background: '$neutral1',
       transform: 'rotate(-45deg)',
-      transition: 'all .3s ease-in-out',
+    },
+    '&:hover': {
+      transform: 'rotate(90deg)',
     },
   });
 
