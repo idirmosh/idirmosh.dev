@@ -81,4 +81,26 @@ export const globalStyles = globalCss({
       }, {}),
     },
   },
+  //mobile menu
+  '.menu-entering': {
+    opacity: '0',
+    transform: 'translateX(-320px)',
+    transition: 'all 300ms ease-in',
+  },
+  '.menu-entered': {
+    opacity: '1',
+    transform: 'translateX(0)',
+    transition: 'all 300ms ease-in',
+  },
+
+  '.menu-exiting': {
+    opacity: '0',
+    transform: 'translateX(-320px)',
+    transition: 'all 300ms ease-in',
+  },
+  '.menu-exited': {
+    opacity: '0',
+    transform: 'translateX(-320px)',
+    transition: 'all 300ms ease-in',
+  },
 });

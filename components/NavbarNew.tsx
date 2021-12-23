@@ -6,6 +6,7 @@ import MobileMenu from './MobileMenu';
 import Logo from './Logo';
 import { text } from '@styles/typography';
 import ThemeToggler from './common/ThemeToggler';
+import { CSSTransition } from 'react-transition-group'; //This should be imported
 
 function NavbarNew() {
   const [isOpen, setIsOpen] = useState(false);
@@ -58,33 +59,23 @@ function NavbarNew() {
       top: '12px',
     },
   });
-
   return (
-    <>
-      <div className={wrapper({ css: { margin: '0 auto $3 auto !important' } })}>
-        <nav className={flexRow(navbar())}>
-          {/* <div className={menuBtn()} onClick={() => setIsOpen(!isOpen)}>
-            <Icons.MenuOpen width="32px" />
-          </div> */}
-          <div className={menuBtn()} onClick={() => setIsOpen(!isOpen)}>
-            <div className={iconMenu()}>
-              <div className={bar()}></div>
-              <div className={bar()}></div>
-              <div className={bar()}></div>
-            </div>
-            <span className={text({ type: 'menuCap' })}>Menu</span>
+    <div className={wrapper({ css: { margin: '0 auto $3 auto !important' } })}>
+      <nav className={flexRow(navbar())}>
+        <div className={menuBtn()} onClick={() => setIsOpen(!isOpen)}>
+          <div className={iconMenu()}>
+            <div className={bar()}></div>
+            <div className={bar()}></div>
+            <div className={bar()}></div>
           </div>
+          <span className={text({ type: 'menuCap' })}>Menu</span>
+        </div>
 
-          <Logo />
-          <ThemeToggler />
-        </nav>
-        {isOpen && (
-          <Portal>
-            <MobileMenu handleMenu={setIsOpen} />
-          </Portal>
-        )}
-      </div>
-    </>
+        <Logo />
+        <ThemeToggler />
+      </nav>
+      <MobileMenu isOpen={isOpen} handleMenu={setIsOpen} />
+    </div>
   );
 }
 
