@@ -55,7 +55,7 @@ function MobileMenu({ handleMenu, isOpen }) {
         return (
           <menu ref={nodeRef} className={`${menu()} menu-${state}`}>
             <div className={flexRow(head())}>
-              <h5 className={heading({ type: 'h4', css: { margin: '0' } })}>Menu</h5>
+              <h2 className={heading({ type: 'h4', css: { margin: '0' } })}>Menu</h2>
               <div className={flexRow({ css: { cursor: 'pointer' } })}>
                 <p className={text({ type: 'menuCap' })} onClick={() => handleMenu(false)}>
                   Close

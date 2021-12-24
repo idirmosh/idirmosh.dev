@@ -53,9 +53,9 @@ function Logo() {
           </div>
 
           <div className={flexColumn({})}>
-            <h5 className={heading({ type: 'h4', css: { margin: '0', color: '$neutral1' } })}>
+            <h1 className={heading({ type: 'h4', css: { margin: '0', color: '$neutral1' } })}>
               Idir Hamouch
-            </h5>
+            </h1>
             <p
               className={text({
                 type: 'small',
