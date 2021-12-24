@@ -467,7 +467,7 @@ export const blogWrapper = css({
 });
 export const wrapper = css({
   maxWidth: `${MAIN_WIDTH}px`,
-  margin: '$6 auto',
+  margin: '$4 auto',
   padding: '0 $3',
 });
 

@@ -14,6 +14,20 @@ export const Twitter = (props) => (
   </svg>
 );
 
+export const RSS = (props) => (
+  <svg xmlns="http://www.w3.org/2000/svg" {...props} viewBox="0 0 24 24">
+    <path d="M0 0h24v24H0z" fill="none" />
+    <circle cx="6.18" cy="17.82" r="2.18" />
+    <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z" />
+  </svg>
+);
+
+export const Linkedin = (props) => (
+  <svg xmlns="http://www.w3.org/2000/svg" {...props} viewBox="0 0 24 24">
+    <circle cx="4.983" cy="5.009" r="2.188"></circle>
+    <path d="M9.237 8.855v12.139h3.769v-6.003c0-1.584.298-3.118 2.262-3.118 1.937 0 1.961 1.811 1.961 3.218v5.904H21v-6.657c0-3.27-.704-5.783-4.526-5.783-1.835 0-3.065 1.007-3.568 1.96h-.051v-1.66H9.237zm-6.142 0H6.87v12.139H3.095z"></path>
+  </svg>
+);
 export const Clap = (props) => (
   <svg xmlns="http://www.w3.org/2000/svg" {...props} viewBox="0 0 24 24" fill="none">
     <path
