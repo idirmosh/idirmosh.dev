@@ -1,6 +1,6 @@
 import { NAME, ORIGIN_URL } from '@lib/constants';
 import NextHead from 'next/head';
-import React, { FC } from 'react';
+import React, { FC, ReactNode } from 'react';
 import { useRouter } from 'next/router';
 
 function Head({
@@ -8,11 +8,13 @@ function Head({
   description,
   image,
   date,
+  children,
 }: {
   title: string;
   description: string;
   image?: string;
   date?: string;
+  children?: ReactNode;
 }) {
   const router = useRouter();
   const asPath = ORIGIN_URL + router.asPath;
@@ -46,6 +48,7 @@ function Head({
         type="application/atom+xml"
         data-title="idirmosh.dev feed"
       />
+      {children}
     </NextHead>
   );
 }

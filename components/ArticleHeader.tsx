@@ -1,17 +1,15 @@
 import { heading, text } from '@styles/typography';
 import React from 'react';
 import Image from 'next/image';
-import { CopyURL, Facebook, LeftArrow, Twitter } from './common/icons';
 import { css } from 'stitches.config';
-import { box, flexColumn, flexRow, linkReset, meta } from '@styles/common';
-import Link from './common/Link';
-import PostMeta from './common/PostMeta';
+import { flexRow } from '@styles/common';
 import Head from './Head';
-import { AVATAR, NAME } from '@lib/constants';
-import Applause from './common/Applause';
+import { NAME } from '@lib/constants';
 import BlogPostAvatar from './common/BlogPostAvatar';
 import BlogPostShare from './common/BlogPostShare';
 import BlogPostAction from './common/BlogPostAction';
+
+const FIRA_FONT = 'https://fonts.googleapis.com/css?family=Fira+Mono&display=swap';
 
 function ArticleHeader({ post }) {
   const header = css({
@@ -36,7 +34,13 @@ function ArticleHeader({ post }) {
         title={`${post.title} - The ${NAME}'s Blog`}
         description={post.summary}
         image={post.image}
-      />
+      >
+        <link href={FIRA_FONT} rel="preload" as="style" />
+        <link href={FIRA_FONT} rel="stylesheet" media="all" />
+        <noscript>
+          <link href={FIRA_FONT} rel="stylesheet" />
+        </noscript>
+      </Head>
 
       <BlogPostAction />
       <h1 className={heading({ type: 'h1' })}>{post.title}</h1>
