@@ -18,7 +18,7 @@ function MobileMenu({ handleMenu, isOpen }) {
     left: '0',
     backgroundColor: '$neutral6',
     borderRight: '1px solid $neutral5',
-    width: '100vw',
+    width: '320px',
     height: '100vh',
     zIndex: '999',
     boxShadow: 'rgba(0,0,0,.57) 0 0 0 125rem',
