@@ -56,8 +56,8 @@ export const text = css({
         lineHeight: '1rem',
       },
       menuCap: {
-        fontSize: '.76rem',
-        fontWeight: '100',
+        fontSize: '.7rem',
+        fontWeight: '700',
         lineHeight: '1',
         margin: '$1 0 0 0',
         textTransform: 'uppercase',
