@@ -42,7 +42,7 @@ const Blog: NextPage<IPageProps> = ({ posts, tagsCount }) => {
             })
           )}
         >
-          <h5 className={heading({ type: 'h3', css: { margin: '0' } })}>Latest Articles</h5>
+          <h2 className={heading({ type: 'h3', css: { margin: '0' } })}>Latest Articles</h2>
           <Link href="/tags" className={text({ type: 'link', css: { margin: '0' } })}>
             See all topics ({tagsCount})
           </Link>

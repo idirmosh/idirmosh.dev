@@ -46,9 +46,9 @@ function FeaturedPosts({ posts }: { posts: Post[] }) {
           {posts &&
             posts.map((post) => (
               <Link key={keyGen(post.slug)} href={`/blog/${post.slug}`} className={flexRow(link())}>
-                <h6 className={title(heading({ type: 'h4' }))} title={post.title}>
+                <h3 className={title(heading({ type: 'h4' }))} title={post.title}>
                   {post.title}
-                </h6>
+                </h3>
                 <time className={text({ type: 'small', css: { color: '$neutral3', margin: '0' } })}>
                   {format(parseISO(post.publishedAt), 'MMM dd, yyyy')}
                 </time>

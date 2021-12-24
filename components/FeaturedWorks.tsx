@@ -27,7 +27,7 @@ function FeaturedWorks({ work }) {
 
   return (
     <div className={wrapper({ css: { margin: '$6 auto' } })}>
-      <h2 className={heading({ type: 'h2' })}>Projects</h2>
+      <h2 className={heading({ type: 'h2' })}>Selected Projects</h2>
       <div className={container()}>
         {work &&
           work.map((project) => <ProjectCard key={keyGen(project.name)} project={project} />)}

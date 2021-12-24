@@ -73,11 +73,11 @@ const TagCard = ({ tag }) => {
         <div className={container()}>
           <div className={circle()}>#</div>
           <span className={box({ css: { marginLeft: '1rem' } })}>
-            <h4
+            <h2
               className={heading({ type: 'h4', css: { textTransform: 'capitalize', margin: '0' } })}
             >
               {tag}
-            </h4>
+            </h2>
             <p
               className={text({ type: 'small', css: { margin: '2px 0 0 0' } })}
             >{`Latest updates, tutorials, and news about ${tag}.`}</p>

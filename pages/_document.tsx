@@ -2,8 +2,8 @@ import React from 'react';
 import NextDocument, { Html, Head, Main, NextScript } from 'next/document';
 import { getCssText } from 'stitches.config';
 
-const INTER_FONT = 'https://fonts.googleapis.com/css?family=Inter:400,700&display=swap';
-const FIRA_FONT = 'https://fonts.googleapis.com/css?family=Fira+Mono&display=swap';
+const INTER_FONT = 'https://fonts.googleapis.com/css?family=Inter:400,700&display=optional';
+const FIRA_FONT = 'https://fonts.googleapis.com/css?family=Fira+Mono&display=optional';
 
 export default class Document extends NextDocument {
   render() {

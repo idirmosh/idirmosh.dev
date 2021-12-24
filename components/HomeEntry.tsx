@@ -49,7 +49,7 @@ function HomeEntry({ about, socials }) {
           className={box({ css: { borderRadius: '999px' } })}
           src={about.avatar}
         />
-        <p className={heading({ type: 'xlarge' })}>{about.title}</p>
+        <h1 className={heading({ type: 'xlarge' })}>{about.title}</h1>
         <p className={text()}>{about.para1}</p>
         <p className={text()}>{about.para2}</p>
       </div>

@@ -47,7 +47,9 @@ function ThemeToggler() {
       className={togglebtn()}
       onClick={toggleTheme}
       title={isLight ? 'Enable Dark Mode' : 'Enable Light Mode'}
-      aria-label={isLight ? 'Enable Dark Mode' : 'Enable Light Mode'}
+      role="button"
+      aria-pressed={isLight}
+      // aria-label={isLight ? 'Enable Dark Mode' : 'Enable Light Mode'}
     >
       {isLight ? <Moon width="18" /> : <Sun width="18" />}
     </div>

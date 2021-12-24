@@ -75,18 +75,18 @@ function BlogCardNew({ post }) {
     <article className={flexRow(cardWrapper())}>
       <div className={box({ css: { padding: '0 $4 0 0' } })}>
         <PostMeta className={meta({})} date={post.publishedAt} readTime={post.readingTime.text} />
-        <h2 className={title()}>
+        <h3 className={title()}>
           <Link href={`/blog/${post.slug}`} className={link()}>
             {post.title}
           </Link>
-        </h2>
+        </h3>
         <p className={summary(text({ css: { margin: '0' } }))}>{post.summary}</p>
         <div className={footer()}>
           <TagList tags={post.tags} />
         </div>
       </div>
 
-      <Link href={`/blog/${post.slug}`} className={image()} aria-hidden="true">
+      <Link href={`/blog/${post.slug}`} className={image()}>
         <Image
           src={post.image}
           width="100%"
