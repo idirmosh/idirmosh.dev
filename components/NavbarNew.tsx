@@ -1,16 +1,14 @@
 import { flexRow, wrapper } from '@styles/common';
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { css } from 'stitches.config';
-import Portal from './common/Portal';
 import MobileMenu from './MobileMenu';
 import Logo from './Logo';
 import { text } from '@styles/typography';
 import ThemeToggler from './common/ThemeToggler';
-import { CSSTransition } from 'react-transition-group'; //This should be imported
 
 function NavbarNew() {
   const [isOpen, setIsOpen] = useState(false);
-
+  const nodeRef = useRef(null);
   const navbar = css({
     borderBottom: '1px solid $neutral6',
     marginBottom: '2rem',

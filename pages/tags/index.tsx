@@ -10,6 +10,7 @@ import { box, blogWrapper, Grid } from '@styles/common';
 import Link from '@components/common/Link';
 import { heading, text } from '@styles/typography';
 import Head from '@components/Head';
+import BlogListHeader from '@components/common/BlogListHeader';
 
 const TagsPage: NextPage<ITags> = ({ tags }) => {
   const container = css(Grid, {
@@ -21,15 +22,11 @@ const TagsPage: NextPage<ITags> = ({ tags }) => {
       gridTemplateColumns: '1fr 1fr !important',
     },
   });
-  const info = css({ margin: '2rem auto' });
   return (
     <Layout>
       <Head title="Tags" description="Latest articles about web development." />
       <div className={blogWrapper()}>
-        {/* TODO:Improve this */}
-        <div className={info()}>
-          <h1>TAGS</h1>
-        </div>
+        <BlogListHeader title="Topics" />
         <div className={container()}>
           {tags.map((tag) => (
             <TagCard key={keyGen(tag)} tag={tag} />

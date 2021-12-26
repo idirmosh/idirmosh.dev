@@ -1,3 +1,4 @@
+import { Post } from '.contentlayer/types';
 import { IFetcher, IView } from 'global';
 import { darkTheme, globalCss } from 'stitches.config';
 import storage from './storage';

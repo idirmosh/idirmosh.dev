@@ -5,13 +5,15 @@ import { filterTags, postMetaFilter, reduceTags, subscribe } from '@lib/helpers'
 import { IPageProps } from 'global';
 import BlogCardNew from '@components/BlogCardNew';
 import Layout from '@components/Layout';
-import { blogWrapper, flexRow } from '@styles/common';
-import Link from '@components/common/Link';
-import { heading, text } from '@styles/typography';
+import { blogWrapper } from '@styles/common';
+
 import Head from '@components/Head';
 import { NAME } from '@lib/constants';
 
-const Blog: NextPage<IPageProps> = ({ posts, tagsCount }) => {
+import BlogListHeader from '@components/common/BlogListHeader';
+import BlogListTagsDisplay from '@components/common/BlogListTagsDisplay';
+
+const Blog: NextPage<IPageProps> = ({ posts, tags }) => {
   const [slugs, setSlugs] = useState(null);
 
   useEffect(() => {
@@ -31,22 +33,9 @@ const Blog: NextPage<IPageProps> = ({ posts, tagsCount }) => {
 
       <div className={blogWrapper()}>
         {/* //TODO: imporve Bellow */}
-        <div
-          className={flexRow(
-            blogWrapper({
-              css: {
-                justifyContent: 'space-between',
-                margin: '2rem auto',
-                padding: '0 !important',
-              },
-            })
-          )}
-        >
-          <h2 className={heading({ type: 'h3', css: { margin: '0' } })}>Latest Articles</h2>
-          <Link href="/tags" className={text({ type: 'link', css: { margin: '0' } })}>
-            See all topics ({tagsCount})
-          </Link>
-        </div>
+        <BlogListHeader title="Blog">
+          <BlogListTagsDisplay tags={tags} />
+        </BlogListHeader>
         {posts && posts.map((post) => <BlogCardNew key={post.slug} post={post} />)}
       </div>
     </Layout>
@@ -57,7 +46,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const posts = allPosts.map(postMetaFilter);
   const tags = allPosts.reduce(reduceTags, []).filter(filterTags);
 
-  return { props: { posts, tagsCount: tags.length } };
+  return { props: { posts, tags } };
 };
 
 export default Blog;

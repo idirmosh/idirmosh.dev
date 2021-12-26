@@ -19,8 +19,8 @@ function Footer() {
   const footerLink = css(text, {
     color: '$neutral3',
     marginBottom: '$3 !important',
-    fontSize: '1rem',
-    lineHeight: '1.5',
+    fontSize: '.89rem',
+    lineHeight: '1',
     transition: 'color .3s ease',
     '&:hover': {
       color: '$neutral1',
@@ -42,13 +42,13 @@ function Footer() {
             </Link>
           </FooterCard>
 
-          <FooterCard title="Contact" pos="10/12">
+          <FooterCard title="Contact" pos="9/11">
             <Link className={linkReset(footerLink())} href="/">
               Email
             </Link>
           </FooterCard>
 
-          <FooterCard pos="12/13" title="Links">
+          <FooterCard pos="11/13" title="Links">
             <Link className={linkReset(footerLink())} title="RSS Feed" href="/feed.xml">
               RSS
             </Link>

@@ -12,8 +12,8 @@ export default class Document extends NextDocument {
           <style id="stitches" dangerouslySetInnerHTML={{ __html: getCssText() }} />
 
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-          <link href={INTER_FONT} rel="preload" as="font" />
-          {/* <link href={INTER_FONT} rel="stylesheet" media="all" /> */}
+          <link href={INTER_FONT} rel="preload" as="style" />
+          <link href={INTER_FONT} rel="stylesheet" media="all" />
 
           <noscript>
             <link href={INTER_FONT} rel="stylesheet" />
