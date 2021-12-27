@@ -2,7 +2,11 @@ import React from 'react';
 import { css } from 'stitches.config';
 import Link from './Link';
 
-function MobileMenuLink({ href, text }) {
+type Props = {
+  href: string;
+  text: string;
+};
+function MobileMenuLink({ href, text }: Props) {
   const item = css({
     position: 'relative',
     display: 'block',

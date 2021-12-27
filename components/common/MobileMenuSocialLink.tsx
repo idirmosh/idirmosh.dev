@@ -3,7 +3,12 @@ import React from 'react';
 import { css } from 'stitches.config';
 import Link from './Link';
 
-function MobileMenuSocialLink({ href, textL }) {
+type Props = {
+  href: string;
+  textL: string;
+};
+
+function MobileMenuSocialLink({ href, textL }: Props) {
   const link = css({
     fontSize: '1rem',
     marginBottom: '$3',

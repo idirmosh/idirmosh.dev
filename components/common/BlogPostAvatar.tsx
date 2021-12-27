@@ -7,7 +7,12 @@ import { AVATAR, NAME } from '@lib/constants';
 import PostMeta from './PostMeta';
 import Link from './Link';
 
-function BlogPostAvatar({ post }) {
+type Props = {
+  date: string;
+  readTime: string;
+};
+
+function BlogPostAvatar({ date, readTime }: Props) {
   const avatar = css({
     width: '$4',
     height: '$4',
@@ -24,7 +29,7 @@ function BlogPostAvatar({ post }) {
         <Link className={linkReset(heading({ type: 'h5' }))} href="/about">
           {NAME}
         </Link>
-        <PostMeta className={meta({})} date={post.publishedAt} readTime={post.readingTime.text} />
+        <PostMeta className={meta({})} date={date} readTime={readTime} />
       </div>
     </div>
   );

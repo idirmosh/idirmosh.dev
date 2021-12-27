@@ -24,7 +24,6 @@ function ThemeToggler() {
     display: 'flex',
     justifyContent: 'space-around',
     alignItems: 'center',
-    //margin: '0 auto',
     marginLeft: 'auto',
     borderRadius: '.7rem',
     transition: 'all .5s ease 0s',
@@ -49,7 +48,6 @@ function ThemeToggler() {
       title={isLight ? 'Enable Dark Mode' : 'Enable Light Mode'}
       role="button"
       aria-pressed={isLight}
-      // aria-label={isLight ? 'Enable Dark Mode' : 'Enable Light Mode'}
     >
       {isLight ? <Moon width="18" /> : <Sun width="18" />}
     </div>

@@ -27,7 +27,6 @@ function ArticleHeader({ post }) {
     border: '1px solid $neutral5 !important',
     // margin: '1rem 0 !important',
   });
-
   return (
     <header className={header()}>
       <Head
@@ -45,7 +44,7 @@ function ArticleHeader({ post }) {
       <BlogPostAction />
       <h1 className={heading({ type: 'h1' })}>{post.title}</h1>
       <div className={metaWrapper(flexRow())}>
-        <BlogPostAvatar post={post} />
+        <BlogPostAvatar date={post.publishedAt} readTime={post.readingTime.text} />
         <BlogPostShare />
       </div>
       <p className={text({ css: { fontSize: '1.125rem', marginBottom: '$4' } })}>{post.summary}</p>

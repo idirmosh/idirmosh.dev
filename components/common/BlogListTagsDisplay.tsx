@@ -4,7 +4,11 @@ import React from 'react';
 import { css } from 'stitches.config';
 import Link from './Link';
 
-function BlogListTagsDisplay({ tags }) {
+type Props = {
+  tags: string[];
+};
+
+function BlogListTagsDisplay({ tags }: Props) {
   const topics = css({});
   const seperator = css({
     display: 'inline-block',
@@ -23,7 +27,6 @@ function BlogListTagsDisplay({ tags }) {
     padding: '$2 $3',
     borderRadius: '999px',
     marginRight: '$3',
-    //position: 'relative',
     '&:last-of-type': {
       marginRight: '0',
     },
