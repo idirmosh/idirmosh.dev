@@ -72,6 +72,7 @@ export const components = {
   ),
   blockquote: (props) => <blockquote className={blockquote({})} {...props} />,
   pre: ({ children, theme, showLineNumbers, ...props }) => {
+    // console.log(children, theme, showLineNumbers, props);
     return <pre className={pre()}>{children}</pre>;
   },
   code: ({ children, id, collapsible, className }) => {

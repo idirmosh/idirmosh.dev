@@ -241,7 +241,7 @@ export const input = css({
 });
 
 export const pre = css({
-  $$background: '$colors$neutral6',
+  $$background: '$colors$neutral7',
   $$text: '$colors$neutral3',
   $$syntax1: '$colors$orange',
   $$syntax2: '$colors$turq',
@@ -262,8 +262,8 @@ export const pre = css({
   $$addedWordBgActive: 'hsl(206deg 22% 64% / 30%)',
   $$addedWordText: '$colors$turq',
 
-  border: '1px solid $brand_bright',
-  borderRadius: '4px',
+  border: '1px solid $neutral6',
+  borderRadius: '0 0 4px 4px',
   boxSizing: 'border-box',
   padding: '$3',
   overflow: 'auto',
@@ -274,7 +274,7 @@ export const pre = css({
   position: 'relative',
   backgroundColor: '$$background',
   color: '$$text',
-  margin: '$4 0',
+  margin: '0 0 $4 0',
 
   '[data-preview] + &': {
     marginTop: '0',

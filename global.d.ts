@@ -3,6 +3,7 @@ export interface IPageProps {
   tagsCount: number;
   slugsStr: string;
   tags?: string[];
+  tag?: string;
 }
 export interface IView {
   slug: string;

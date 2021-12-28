@@ -103,4 +103,22 @@ export const globalStyles = globalCss({
     transform: 'translateX(-320px)',
     transition: 'all 300ms ease-in',
   },
+
+  '.rehype-code-title': {
+    padding: '$3',
+    fontFamily: '$mono',
+    fontSize: '.8rem',
+    fontWeight: '700',
+    color: '$neutral3',
+    borderRadius: '4px 4px 0 0',
+    // border: '1px solid $neutral5',
+    // borderBottom: '1px solid $neutral5',
+    background: '$neutral6',
+  },
+
+  '.highlight-line': {
+    display: 'block',
+    padding: '',
+    // @apply block px-4 -mx-4 bg-gray-100 border-l-4 border-blue-500 dark:bg-gray-800;
+  },
 });

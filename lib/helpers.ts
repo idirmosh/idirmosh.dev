@@ -1,13 +1,12 @@
 import { Post } from '.contentlayer/types';
 import { IFetcher, IView } from 'global';
-import { darkTheme, globalCss } from 'stitches.config';
 import storage from './storage';
 
 // log shurtcute
 export const log = console.log;
 
 // Filter the array & remove duplicates
-export const filterTags = (item, pos, self) => self.indexOf(item) == pos;
+export const filterTags = (item: string, pos: number, self: string[]) => self.indexOf(item) == pos;
 
 // reduce dub-arrays to flat array
 export const reduceTags = (acc, { tags }) => acc.concat(tags);

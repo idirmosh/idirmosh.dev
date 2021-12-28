@@ -20,7 +20,7 @@ export const { styled, css, globalCss, keyframes, getCssText, theme, createTheme
         neutral3: '#4B4B4B',
         neutral4: '#A1A1A1',
         neutral5: '#D0D0D0',
-        neutral6: '#F6F6F6',
+        neutral6: '#eeeeee',
         neutral7: '#ffffff',
 
         brand_main: '#5700E3',
