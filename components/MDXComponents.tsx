@@ -4,7 +4,18 @@ import * as Collapsible from '@radix-ui/react-collapsible';
 import Link from '@components/common/Link';
 import { heading, text } from '@styles/typography';
 import NextImage from 'next/image';
-import { blockquote, box, button, divider, Image, img, pre, ulist } from '@styles/common';
+import {
+  blockquote,
+  box,
+  button,
+  divider,
+  Image,
+  img,
+  pre,
+  ulist,
+  linkReset,
+  hashH,
+} from '@styles/common';
 
 export const components = {
   Box: ({ css, as: Comp = 'div', ...props }: any) => <Comp className={box(css)} {...props} />,
@@ -15,6 +26,14 @@ export const components = {
   h5: (props) => <h5 className={heading({ type: 'h5' })} {...props} />,
   p: (props) => <p className={text()} {...props} />,
   a: ({ href = '', ...props }) => {
+    if (props.isHeading) {
+      return (
+        <a href={href} className={linkReset(hashH())}>
+          {props.children}
+        </a>
+      );
+    }
+
     if (href.startsWith('http')) {
       return (
         <Link
@@ -38,9 +57,7 @@ export const components = {
   hr: (props) => <hr className={divider({ size: '1', css: { my: '$5' } })} {...props} />,
   ul: (props) => <ul className={ulist()} {...props} />,
   ol: (props) => <ol className={ulist()} {...props} />,
-  li: (props) => (
-    <li className={text({ type: 'medium', css: { marginBottom: '$2' } })} {...props} />
-  ),
+  li: (props) => <li className={text({ css: { marginBottom: '$4' } })} {...props} />,
   strong: (props) => <strong className={text({ css: { fontWeight: '700' } })} {...props} />,
   Image: ({ children, ...props }) => (
     <figure className={Image()}>

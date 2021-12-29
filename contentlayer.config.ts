@@ -2,10 +2,10 @@ import { ComputedFields, defineDocumentType, makeSource } from 'contentlayer/sou
 
 import readingTime from 'reading-time';
 import remarkGfm from 'remark-gfm';
-import rehypeSlug from 'rehype-slug';
 import rehypeCodeTitles from 'rehype-code-titles';
-import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypePrism from 'rehype-prism-plus';
+import remarkAutolinkHeadings from 'remark-autolink-headings';
+import remarkSlug from 'remark-slug';
 
 const computedFields: ComputedFields = {
   slug: {
@@ -47,20 +47,12 @@ const contentLayerConfig = makeSource({
   contentDirPath: 'content',
   documentTypes: [Post],
   mdx: {
-    remarkPlugins: [remarkGfm],
-    rehypePlugins: [
-      rehypeSlug,
-      rehypeCodeTitles,
-      rehypePrism,
-      [
-        rehypeAutolinkHeadings,
-        {
-          properties: {
-            className: ['anchor'],
-          },
-        },
-      ],
+    remarkPlugins: [
+      remarkGfm,
+      remarkSlug,
+      [remarkAutolinkHeadings, { behavior: 'wrap', linkProperties: { isHeading: true } }],
     ],
+    rehypePlugins: [rehypeCodeTitles, rehypePrism],
   },
 });
 

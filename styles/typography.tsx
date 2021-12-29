@@ -8,7 +8,7 @@ export const heading = css({
   fontKerning: 'normal',
   'font-variant-ligatures': 'common-ligatures contextual discretionary-ligatures',
   'font-feature-settings': "'kern', 'liga', 'clig', 'calt', 'dlig'",
-  color: '$neutral1',
+  color: '$neutral0',
 
   variants: {
     type: {
@@ -26,7 +26,7 @@ export const heading = css({
         },
       },
       h1: { fontSize: '2rem', marginBottom: '$4', lineHeight: '2.5rem' },
-      h2: { fontSize: '1.5rem', marginBottom: '$3', lineHeight: '1.75rem' },
+      h2: { fontSize: '1.5rem !important', marginBottom: '$3', lineHeight: '1.75rem' },
       h3: { fontSize: '1.25rem', marginBottom: '$3', lineHeight: '1.75rem' },
       h4: { fontSize: '1rem', marginBottom: '$2', lineHeight: '1.25rem' },
       h5: { fontSize: '0.875rem', marginBottom: '$1', lineHeight: '1rem' },
@@ -38,7 +38,7 @@ export const heading = css({
 });
 
 export const text = css({
-  color: '$neutral2',
+  color: '$neutral1',
   marginBottom: '$4',
 
   fontFamily: '$sans',

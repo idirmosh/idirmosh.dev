@@ -241,8 +241,8 @@ export const input = css({
 });
 
 export const pre = css({
-  $$background: '$colors$neutral7',
-  $$text: '$colors$neutral3',
+  $$background: '$colors$brand_faded',
+  $$text: '$colors$neutra2',
   $$syntax1: '$colors$orange',
   $$syntax2: '$colors$turq',
   $$syntax3: '$colors$pink',
@@ -262,7 +262,7 @@ export const pre = css({
   $$addedWordBgActive: 'hsl(206deg 22% 64% / 30%)',
   $$addedWordText: '$colors$turq',
 
-  border: '1px solid $neutral6',
+  border: '1px solid $brand_faded',
   borderRadius: '0 0 4px 4px',
   boxSizing: 'border-box',
   padding: '$3',
@@ -470,7 +470,23 @@ export const wrapper = css({
   margin: '$4 auto',
   padding: '0 $3',
 });
-
+export const hashH = css({
+  transition: 'all 1.2s ease-out',
+  '&:hover': {
+    '&:before': {
+      visibility: 'visible',
+    },
+  },
+  '&:before': {
+    visibility: 'hidden',
+    fontWeight: '100',
+    content: '#',
+    fontSize: '1.3rem',
+    color: '$neutral4',
+    paddingRight: '6px',
+    marginLeft: '-24px',
+  },
+});
 export const Grid = styled('div', {
   display: 'grid',
   gridTemplateColumns: 'repeat(12,minmax(0,1fr))',

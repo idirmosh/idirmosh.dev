@@ -109,16 +109,53 @@ export const globalStyles = globalCss({
     fontFamily: '$mono',
     fontSize: '.8rem',
     fontWeight: '700',
-    color: '$neutral3',
+    color: '$neutral1',
     borderRadius: '4px 4px 0 0',
     // border: '1px solid $neutral5',
     // borderBottom: '1px solid $neutral5',
-    background: '$neutral6',
+    background: '$brand_bright',
+  },
+
+  '.code-line': {
+    padding: '$1 $3',
+    display: 'block',
+    marginLeft: '-16px',
+    marginRight: '-16px',
+    borderLeftWidth: '4px',
+    borderLeftColor: 'rgba(31, 41, 55, 0)',
+  },
+
+  '.code-line.inserted': {
+    'background-color': 'rgba(16, 185, 129, 0.2)',
+  },
+
+  '.code-line.deleted': {
+    'background-color': 'rgba(239, 68, 68, 0.2)',
   },
 
   '.highlight-line': {
-    display: 'block',
-    padding: '',
-    // @apply block px-4 -mx-4 bg-gray-100 border-l-4 border-blue-500 dark:bg-gray-800;
+    margin: '0 -16px',
+    paddingLeft: '12px',
+    backgroundColor: '$brand_bright',
+    borderLeft: '4px solid $brand_main !important',
+  },
+  '.line-number::after': {
+    content: ' ',
+    position: 'absolute',
+    left: '0',
+    top: '0',
+    width: '100%',
+    opacity: '0.15',
+    pointerEvents: 'none',
+  },
+
+  '.line-number::before': {
+    display: 'inline-block',
+    width: '1rem',
+    'text-align': 'right',
+    'margin-right': '16px',
+    'margin-left': '-8px',
+    color: 'rgb(156, 163, 175)',
+    content: 'attr(line)',
   },
 });
