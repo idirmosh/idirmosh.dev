@@ -481,7 +481,7 @@ export const hashH = css({
     fontSize: '1.3rem',
     color: '$neutral4',
     paddingRight: '6px',
-    marginLeft: '-24px',
+    marginLeft: '-20px',
   },
   '&:hover': {
     '&:before': {
