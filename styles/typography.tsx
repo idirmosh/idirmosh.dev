@@ -110,6 +110,7 @@ export const text = css({
       },
 
       code: {
+        fontSize: '0.95rem',
         fontFamily: '$mono',
         color: '$neutral1',
         padding: '0 0.25rem',
