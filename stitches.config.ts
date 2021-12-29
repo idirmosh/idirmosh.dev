@@ -5,14 +5,18 @@ export const { styled, css, globalCss, keyframes, getCssText, theme, createTheme
       colors: {
         black: '#1a1a1a',
         white: '#fff',
-        gray: '#8A8F93',
-        blue: '#0068E3',
-        red: '#E30029',
+        gray: '#6A737D',
+        blue: '#005CC5',
+        red: '#D73A49',
         yellow: '#E3D000',
-        pink: '#E300B1',
-        turq: '#06A934',
-        orange: '#E36D00',
+        purple: '#6F42C1',
+        turq: '#22863A',
+        orange: '#D68E22',
         copy: '#D7D7DB',
+
+        code_background: 'rgba(255,255,255,100%)',
+        code_highlight: 'rgba(246,248,250,100%)',
+        code_gray: 'rgba(232,234,237,100%)',
 
         neutral0: '#333',
         neutral1: '#555',
@@ -76,6 +80,10 @@ export const darkTheme = createTheme('dark', {
     turq: '#54A96C',
     orange: '#E3A872',
     copy: '#D7D7DB',
+
+    code_background: 'rgba(255,255,255,2%)',
+    code_highlight: 'rgba(246,248,250,3%)',
+    code_gray: 'rgba(232,234,237,10%)',
 
     neutral7: '#131217',
     neutral6: '#1b191f',

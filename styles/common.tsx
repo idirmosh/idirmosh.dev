@@ -241,14 +241,14 @@ export const input = css({
 });
 
 export const pre = css({
-  $$background: '$colors$brand_faded',
-  $$text: '$colors$neutra2',
+  $$background: '$colors$code_background',
+  $$text: '$colors$blue',
   $$syntax1: '$colors$orange',
   $$syntax2: '$colors$turq',
-  $$syntax3: '$colors$pink',
-  $$syntax4: '$colors$pink',
+  $$syntax3: '$colors$red',
+  $$syntax4: '$colors$purple',
   $$comment: '$colors$gray',
-  $$removed: '$colors$pink',
+  $$removed: '$colors$purple',
   $$added: '$colors$turq',
   $$lineNumbers: '$colors$gray',
   $$fadedLines: '$colors$gray',
@@ -262,7 +262,7 @@ export const pre = css({
   $$addedWordBgActive: 'hsl(206deg 22% 64% / 30%)',
   $$addedWordText: '$colors$turq',
 
-  border: '1px solid $brand_faded',
+  border: '1px solid $code_gray',
   borderRadius: '0 0 4px 4px',
   boxSizing: 'border-box',
   padding: '$3',
@@ -471,13 +471,10 @@ export const wrapper = css({
   padding: '0 $3',
 });
 export const hashH = css({
-  transition: 'all 1.2s ease-out',
-  '&:hover': {
-    '&:before': {
-      visibility: 'visible',
-    },
-  },
+  transition: 'opacity 3s linear',
+
   '&:before': {
+    opacity: '0',
     visibility: 'hidden',
     fontWeight: '100',
     content: '#',
@@ -485,6 +482,12 @@ export const hashH = css({
     color: '$neutral4',
     paddingRight: '6px',
     marginLeft: '-24px',
+  },
+  '&:hover': {
+    '&:before': {
+      opacity: '1',
+      visibility: 'visible',
+    },
   },
 });
 export const Grid = styled('div', {

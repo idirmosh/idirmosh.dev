@@ -113,7 +113,7 @@ export const globalStyles = globalCss({
     borderRadius: '4px 4px 0 0',
     // border: '1px solid $neutral5',
     // borderBottom: '1px solid $neutral5',
-    background: '$brand_bright',
+    background: '$code_gray',
   },
 
   '.code-line': {
@@ -136,8 +136,8 @@ export const globalStyles = globalCss({
   '.highlight-line': {
     margin: '0 -16px',
     paddingLeft: '12px',
-    backgroundColor: '$brand_bright',
-    borderLeft: '4px solid $brand_main !important',
+    backgroundColor: '$code_highlight',
+    borderLeft: '4px solid $code_gray !important',
   },
   '.line-number::after': {
     content: ' ',
@@ -155,7 +155,7 @@ export const globalStyles = globalCss({
     'text-align': 'right',
     'margin-right': '16px',
     'margin-left': '-8px',
-    color: 'rgb(156, 163, 175)',
+    color: '$gray',
     content: 'attr(line)',
   },
 });
