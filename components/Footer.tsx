@@ -33,7 +33,7 @@ function Footer() {
   return (
     <footer className={footer()}>
       <div className={wrapper({ css: { margin: '$5 auto $4 auto' } })}>
-        <div className={flexRow({ css: { marginBottom: '$3' } })}>
+        <div className={flexRow({ css: { marginBottom: '$4' } })}>
           <Link className={linkReset(footerLink())} href="/">
             Home
           </Link>
@@ -50,7 +50,16 @@ function Footer() {
             Sitemap
           </Link>
         </div>
-        <div className={flexRow({ css: { justifyContent: 'space-between' } })}>
+        <div
+          className={flexRow({
+            css: {
+              justifyContent: 'space-between',
+              alignItems: 'flex-start',
+              flexDirection: 'column',
+              '@mobile': { flexDirection: 'row' },
+            },
+          })}
+        >
           <p className={paragraph(text({ type: 'medium', css: { color: '$neutral1' } }))}>
             Built with this{' '}
             <Link
