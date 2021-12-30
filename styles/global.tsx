@@ -120,6 +120,12 @@ export const globalStyles = globalCss({
       marginRight: '$2',
       lineHeight: '1',
     },
+    '&[data-lang]': {
+      '&:before': {
+        content:
+          'url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAARCAYAAAACCvahAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAACtSURBVHgB7ZIxCsIwFIb/lxbpERy9Qb1BvYHnMJMILqKIOIlLNx31KL1Bj9Aj1EU6mDyDdvPVBAUnP0iGwPe9BEJw6OliyFGcogvF1WG/LV6On7saE9tB5zI8msxXmSy/Q6kShFoKeGV7M5eric5SwD/Zcco3tRQIkqWA1ut+7JOUokzPlu1VDcDtc3pNEjxZDOML/vLPZQIafMDjh1lwQaDUVZIQiS2Vx3xX3QEcMU4BqGbO7wAAAABJRU5ErkJggg==)',
+      },
+    },
     '&[data-lang="js"]': {
       '&:before': {
         content:

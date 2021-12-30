@@ -33,7 +33,7 @@ const allViews = Object.values(views).reduce((total, value) => total + value);
 
 With SQL, you can use `SUM()` instead. Easier? Yeah. Better? Probably debatable, but I like it.
 
-```sql {1,3-4} showLineNumbers
+```sql:lib/main.sql {1,3-4} showLineNumbers
 SELECT SUM(count) as total
 FROM views;
 ```

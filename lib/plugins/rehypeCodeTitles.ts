@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Node, Parent } from 'unist';
 import { visit } from 'unist-util-visit';
 
