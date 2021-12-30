@@ -1,73 +1,70 @@
-import { Grid, linkReset, wrapper } from '@styles/common';
+import { flexRow, Grid, linkReset, wrapper } from '@styles/common';
 import { text } from '@styles/typography';
 import React from 'react';
 import { css } from 'stitches.config';
-import { Github, Linkedin, Twitter } from './common/icons';
 import Link from './common/Link';
-import FooterCard from './FooterCard';
 
 function Footer() {
   const footer = css({
     borderTop: '1px solid $neutral6',
   });
   const paragraph = css({
-    color: '$neutral3',
+    color: '$neutral2',
     margin: '0 !important',
     fontWeight: '500',
   });
 
   const footerLink = css(text, {
-    color: '$neutral3',
+    color: '$neutral2',
     marginBottom: '$3 !important',
     fontSize: '.89rem',
     lineHeight: '1',
     transition: 'color .3s ease',
+    fontWeight: '700',
+    marginRight: '$3',
+
     '&:hover': {
       color: '$neutral1',
+    },
+    '&:last-of-type': {
+      marginRight: '0',
     },
   });
   return (
     <footer className={footer()}>
-      <div className={wrapper()}>
-        <Grid>
-          <FooterCard title="Idir Hamouch" desc="Full Stack Javascript developer" pos="1/4">
-            <Link href="/" title="Github">
-              <Github width="32px" />
-            </Link>
-            <Link href="/" title="Twitter">
-              <Twitter width="32px" />
-            </Link>
-            <Link href="/" title="Linkedin">
-              <Linkedin width="32px" />
-            </Link>
-          </FooterCard>
-
-          <FooterCard title="Contact" pos="9/11">
-            <Link className={linkReset(footerLink())} href="/">
-              Email
-            </Link>
-          </FooterCard>
-
-          <FooterCard pos="11/13" title="Links">
-            <Link className={linkReset(footerLink())} title="RSS Feed" href="/feed.xml">
-              RSS
-            </Link>
-            <Link className={linkReset(footerLink())} title="Sitemap" href="/sitemap.xml">
-              Sitemap
-            </Link>
+      <div className={wrapper({ css: { margin: '$5 auto $4 auto' } })}>
+        <div className={flexRow({ css: { marginBottom: '$3' } })}>
+          <Link className={linkReset(footerLink())} href="/">
+            Home
+          </Link>
+          <Link className={linkReset(footerLink())} href="/blog">
+            Blog
+          </Link>
+          <Link className={linkReset(footerLink())} href="/contact">
+            Contact
+          </Link>
+          <Link className={linkReset(footerLink())} title="RSS Feed" href="/feed.xml">
+            RSS
+          </Link>
+          <Link className={linkReset(footerLink())} title="Sitemap" href="/sitemap.xml">
+            Sitemap
+          </Link>
+        </div>
+        <div className={flexRow({ css: { justifyContent: 'space-between' } })}>
+          <p className={paragraph(text({ type: 'medium', css: { color: '$neutral1' } }))}>
+            Built with this{' '}
             <Link
-              className={linkReset(footerLink())}
-              title="Technology Stack of this website"
-              href="/blog/tech-stach"
+              className={linkReset(footerLink({ css: { color: '$brand_main' } }))}
+              title="TechStack"
+              href="/tech-stack"
             >
-              Tech Stack
+              TechStack
             </Link>
-          </FooterCard>
-        </Grid>
-
-        <p className={paragraph(text({ type: 'small' }))}>
-          All rights reserved © Idir Hamouch 2021.
-        </p>
+          </p>
+          <p className={paragraph(text({ type: 'small' }))}>
+            All rights reserved © Idir Hamouch 2021.
+          </p>
+        </div>
       </div>
     </footer>
   );
