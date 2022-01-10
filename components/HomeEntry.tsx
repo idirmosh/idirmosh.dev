@@ -9,9 +9,9 @@ import { NAME } from '@lib/constants';
 function HomeEntry({ about, socials, contact }) {
   const entry = css({
     alignItems: 'center',
-    margin: '6rem auto',
+    margin: '$5 auto',
     '@desktop': {
-      margin: '10rem auto',
+      margin: '$6 auto',
     },
   });
   const content = css({
