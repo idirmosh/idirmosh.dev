@@ -3,7 +3,7 @@ import { ORIGIN_URL } from '@lib/constants';
 export default {
   open: false,
   about: {
-    avatar: 'https://pbs.twimg.com/profile_images/1374070746817908740/mIfVlbBb_400x400.jpg',
+    avatar: '/avatar.webp',
     title: 'I’m a self-taught full-stack developer based in Florida, USA.',
     para1:
       "I have multiple years of experience in the JavaScript ecosystem and have a blog where I write about technology, share the things I've learned, and ponder the future of the field.",
