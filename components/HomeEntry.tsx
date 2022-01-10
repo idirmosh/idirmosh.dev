@@ -6,7 +6,7 @@ import Link from './common/Link';
 import { keyGen } from '@lib/helpers';
 import { NAME } from '@lib/constants';
 
-function HomeEntry({ about, socials }) {
+function HomeEntry({ about, socials, contact }) {
   const entry = css({
     alignItems: 'center',
     margin: '6rem auto',
@@ -25,27 +25,25 @@ function HomeEntry({ about, socials }) {
     },
   });
 
-  const resetLink = css({
-    position: 'relative',
-    display: 'inline-block',
-    textDecoration: 'none',
-    lineHeight: '1 !important',
-    margin: '0 40px 0 0 !important',
-    color: '$neutral0 !important',
-    transition: 'color 0.15s ease-in 0s',
-    '&:hover': {
-      color: '$brand_main !important',
-      border: 'none !important',
-    },
+  const linkSpacer = css({
+    fontWeight: '100',
+    color: '$neutral4',
+    padding: '0 $2',
   });
-
+  const contain = css({
+    gridColumn: '1/13',
+    gridRow: '2',
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+  });
   return (
     <Grid className={wrapper(entry())}>
       <div className={content()}>
         <Image
           alt={NAME}
-          width={64}
-          height={64}
+          width={164}
+          height={164}
           className={box({ css: { borderRadius: '999px' } })}
           src={about.avatar}
         />
@@ -53,18 +51,41 @@ function HomeEntry({ about, socials }) {
         <p className={text()}>{about.para1}</p>
         <p className={text()}>{about.para2}</p>
       </div>
-      <nav className={box({ css: { gridRow: '2', display: 'flex', marginTop: '$2' } })}>
-        {socials.map((social) => (
+      <div className={contain()}>
+        <div
+          className={box({
+            css: { marginRight: '$5', marginBottom: '$3', '@mobile': { marginBottom: '0' } },
+          })}
+        >
+          <p className={text({ css: { marginBottom: '$1 !important', color: '$neutral2' } })}>
+            Find me.
+          </p>
+
+          {socials.map((social, idx) => (
+            <Link
+              key={keyGen(social.name)}
+              className={linkReset({ css: { color: '$neutral0', fontWeight: '600' } })}
+              href={social.link}
+              target="_blank"
+            >
+              {social.name}
+              {idx < socials.length - 1 && <span className={linkSpacer()}>/</span>}
+            </Link>
+          ))}
+        </div>
+        <div>
+          <p className={text({ css: { marginBottom: '$1 !important', color: '$neutral2' } })}>
+            Contact me.
+          </p>
           <Link
-            key={keyGen(social.name)}
-            className={resetLink(text({ type: 'external-link' }))}
-            href={social.link}
+            className={linkReset({ css: { color: '$neutral0', fontWeight: '600' } })}
+            href={`https://mail.google.com/mail/u/0/?fs=1&tf=cm&source=mailto&to=${contact}`}
             target="_blank"
           >
-            {social.name}
+            {contact}
           </Link>
-        ))}
-      </nav>
+        </div>
+      </div>
     </Grid>
   );
 }

@@ -3,7 +3,7 @@ import { css } from 'stitches.config';
 export const heading = css({
   display: 'block',
   fontFamily: '$sans',
-  letterSpacing: '-0.0207142857em',
+  letterSpacing: '-0.03em',
   fontWeight: '700',
   fontKerning: 'normal',
   'font-variant-ligatures': 'common-ligatures contextual discretionary-ligatures',

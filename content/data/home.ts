@@ -2,6 +2,7 @@ import { ORIGIN_URL } from '@lib/constants';
 
 export default {
   open: false,
+  contact: 'idir.mosh@gmail.com',
   about: {
     avatar: '/avatar.webp',
     title: 'I’m a self-taught full-stack developer based in Florida, USA.',

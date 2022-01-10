@@ -10,7 +10,7 @@ import FreelanceCTA from '@components/FreelanceCTA';
 import Head from '@components/Head';
 import { NAME } from '@lib/constants';
 
-const Home = ({ featuredPosts, about, socials, work, open }) => {
+const Home = ({ featuredPosts, about, socials, work, open, contact }) => {
   return (
     <div>
       <Head
@@ -18,7 +18,7 @@ const Home = ({ featuredPosts, about, socials, work, open }) => {
         description="Hi, I'm Idir Hamouch. I’m a self-taught full-stack javaScript developer, I am passionate about building things for the web using newest technologies."
       />
       <Layout>
-        <HomeEntry about={about} socials={socials} />
+        <HomeEntry about={about} socials={socials} contact={contact} />
         <FeaturedPosts posts={featuredPosts} />
         <FeaturedWorks work={work} />
         {open && <FreelanceCTA />}
@@ -42,6 +42,7 @@ export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
       socials: data.socials,
       work: data.work,
       open: data.open,
+      contact: data.contact,
     },
   };
 };
