@@ -1,5 +1,7 @@
 export const ORIGIN_URL =
-  process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : 'http://idirmosh.dev';
+  process.env.NODE_ENV === 'development'
+    ? 'http://localhost:3000'
+    : 'https://flowidir-dev.vercel.app';
 export const NAME = 'Idir Hamouch';
 export const AVATAR =
   'https://pbs.twimg.com/profile_images/1374070746817908740/mIfVlbBb_400x400.jpg';
