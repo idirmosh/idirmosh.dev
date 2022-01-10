@@ -33,7 +33,8 @@ function ProjectCard({ project }) {
           height={280}
           layout="responsive"
           objectFit="cover"
-          alt="sds"
+          alt={project.name}
+          title={project.name}
           src={project.preview}
         />
       </div>
