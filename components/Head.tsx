@@ -21,7 +21,7 @@ function Head({
   const siteType = router.asPath === '/' ? 'website' : 'article';
   const isBlogPost = router.asPath.startsWith('/blog/');
   const siteImg = image ? ORIGIN_URL + image : ORIGIN_URL + '/avatar.png';
-
+  console.log(siteImg);
   return (
     <NextHead>
       <title>{title}</title>
@@ -37,7 +37,7 @@ function Head({
       <meta property="og:image" content={siteImg} />
       // twitter
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:site" content="@leeerob" />
+      <meta name="twitter:site" content="@idirmosh" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={siteImg} />
