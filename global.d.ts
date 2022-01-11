@@ -1,3 +1,9 @@
+declare global {
+  interface Window {
+    gtag: any;
+  }
+}
+
 export interface IPageProps {
   posts: Post[];
   tagsCount: number;
