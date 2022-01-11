@@ -1,6 +1,6 @@
 import type { GetStaticProps, GetStaticPaths, NextPage } from 'next';
 import { allPosts } from '.contentlayer/data';
-import { capitalize, filterTags, keyGen, reduceTags } from '@lib/helpers';
+import { capitalize, filterTags, keyGen, reduceTags, sizeLogger } from '@lib/helpers';
 import { IPageProps, IParams } from 'global';
 import Layout from '@components/Layout';
 import { blogWrapper } from '@styles/common';
@@ -42,7 +42,10 @@ const SingleTagPage: NextPage<IPageProps> = ({ posts, tag }) => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params: { tag } }: IParams) => {
-  const posts = allPosts.map((post) => post.tags.includes(tag) && post).filter((o) => o);
+  const posts = allPosts
+    .map(({ body, _raw, ...post }) => post.tags.includes(tag) && post)
+    .filter((o) => o);
+
   return { props: { posts, tag } };
 };
 
