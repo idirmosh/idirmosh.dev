@@ -10,8 +10,8 @@ function Head({
   date,
   children,
 }: {
-  title: string;
-  description: string;
+  title?: string;
+  description?: string;
   image?: string;
   date?: string;
   children?: ReactNode;
