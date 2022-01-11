@@ -5,8 +5,9 @@ import Image from 'next/image';
 import Link from './common/Link';
 import { keyGen } from '@lib/helpers';
 import { NAME } from '@lib/constants';
+import React from 'react';
 
-function HomeEntry({ about, socials, contact }) {
+function HomeEntry({ about, socials, contact }): React.ReactElement {
   const entry = css({
     alignItems: 'center',
     margin: '$5 auto',

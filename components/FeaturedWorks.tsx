@@ -3,9 +3,9 @@ import { box, wrapper } from '@styles/common';
 import { heading } from '@styles/typography';
 import React from 'react';
 import { css } from 'stitches.config';
-import ProjectCard from './ProjectCard';
+import ProjectCard, { IProject } from './ProjectCard';
 
-function FeaturedWorks({ work }) {
+function FeaturedWorks({ work }: { work: IProject[] }): React.ReactElement {
   const container = css({
     display: 'grid',
     gridTemplateColumns: `repeat(1,minmax(0,1fr))`,

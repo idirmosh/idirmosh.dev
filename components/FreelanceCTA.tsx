@@ -2,7 +2,7 @@ import { button, wrapper } from '@styles/common';
 import { heading } from '@styles/typography';
 import React from 'react';
 
-function FreelanceCTA() {
+function FreelanceCTA(): React.ReactElement {
   return (
     <div className={wrapper()}>
       <h1 className={heading({ type: 'xlarge' })}>

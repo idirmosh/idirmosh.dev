@@ -8,7 +8,7 @@ type Props = {
   textL: string;
 };
 
-function MobileMenuSocialLink({ href, textL }: Props) {
+function MobileMenuSocialLink({ href, textL }: Props): React.ReactElement {
   const link = css({
     fontSize: '1rem',
     marginBottom: '$3',

@@ -1,15 +1,14 @@
-import { heading, text } from '@styles/typography';
+import { text } from '@styles/typography';
 import React from 'react';
 import { css } from 'stitches.config';
-import Applause from './common/Applause';
 import TagList from './common/TagList';
 import PostMeta from './common/PostMeta';
 import Link from '@components/common/Link';
 import Image from 'next/image';
-import { box, flexRow, meta, wrapper } from '@styles/common';
-import { MAIN_CARD_WIDTH } from '@lib/constants';
+import { box, flexRow, meta } from '@styles/common';
+import { Post } from '.contentlayer/types';
 
-function BlogCardNew({ post }) {
+function BlogCardNew({ post }: { post: Post }): React.ReactElement {
   const cardWrapper = css({
     alignItems: 'flex-start',
     justifyContent: 'space-between',

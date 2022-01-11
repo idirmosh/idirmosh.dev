@@ -4,7 +4,7 @@ import { css } from 'stitches.config';
 import { Clap } from '@components/common/icons';
 import { flexRow } from '@styles/common';
 
-function Applause() {
+function Applause(): React.ReactElement {
   return (
     <figure className={flexRow(applauseStyles())} aria-label="support this article">
       <data className={text({ type: 'small', css: { margin: '0' } })}>546</data>

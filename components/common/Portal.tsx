@@ -2,8 +2,8 @@ import { FC, ReactNode, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 
 const Portal: FC<ReactNode | null> = ({ children }) => {
-  const [mounted, setMounted] = useState(false);
-  let div = '#mobile-menu';
+  const [mounted, setMounted] = useState<Boolean>(false);
+  let div: string = '#mobile-menu';
 
   useEffect(() => {
     setMounted(true);

@@ -4,7 +4,7 @@ import { css } from 'stitches.config';
 import Applause from './Applause';
 import Link from './Link';
 
-function BlogPostAction() {
+function BlogPostAction(): React.ReactElement {
   const wrap = css({
     margin: '$3 0',
     justifyContent: 'space-between',

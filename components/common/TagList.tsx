@@ -2,7 +2,7 @@ import React from 'react';
 import { css } from 'stitches.config';
 import Tag from './Tag';
 
-function TagList({ tags }: { tags: string[] }) {
+function TagList({ tags }: { tags: string[] }): React.ReactElement {
   const styles = css({
     display: 'flex',
     flexWrap: 'wrap',

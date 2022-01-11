@@ -2,7 +2,7 @@ import { Done } from '@components/common/icons';
 import React from 'react';
 import { css } from 'stitches.config';
 
-function CheckBox({ id, text, selected, handleChange }) {
+function CheckBox({ id, text, selected, handleChange }): React.ReactElement {
   const active = selected == id;
   const checkbox = css({
     display: 'flex',

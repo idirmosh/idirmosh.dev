@@ -1,13 +1,13 @@
 import { flexRow, wrapper } from '@styles/common';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { ReactNode, useEffect, useRef, useState } from 'react';
 import { css } from 'stitches.config';
 import MobileMenu from './MobileMenu';
 import Logo from './Logo';
 import { text } from '@styles/typography';
 import ThemeToggler from './common/ThemeToggler';
 
-function NavbarNew() {
-  const [isOpen, setIsOpen] = useState(false);
+function NavbarNew(): React.ReactElement {
+  const [isOpen, setIsOpen] = useState<Boolean>(false);
   const nodeRef = useRef(null);
   const navbar = css({
     borderBottom: '1px solid $neutral6',

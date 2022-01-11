@@ -6,7 +6,15 @@ import Link from './common/Link';
 import Image from 'next/image';
 import { MAIN_CARD_WIDTH } from '@lib/constants';
 
-function ProjectCard({ project }) {
+export interface IProject {
+  preview: string;
+  name: string;
+  description: string;
+  demo: string;
+  source: string;
+}
+
+function ProjectCard({ project }: { project: IProject }): React.ReactElement {
   const card = css({
     textDecoration: 'none',
     width: '100%',

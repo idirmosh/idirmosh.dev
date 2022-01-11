@@ -8,7 +8,7 @@ type Props = {
   tags: string[];
 };
 
-function BlogListTagsDisplay({ tags }: Props) {
+function BlogListTagsDisplay({ tags }: Props): React.ReactElement {
   const topics = css({});
   const seperator = css({
     display: 'inline-block',

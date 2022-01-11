@@ -6,7 +6,7 @@ type Props = {
   title: string;
   children?: ReactNode;
 };
-function BlogListHeader({ title, children }: Props) {
+function BlogListHeader({ title, children }: Props): React.ReactElement {
   return (
     <div className={flexColumn({ css: { display: 'block', marginBottom: '$6' } })}>
       <h1 className={heading({ type: 'xlarge' })}>{title}</h1>

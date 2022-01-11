@@ -6,10 +6,11 @@ import TagList from './common/TagList';
 import PostMeta from './common/PostMeta';
 import Link from '@components/common/Link';
 import Image from 'next/image';
-import { meta, wrapper } from '@styles/common';
+import { meta } from '@styles/common';
 import { MAIN_CARD_WIDTH } from '@lib/constants';
+import { Post } from '.contentlayer/types';
 
-function BlogCard({ post }) {
+function BlogCard({ post }: { post: Post }): React.ReactElement {
   return (
     <article className={cardWrapper()}>
       <Link href={`/blog/${post.slug}`} className={cardMedia()} aria-hidden="true">

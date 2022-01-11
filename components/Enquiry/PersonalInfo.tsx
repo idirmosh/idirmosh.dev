@@ -2,7 +2,7 @@ import { heading } from '@styles/typography';
 import React from 'react';
 import { css } from 'stitches.config';
 
-function PersonalInfo() {
+function PersonalInfo(): React.ReactElement {
   const info = css({
     display: 'grid',
     gridAutoColumns: 'auto',

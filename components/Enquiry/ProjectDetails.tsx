@@ -2,7 +2,7 @@ import { heading } from '@styles/typography';
 import React from 'react';
 import { css } from 'stitches.config';
 
-function ProjectDetails() {
+function ProjectDetails(): React.ReactElement {
   const textarea = css({
     width: '100%',
     padding: '1.2rem 1.2rem 80px',

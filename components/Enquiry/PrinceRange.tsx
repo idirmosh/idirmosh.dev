@@ -3,8 +3,8 @@ import { heading } from '@styles/typography';
 import { useState } from 'react';
 import { css } from 'stitches.config';
 import CheckBox from './CheckBox';
-function PriceRange() {
-  const [selected, setSelected] = useState('3k');
+function PriceRange(): React.ReactElement {
+  const [selected, setSelected] = useState<string>('3k');
   const container = css({
     display: 'grid',
     gridAutoColumns: 'auto',

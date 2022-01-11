@@ -4,7 +4,7 @@ import React from 'react';
 import { css } from 'stitches.config';
 import Label from './Label';
 
-function AcceptPolicy() {
+function AcceptPolicy(): React.ReactElement {
   const check = css({});
   return (
     <Label id="accept">

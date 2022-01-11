@@ -12,7 +12,7 @@ type Props = {
   readTime: string;
 };
 
-function BlogPostAvatar({ date, readTime }: Props) {
+function BlogPostAvatar({ date, readTime }: Props): React.ReactElement {
   const avatar = css({
     width: '$4',
     height: '$4',

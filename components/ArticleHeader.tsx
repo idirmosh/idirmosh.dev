@@ -8,10 +8,11 @@ import { NAME } from '@lib/constants';
 import BlogPostAvatar from './common/BlogPostAvatar';
 import BlogPostShare from './common/BlogPostShare';
 import BlogPostAction from './common/BlogPostAction';
+import { Post } from '.contentlayer/types';
 
 const FIRA_FONT = 'https://fonts.googleapis.com/css?family=Fira+Mono&display=swap';
 
-function ArticleHeader({ post }) {
+function ArticleHeader({ post }: { post: Post }): React.ReactElement {
   const header = css({
     margin: '2rem auto',
   });

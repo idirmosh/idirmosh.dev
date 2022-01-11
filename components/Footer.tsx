@@ -4,7 +4,7 @@ import React from 'react';
 import { css } from 'stitches.config';
 import Link from './common/Link';
 
-function Footer() {
+function Footer(): React.ReactElement {
   const footer = css({
     borderTop: '1px solid $neutral6',
   });

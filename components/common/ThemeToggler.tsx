@@ -1,10 +1,10 @@
 import { Moon, Sun } from '../common/icons';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTheme } from 'next-themes';
 import { css } from 'stitches.config';
 
-function ThemeToggler() {
-  const [mounted, setMounted] = useState(false);
+function ThemeToggler(): React.ReactElement {
+  const [mounted, setMounted] = useState<Boolean>(false);
   const { setTheme, resolvedTheme } = useTheme();
 
   useEffect(() => setMounted(true), []);
@@ -12,7 +12,7 @@ function ThemeToggler() {
   if (!mounted) return null;
 
   const toggleTheme = () => {
-    const targetTheme = resolvedTheme === 'light' ? 'dark' : 'light';
+    const targetTheme: string = resolvedTheme === 'light' ? 'dark' : 'light';
     setTheme(targetTheme);
   };
 

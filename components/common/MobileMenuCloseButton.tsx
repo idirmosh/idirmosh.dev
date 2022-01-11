@@ -1,7 +1,7 @@
 import React from 'react';
 import { css } from 'stitches.config';
 
-function MobileMenuCloseButton(props) {
+function MobileMenuCloseButton(props): React.ReactElement {
   const icon = css({
     zIndex: '1',
     transition: 'all .3s ease-in-out',

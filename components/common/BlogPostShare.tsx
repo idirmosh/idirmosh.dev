@@ -6,10 +6,10 @@ import { CopyURL, Twitter } from './icons';
 import Link from './Link';
 import { copyToClipboard } from '@lib/helpers';
 
-function BlogPostShare() {
-  const [copyState, setCopyState] = useState('Copy URL');
-  const [title, setTitle] = useState('');
-  const [url, setUrl] = useState('');
+function BlogPostShare(): React.ReactElement {
+  const [copyState, setCopyState] = useState<string>('Copy URL');
+  const [title, setTitle] = useState<string>('');
+  const [url, setUrl] = useState<string>('');
 
   useEffect(() => {
     setTitle(document.title.split('-')[0].trim());

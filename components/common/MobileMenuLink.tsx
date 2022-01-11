@@ -6,7 +6,8 @@ type Props = {
   href: string;
   text: string;
 };
-function MobileMenuLink({ href, text }: Props) {
+
+function MobileMenuLink({ href, text }: Props): React.ReactElement {
   const item = css({
     position: 'relative',
     display: 'block',

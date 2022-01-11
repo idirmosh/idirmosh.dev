@@ -6,8 +6,9 @@ import Link from '@components/common/Link';
 import { parseISO } from 'date-fns';
 import { keyGen } from '@lib/helpers';
 import { Post } from '.contentlayer/types';
+import React from 'react';
 
-function FeaturedPosts({ posts }: { posts: Post[] }) {
+function FeaturedPosts({ posts }: { posts: Post[] }): React.ReactElement {
   const groupe = css({
     gridColumn: '1/13',
     '@desktop': {

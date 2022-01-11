@@ -8,7 +8,7 @@ import MobileMenuSocialLink from './common/MobileMenuSocialLink';
 import ThemeToggler from './common/ThemeToggler';
 import { CSSTransition, Transition } from 'react-transition-group';
 
-function MobileMenu({ handleMenu, isOpen }) {
+function MobileMenu({ handleMenu, isOpen }): React.ReactElement {
   const nodeRef = useRef(null);
   const menu = css({
     padding: '0',

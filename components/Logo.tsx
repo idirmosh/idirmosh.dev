@@ -5,7 +5,7 @@ import { css } from 'stitches.config';
 import * as Icons from '@components/common/icons';
 import audio from '../public/sounds/idir.mp3';
 
-function Logo() {
+function Logo(): React.ReactElement {
   const logo = css({
     display: 'flex',
     flexDirection: 'column',

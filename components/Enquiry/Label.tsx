@@ -1,7 +1,7 @@
 import React from 'react';
 import { css } from 'stitches.config';
 
-function Label({ id, children }) {
+function Label({ id, children }): React.ReactElement {
   const label = css({
     display: 'flex',
     alignItems: 'center',

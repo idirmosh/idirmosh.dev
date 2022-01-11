@@ -1,9 +1,9 @@
-import { box, flexColumn, flexRow } from '@styles/common';
+import { box, flexColumn } from '@styles/common';
 import { heading, text } from '@styles/typography';
 import { css } from 'stitches.config';
 import Link from './Link';
 
-function Logo() {
+function Logo(): React.ReactElement {
   const styles = css({
     gridColumn: '4/10',
     '@mobile': {
