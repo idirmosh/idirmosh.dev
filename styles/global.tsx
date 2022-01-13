@@ -3,7 +3,8 @@ import { darkTheme, globalCss } from 'stitches.config';
 export const globalStyles = globalCss({
   '@font-face': {
     fontFamily: 'Inter',
-    src: 'url("/fonts/Inter.ttf") format("truetype-variations")',
+    fontDisplay: 'swap',
+    src: 'url("/fonts/Inter.woff2") format("truetype-variations")',
     fontWeight: '1 999',
   },
   ':root': {
