@@ -1,6 +1,11 @@
 import { darkTheme, globalCss } from 'stitches.config';
 
 export const globalStyles = globalCss({
+  '@font-face': {
+    fontFamily: 'Inter',
+    src: 'url("/fonts/Inter.ttf") format("truetype-variations")',
+    fontWeight: '1 999',
+  },
   ':root': {
     MozTabSize: '4',
     tabSize: '4',

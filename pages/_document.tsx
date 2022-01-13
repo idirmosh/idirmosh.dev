@@ -12,9 +12,9 @@ export default class Document extends NextDocument {
         <Head>
           <style id="stitches" dangerouslySetInnerHTML={{ __html: getCssText() }} />
 
-          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+          {/* <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
           <link href={INTER_FONT} rel="preload" as="style" />
-          <link href={INTER_FONT} rel="stylesheet" media="all" />
+          <link href={INTER_FONT} rel="stylesheet" media="all" /> */}
 
           <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} />
           <script
@@ -30,9 +30,7 @@ export default class Document extends NextDocument {
             }}
           />
 
-          <noscript>
-            <link href={INTER_FONT} rel="stylesheet" />
-          </noscript>
+          <noscript>{/* <link href={INTER_FONT} rel="stylesheet" /> */}</noscript>
         </Head>
         <body>
           <Main />

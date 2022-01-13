@@ -1,7 +1,5 @@
 export const ORIGIN_URL =
-  process.env.NODE_ENV === 'development'
-    ? 'http://localhost:3000'
-    : 'https://flowidir-dev.vercel.app';
+  process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : 'https://idirmosh.dev';
 export const NAME = 'Idir Hamouch';
 export const AVATAR = '/avatar.webp';
 export const MAIN_WIDTH = 1280;
