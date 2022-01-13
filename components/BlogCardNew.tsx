@@ -91,7 +91,7 @@ function BlogCardNew({ post }: { post: Post }): React.ReactElement {
           width="100%"
           height="100%"
           layout="responsive"
-          objectFit="cover"
+          objectFit="contain"
           alt={post.title}
           title={post.title}
         />

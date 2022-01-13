@@ -27,14 +27,14 @@ export default {
   ],
   work: [
     {
-      preview: '/projects/portfolio-preview.png',
+      preview: '/projects/portfolio-preview.webp',
       name: 'My Portfolio / Blog',
       description: 'my portfolio and blog built with MDX, Nextjs and Stitches.',
       demo: 'https://flowidir-dev.vercel.app',
       source: 'https://github.com/idirmosh/idirmosh.dev',
     },
     {
-      preview: '/projects/joly.png',
+      preview: '/projects/joly.webp',
       name: 'JollyWellHealth',
       description: 'A micro website for friend build with Next.js and ChakraUI.',
       demo: 'https://camilewellhealth-meedinbox.vercel.app/',

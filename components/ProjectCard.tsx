@@ -35,7 +35,11 @@ function ProjectCard({ project }: { project: IProject }): React.ReactElement {
   });
   return (
     <div className={card()}>
-      <div>
+      <div
+        className={box({
+          css: { border: '1px solid $neutral5', borderRadius: '4px', overflow: 'hidden' },
+        })}
+      >
         <Image
           width={MAIN_CARD_WIDTH - 40}
           height={280}
@@ -48,7 +52,9 @@ function ProjectCard({ project }: { project: IProject }): React.ReactElement {
       </div>
       <div className={content()}>
         <span className={title(heading({ type: 'h4' }))}>{project.name} </span>
-        <span className={desc(text({ type: 'medium' }))}>— {project.description}</span>
+        <span className={desc(text({ type: 'medium', css: { color: '$neutral2' } }))}>
+          — {project.description}
+        </span>
         <div className={box({ css: { marginTop: '.4rem' } })}>
           <Link
             href={project.demo}
