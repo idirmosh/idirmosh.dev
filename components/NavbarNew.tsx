@@ -4,12 +4,13 @@ import { css } from 'stitches.config';
 import MobileMenu from './MobileMenu';
 import Logo from './Logo';
 import { text } from '@styles/typography';
-import ThemeToggler from './common/ThemeToggler';
+import ThemeToggler from './common/ThemeTogglerMew';
 
 function NavbarNew(): React.ReactElement {
   const [isOpen, setIsOpen] = useState<Boolean>(false);
   const nodeRef = useRef(null);
   const navbar = css({
+    position: 'relative',
     borderBottom: '1px solid $neutral6',
     marginBottom: '2rem',
     height: '96px',

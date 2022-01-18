@@ -85,14 +85,14 @@ export const darkTheme = createTheme('dark', {
     code_highlight: 'rgba(246,248,250,3%)',
     code_gray: 'rgba(232,234,237,10%)',
 
-    neutral7: '#131217',
-    neutral6: '#1b191f',
+    neutral7: '#131316',
+    neutral6: '#19191F',
     neutral5: '#333333',
     neutral4: '#555555',
     neutral3: '#777777',
     neutral2: '#aaaaaa',
-    neutral1: '#cccccc',
-    neutral0: '#d9d7e0',
+    neutral1: '#D4D4D4',
+    neutral0: '#EEEEF1',
 
     brand_main: '#B8AAF2',
     brand_inverted: '#E2DFED',
