@@ -16,8 +16,7 @@ function ThemeToggler(): React.ReactElement {
     const targetTheme: string = resolvedTheme === 'light' ? 'dark' : 'light';
     setTheme(targetTheme);
   };
-  const targetTheme: string = resolvedTheme === 'light' ? 'dark' : 'light';
-  console.log(rest);
+
   const isCurrent = resolvedTheme === 'light';
   const isLight = resolvedTheme === 'light';
 
@@ -35,7 +34,7 @@ function ThemeToggler(): React.ReactElement {
     cursor: 'pointer',
     backgroundColor: '$neutral7',
     svg: {
-      fill: isLight ? '$neutral1' : '$yellow',
+      fill: '$neutral1',
     },
     // '&:hover': {
     //   backgroundColor: isLight ? '$neutral3' : '$yellow',
@@ -62,7 +61,6 @@ function ThemeToggler(): React.ReactElement {
 
 function DropDown() {
   const { setTheme, resolvedTheme, systemTheme, theme, ...rest } = useTheme();
-
   const dropDown = css({
     position: 'absolute',
     right: '8px',
@@ -95,19 +93,24 @@ function DropDown() {
     color: '$neutral1',
   });
 
+  const handleClick = (key) => {
+    console.log(key);
+    setTheme(key);
+  };
+
   return (
     <ul className={dropDown()}>
-      <li className={action()} onClick={() => setTheme('light')}>
+      <li className={action()} onClick={() => handleClick('light')}>
         <Sun width="24" />
-        <span className={span(text({ type: 'small' }))}>Light</span>
+        <span className={span(text({ type: 'medium' }))}>Light</span>
       </li>
-      <li className={action()} onClick={() => setTheme('dark')}>
+      <li className={action()} onClick={() => handleClick('dark')}>
         <MoonStar width="24" />
-        <span className={span(text({ type: 'small' }))}>Dark</span>
+        <span className={span(text({ type: 'medium' }))}>Dark</span>
       </li>
-      <li className={action()} onClick={() => setTheme(systemTheme)}>
+      <li className={action()} onClick={() => handleClick(systemTheme)}>
         <System width="24" />
-        <span className={span(text({ type: 'small' }))}>System</span>
+        <span className={span(text({ type: 'medium' }))}>System</span>
       </li>
     </ul>
   );
