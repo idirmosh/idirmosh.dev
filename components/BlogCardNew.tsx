@@ -29,7 +29,7 @@ function BlogCardNew({ post }: { post: Post }): React.ReactElement {
     fontSize: '1.25rem',
     marginBottom: '$1',
     lineHeight: '1.2',
-    color: '$neutral1',
+    color: '$neutral0',
     '@tablet': {
       marginBottom: '$2',
     },
@@ -39,7 +39,7 @@ function BlogCardNew({ post }: { post: Post }): React.ReactElement {
   });
   const summary = css({
     display: 'none',
-    color: '$neutral3',
+    color: '$neutral2',
     '@tablet': {
       display: 'block',
     },
@@ -73,7 +73,7 @@ function BlogCardNew({ post }: { post: Post }): React.ReactElement {
   return (
     <article className={flexRow(cardWrapper())}>
       <div className={box({ css: { padding: '0 $4 0 0' } })}>
-        <PostMeta className={meta({})} date={post.publishedAt} readTime={post.readingTime.text} />
+        <PostMeta className={meta()} date={post.publishedAt} readTime={post.readingTime.text} />
         <h3 className={title()}>
           <Link href={`/blog/${post.slug}`} className={link()}>
             {post.title}
@@ -91,7 +91,7 @@ function BlogCardNew({ post }: { post: Post }): React.ReactElement {
           width="100%"
           height="100%"
           layout="responsive"
-          objectFit="contain"
+          objectFit="cover"
           alt={post.title}
           title={post.title}
         />

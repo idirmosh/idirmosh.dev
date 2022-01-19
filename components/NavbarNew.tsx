@@ -10,7 +10,6 @@ function NavbarNew(): React.ReactElement {
   const [isOpen, setIsOpen] = useState<Boolean>(false);
   const nodeRef = useRef(null);
   const navbar = css({
-    position: 'relative',
     borderBottom: '1px solid $neutral6',
     marginBottom: '2rem',
     height: '96px',

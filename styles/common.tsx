@@ -48,7 +48,7 @@ export const anchor = css({
   },
 });
 export const meta = css(flex, {
-  color: '$neutral3',
+  color: '$neutral2',
   'time, span': {
     margin: '0',
   },
@@ -57,7 +57,7 @@ export const meta = css(flex, {
       content: '•',
       fontSize: '0.6rem',
       verticalAlign: 'middle',
-      color: '$neutral3',
+      color: '$neutral2',
       margin: '0px 6px',
     },
   },
