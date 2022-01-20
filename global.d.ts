@@ -20,7 +20,11 @@ export interface IView {
 export interface ISinglePostProps {
   post: Post;
 }
-
+export interface ILayoutInfo {
+  name: string;
+  title: string;
+  menu: Record<string, string>;
+}
 export interface IParams {
   params: {
     slug: string;
