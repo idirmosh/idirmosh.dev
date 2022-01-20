@@ -1,16 +1,15 @@
-import { flexRow } from '@styles/common';
+import { flexRow, linkReset } from '@styles/common';
 import { heading, text } from '@styles/typography';
 import React from 'react';
 import { css } from 'stitches.config';
 import * as Icons from 'Components/Common/icons';
 import audio from '../public/sounds/idir.mp3';
+import Link from './Common/Link';
 
 function Logo({ name: fullName, title }): React.ReactElement {
   const logo = css({
     display: 'flex',
     flexDirection: 'column',
-    // paddingLeft: '16px',
-    // borderLeft: '1px solid $neutral6',
   });
   const name = css({
     margin: '0 0 .12rem 0 !important',
@@ -43,13 +42,15 @@ function Logo({ name: fullName, title }): React.ReactElement {
   });
   return (
     <div className={logo()}>
-      <h1 className={name(heading({ type: 'h4' }))}>
-        {fullName}
-        <span className={flexRow(audioS())} onClick={() => new Audio(audio).play()}>
-          <Icons.Audio width="12px" />
-        </span>
-      </h1>
-      <p className={sub(text({ type: 'small' }))}> {title} </p>
+      <Link href="/" className={linkReset()}>
+        <h1 className={name(heading({ type: 'h4' }))}>
+          {fullName}
+          <span className={flexRow(audioS())} onClick={() => new Audio(audio).play()}>
+            <Icons.Audio width="12px" />
+          </span>
+        </h1>
+        <p className={sub(text({ type: 'small' }))}> {title} </p>
+      </Link>
     </div>
   );
 }
