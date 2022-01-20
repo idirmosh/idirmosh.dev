@@ -56,7 +56,7 @@ function Footer({ links }): React.ReactElement {
             <Link
               className={linkReset(footerLink({ css: { color: '$brand_main' } }))}
               title="TechStack"
-              href="/tech-stack"
+              href="/blog/webdev-tech-stack"
             >
               TechStack
             </Link>
