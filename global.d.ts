@@ -21,9 +21,9 @@ export interface ISinglePostProps {
   post: Post;
 }
 export interface ILayoutInfo {
-  name: string;
-  title: string;
-  menu: Record<string, string>;
+  name?: string;
+  title?: string;
+  menu?: Record<string, string>;
   links?: Record<string, string>;
 }
 export interface IParams {
