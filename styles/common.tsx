@@ -62,7 +62,15 @@ export const meta = css(flex, {
     },
   },
 });
-
+export const headingReset = css({
+  a: {
+    cursor: 'default',
+    color: 'inherit !important',
+    textDecoration: 'inherit !important',
+    font: 'inherit !important',
+    pointerEvents: 'none',
+  },
+});
 export const hidden = css({
   border: '0',
   clip: 'rect(0 0 0 0)',
