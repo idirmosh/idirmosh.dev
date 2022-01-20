@@ -2,10 +2,10 @@ import { box, flexColumn, flexRow } from '@styles/common';
 import { heading, text } from '@styles/typography';
 import React, { useRef } from 'react';
 import { css } from 'stitches.config';
-import MobileMenuCloseButton from './common/MobileMenuCloseButton';
-import MobileMenuLink from './common/MenuLink';
-import MobileMenuSocialLink from './common/MobileMenuSocialLink';
-import ThemeToggler from './common/ThemeToggler';
+import MobileMenuCloseButton from './Common/MobileMenuCloseButton';
+import MobileMenuLink from './Common/MenuLink';
+import MobileMenuSocialLink from './Common/MobileMenuSocialLink';
+import ThemeToggler from './Common/ThemeToggler';
 import { CSSTransition, Transition } from 'react-transition-group';
 
 function MobileMenu({ handleMenu, isOpen }): React.ReactElement {

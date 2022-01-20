@@ -1,4 +1,4 @@
-import Link from '@components/common/Link';
+import Link from 'Components/Common/Link';
 import { text } from '@styles/typography';
 import React from 'react';
 import { css } from 'stitches.config';

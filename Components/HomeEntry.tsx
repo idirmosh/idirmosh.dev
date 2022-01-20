@@ -2,7 +2,7 @@ import { box, Grid, linkReset, wrapper } from '@styles/common';
 import { heading, text } from '@styles/typography';
 import { css, styled } from 'stitches.config';
 import Image from 'next/image';
-import Link from './common/Link';
+import Link from './Common/Link';
 import { keyGen } from '@lib/helpers';
 import { NAME } from '@lib/constants';
 import React from 'react';

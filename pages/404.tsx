@@ -1,5 +1,5 @@
-import Link from '@components/common/Link';
-import Layout from '@components/Layout';
+import Link from 'Components/Common/Link';
+import Layout from 'Components/Layout';
 import { wrapper } from '@styles/common';
 import { heading, text } from '@styles/typography';
 

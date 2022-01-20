@@ -1,5 +1,5 @@
 import React, { FC, ReactNode } from 'react';
-import NavbarNew from '@components/NavbarNew';
+import NavbarNew from '@components/Navbar';
 import Footer from './Footer';
 const Layout: FC<{ children: ReactNode }> = ({ children }) => {
   return (

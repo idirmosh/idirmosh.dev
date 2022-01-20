@@ -1,14 +1,14 @@
 import { useMemo } from 'react';
 import { getMDXComponent } from 'mdx-bundler/client';
-import { components } from '@components/MDXComponents';
+import { components } from 'Components/MDXComponents';
 import { allPosts } from '.contentlayer/data';
 import type { NextPage } from 'next';
 import { ISinglePostProps } from 'global';
 import { IParams } from 'global';
-import Layout from '@components/Layout';
+import Layout from 'Components/Layout';
 import { blogWrapper, wrapper } from '@styles/common';
-import ArticleHeader from '@components/ArticleHeader';
-import Head from '@components/Head';
+import ArticleHeader from 'Components/ArticleHeader';
+import Head from 'Components/Head';
 import { NAME } from '@lib/constants';
 
 const PostBySlug: NextPage<ISinglePostProps> = ({ post: { body, ...frontMatter } }) => {

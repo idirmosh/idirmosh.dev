@@ -1,15 +1,15 @@
 import Head from 'next/head';
-import Layout from '@components/Layout';
+import Layout from 'Components/Layout';
 import { box, blogWrapper } from '@styles/common';
-import PriceRange from '@components/Enquiry/PrinceRange';
-import PersonalInfo from '@components/Enquiry/PersonalInfo';
-import ProjectDetails from '@components/Enquiry/ProjectDetails';
+import PriceRange from 'Components/Enquiry/PrinceRange';
+import PersonalInfo from 'Components/Enquiry/PersonalInfo';
+import ProjectDetails from 'Components/Enquiry/ProjectDetails';
 
-import AcceptPolicy from '@components/Enquiry/AcceptPolicy';
+import AcceptPolicy from 'Components/Enquiry/AcceptPolicy';
 import { css } from 'stitches.config';
-import Link from '@components/common/Link';
+import Link from 'Components/Common/Link';
 import { heading } from '@styles/typography';
-import Label from '@components/Enquiry/Label';
+import Label from 'Components/Enquiry/Label';
 
 function Enquiry() {
   const button = css({

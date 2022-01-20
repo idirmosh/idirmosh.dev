@@ -1,4 +1,4 @@
-import { MoonStar, Sun, System } from '../common/icons';
+import { MoonStar, Sun, System } from './icons';
 import React from 'react';
 import { useTheme } from 'next-themes';
 import { css } from 'stitches.config';

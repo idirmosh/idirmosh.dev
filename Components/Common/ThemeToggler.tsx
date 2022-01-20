@@ -1,55 +1,48 @@
-import { Moon, Sun } from '../common/icons';
+import { MoonStar, Sun } from './icons';
 import React, { useEffect, useState } from 'react';
 import { useTheme } from 'next-themes';
 import { css } from 'stitches.config';
+import DropDown from './DropDown';
 
 function ThemeToggler(): React.ReactElement {
   const [mounted, setMounted] = useState<Boolean>(false);
-  const { setTheme, resolvedTheme } = useTheme();
+  const [isOpen, setIsOepn] = useState<Boolean>(false);
+  const { resolvedTheme } = useTheme();
 
   useEffect(() => setMounted(true), []);
 
   if (!mounted) return null;
 
-  const toggleTheme = () => {
-    const targetTheme: string = resolvedTheme === 'light' ? 'dark' : 'light';
-    setTheme(targetTheme);
-  };
+  const handleOpen = () => setIsOepn(!isOpen);
 
   const isLight = resolvedTheme === 'light';
 
   const togglebtn = css({
+    position: 'relative',
     minWidth: '1.8rem',
     height: '1.8rem',
     display: 'flex',
     justifyContent: 'space-around',
     alignItems: 'center',
     marginLeft: 'auto',
-    borderRadius: '.7rem',
+    borderRadius: '999px',
     transition: 'all .5s ease 0s',
-    boxShadow: '0 0 0 1px $colors$neutral4',
     cursor: 'pointer',
-    backgroundColor: '$neutral7',
     svg: {
-      fill: isLight ? '$neutral3' : '$yellow',
-    },
-    '&:hover': {
-      backgroundColor: isLight ? '$neutral3' : '$yellow',
-      boxShadow: '0',
-      svg: {
-        fill: '$neutral7',
-      },
+      fill: '$blue',
     },
   });
+
   return (
     <div
       className={togglebtn()}
-      onClick={toggleTheme}
+      onClick={handleOpen}
       title={isLight ? 'Enable Dark Mode' : 'Enable Light Mode'}
       role="button"
       aria-pressed={isLight}
     >
-      {isLight ? <Moon width="18" /> : <Sun width="18" />}
+      {isLight ? <Sun width="24" /> : <MoonStar width="24" />}
+      {isOpen && <DropDown />}
     </div>
   );
 }

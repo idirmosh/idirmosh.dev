@@ -4,9 +4,9 @@ import { css } from 'stitches.config';
 import MobileMenu from './MobileMenu';
 import Logo from './Logo';
 import { text } from '@styles/typography';
-import ThemeToggler from './common/ThemeTogglerMew';
-import Link from './common/Link';
-import MenuLink from './common/MenuLink';
+import ThemeToggler from './Common/ThemeToggler';
+import Link from './Common/Link';
+import MenuLink from './Common/MenuLink';
 
 function NavbarNew(): React.ReactElement {
   const [isOpen, setIsOpen] = useState<Boolean>(false);

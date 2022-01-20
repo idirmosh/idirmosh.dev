@@ -1,7 +1,7 @@
 import { text } from '@styles/typography';
 import React from 'react';
 import { css } from 'stitches.config';
-import { Clap } from '@components/common/icons';
+import { Clap } from 'Components/Common/icons';
 import { flexRow } from '@styles/common';
 
 function Applause(): React.ReactElement {

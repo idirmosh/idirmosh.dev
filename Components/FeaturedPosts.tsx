@@ -2,7 +2,7 @@ import { format } from 'date-fns';
 import { box, flexRow, Grid, wrapper } from '@styles/common';
 import { heading, text } from '@styles/typography';
 import { css } from 'stitches.config';
-import Link from '@components/common/Link';
+import Link from 'Components/Common/Link';
 import { parseISO } from 'date-fns';
 import { keyGen } from '@lib/helpers';
 import { Post } from '.contentlayer/types';

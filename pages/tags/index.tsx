@@ -5,12 +5,12 @@ import { filterTags, keyGen, randGen, reduceTags } from '@lib/helpers';
 import { ITag, ITags } from 'global';
 import { FC } from 'react';
 import { css } from 'stitches.config';
-import Layout from '@components/Layout';
+import Layout from 'Components/Layout';
 import { box, blogWrapper, Grid } from '@styles/common';
-import Link from '@components/common/Link';
+import Link from 'Components/Common/Link';
 import { heading, text } from '@styles/typography';
-import Head from '@components/Head';
-import BlogListHeader from '@components/common/BlogListHeader';
+import Head from 'Components/Head';
+import BlogListHeader from 'Components/Common/BlogListHeader';
 
 const TagsPage: NextPage<ITags> = ({ tags }) => {
   const container = css(Grid, {

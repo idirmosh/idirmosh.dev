@@ -2,11 +2,11 @@ import type { GetStaticProps, GetStaticPaths, NextPage } from 'next';
 import { allPosts } from '.contentlayer/data';
 import { capitalize, filterTags, keyGen, reduceTags, sizeLogger } from '@lib/helpers';
 import { IPageProps, IParams } from 'global';
-import Layout from '@components/Layout';
+import Layout from 'Components/Layout';
 import { blogWrapper } from '@styles/common';
-import BlogCardNew from '@components/BlogCardNew';
+import BlogCardNew from 'Components/BlogCard';
 import { css } from 'stitches.config';
-import Head from '@components/Head';
+import Head from 'Components/Head';
 
 const SingleTagPage: NextPage<IPageProps> = ({ posts, tag }) => {
   const title = css({

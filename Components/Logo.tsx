@@ -2,7 +2,7 @@ import { flexRow } from '@styles/common';
 import { heading, text } from '@styles/typography';
 import React from 'react';
 import { css } from 'stitches.config';
-import * as Icons from '@components/common/icons';
+import * as Icons from 'Components/Common/icons';
 import audio from '../public/sounds/idir.mp3';
 
 function Logo(): React.ReactElement {
