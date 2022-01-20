@@ -46,6 +46,7 @@ const Info = defineDocumentType(() => ({
     avatar: { type: 'string', required: true },
     contact: { type: 'string', required: true },
     menu: { type: 'json', required: true },
+    footerLinks: { type: 'json', required: true },
     socials: { type: 'json', required: true },
     projects: { type: 'json', required: true },
   },
@@ -58,7 +59,7 @@ const contentLayerConfig = makeSource({
     remarkPlugins: [
       remarkGfm,
       remarkSlug,
-      [remarkAutolinkHeadings, { behavior: 'wrap', linkProperties: { isHeading: true } }],
+      [remarkAutolinkHeadings, { behavior: 'wrap', linkProperties: { isheading: 'true' } }],
     ],
     rehypePlugins: [rehypeCodeTitles, rehypePrism],
   },

@@ -4,7 +4,7 @@ import React from 'react';
 import { css } from 'stitches.config';
 import Link from './Common/Link';
 
-function Footer(): React.ReactElement {
+function Footer({ links }): React.ReactElement {
   const footer = css({
     borderTop: '1px solid $neutral6',
   });
@@ -34,21 +34,12 @@ function Footer(): React.ReactElement {
     <footer className={footer()}>
       <div className={wrapper({ css: { margin: '$5 auto $4 auto' } })}>
         <div className={flexRow({ css: { marginBottom: '$4' } })}>
-          <Link className={linkReset(footerLink())} href="/">
-            Home
-          </Link>
-          <Link className={linkReset(footerLink())} href="/blog">
-            Blog
-          </Link>
-          <Link className={linkReset(footerLink())} href="/contact">
-            Contact
-          </Link>
-          <Link className={linkReset(footerLink())} title="RSS Feed" href="/feed.xml">
-            RSS
-          </Link>
-          <Link className={linkReset(footerLink())} title="Sitemap" href="/sitemap.xml">
-            Sitemap
-          </Link>
+          {links &&
+            links.map((link) => (
+              <Link key={link.name} className={linkReset(footerLink())} href={link.href}>
+                {link.name}
+              </Link>
+            ))}
         </div>
         <div
           className={flexRow({
