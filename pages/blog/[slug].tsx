@@ -1,21 +1,25 @@
-import { useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { getMDXComponent } from 'mdx-bundler/client';
 import { components } from 'Components/MDXComponents';
 import { allPosts } from '.contentlayer/data';
 import type { NextPage } from 'next';
-import { ISinglePostProps } from 'global';
+import { ILayoutInfo, ISinglePostProps } from 'global';
 import { IParams } from 'global';
 import Layout from 'Components/Layout';
-import { blogWrapper, wrapper } from '@styles/common';
+import { blogWrapper } from '@styles/common';
 import ArticleHeader from 'Components/ArticleHeader';
-import Head from 'Components/Head';
-import { NAME } from '@lib/constants';
+import { info } from '.contentlayer/data';
 
-const PostBySlug: NextPage<ISinglePostProps> = ({ post: { body, ...frontMatter } }) => {
+const PostBySlug: NextPage<ISinglePostProps & ILayoutInfo> = ({
+  post: { body, ...frontMatter },
+  name,
+  title,
+  menu,
+}): React.ReactElement => {
   const Component = useMemo(() => getMDXComponent(body.code), [body.code]);
 
   return (
-    <Layout>
+    <Layout menu={menu} name={name} title={title}>
       <article className={blogWrapper({})}>
         <ArticleHeader post={frontMatter} />
         <Component components={components as any} />
@@ -26,7 +30,8 @@ const PostBySlug: NextPage<ISinglePostProps> = ({ post: { body, ...frontMatter }
 
 export async function getStaticProps({ params: { slug } }: IParams) {
   const post = allPosts.find((post) => post.slug === slug);
-  return { props: { post } };
+  const { name, title, menu } = info;
+  return { props: { post, name, title, menu } };
 }
 
 export async function getStaticPaths() {

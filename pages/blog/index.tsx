@@ -2,18 +2,18 @@ import type { GetStaticProps, NextPage } from 'next';
 import { useEffect, useState } from 'react';
 import { allPosts } from '.contentlayer/data';
 import { filterTags, postMetaFilter, reduceTags, subscribe } from '@lib/helpers';
-import { IPageProps } from 'global';
+import { ILayoutInfo, IPageProps } from 'global';
 import BlogCardNew from 'Components/BlogCard';
 import Layout from 'Components/Layout';
 import { blogWrapper } from '@styles/common';
+import { info } from '.contentlayer/data';
 
 import Head from 'Components/Head';
-import { NAME } from '@lib/constants';
 
 import BlogListHeader from 'Components/Common/BlogListHeader';
 import BlogListTagsDisplay from 'Components/Common/BlogListTagsDisplay';
 
-const Blog: NextPage<IPageProps> = ({ posts, tags }) => {
+const Blog: NextPage<IPageProps & ILayoutInfo> = ({ posts, tags, name, title, menu }) => {
   const [slugs, setSlugs] = useState(null);
 
   useEffect(() => {
@@ -25,9 +25,9 @@ const Blog: NextPage<IPageProps> = ({ posts, tags }) => {
   }, []);
 
   return (
-    <Layout>
+    <Layout menu={menu} name={name} title={title}>
       <Head
-        title={`The ${NAME}'s Blog`}
+        title={`The ${name}'s Blog`}
         description="I write about JavaScript, TypeScript, React, and share the things I've learned."
       />
 
@@ -45,8 +45,9 @@ const Blog: NextPage<IPageProps> = ({ posts, tags }) => {
 export const getStaticProps: GetStaticProps = async () => {
   const posts = allPosts.map(postMetaFilter);
   const tags = allPosts.reduce(reduceTags, []).filter(filterTags);
+  const { name, title, menu } = info;
 
-  return { props: { posts, tags } };
+  return { props: { posts, tags, name, title, menu } };
 };
 
 export default Blog;

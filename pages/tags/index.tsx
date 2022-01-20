@@ -1,18 +1,16 @@
 import type { GetStaticProps, NextPage } from 'next';
 import { allPosts } from '.contentlayer/data';
-import type { Post } from '.contentlayer/types';
-import { filterTags, keyGen, randGen, reduceTags } from '@lib/helpers';
-import { ITag, ITags } from 'global';
-import { FC } from 'react';
+import { filterTags, keyGen, reduceTags } from '@lib/helpers';
+import { ILayoutInfo, ITags } from 'global';
 import { css } from 'stitches.config';
 import Layout from 'Components/Layout';
-import { box, blogWrapper, Grid } from '@styles/common';
-import Link from 'Components/Common/Link';
-import { heading, text } from '@styles/typography';
+import { blogWrapper, Grid } from '@styles/common';
 import Head from 'Components/Head';
 import BlogListHeader from 'Components/Common/BlogListHeader';
+import { info } from '.contentlayer/data';
+import TagCard from '@components/Common/TagCard';
 
-const TagsPage: NextPage<ITags> = ({ tags }) => {
+const TagsPage: NextPage<ITags & ILayoutInfo> = ({ tags, name, title, menu }) => {
   const container = css(Grid, {
     gridAutoColumns: 'auto !important',
     gridTemplateColumns: '1fr !important',
@@ -23,7 +21,7 @@ const TagsPage: NextPage<ITags> = ({ tags }) => {
     },
   });
   return (
-    <Layout>
+    <Layout menu={menu} name={name} title={title}>
       <Head title="Tags" description="Latest articles about web development." />
       <div className={blogWrapper()}>
         <BlogListHeader title="Topics" />
@@ -37,58 +35,11 @@ const TagsPage: NextPage<ITags> = ({ tags }) => {
   );
 };
 
-const TagCard = ({ tag }) => {
-  const card = css({
-    padding: '$3 0',
-    '&:hover': {
-      boxShadow: '0 2px 2px -2px $colors$neutral4',
-    },
-  });
-  const container = css({
-    display: 'flex',
-    alignItems: 'center',
-  });
-  const circle = css({
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-around',
-    minWidth: '2.4rem',
-    height: '2.4rem',
-    backgroundColor: '$neutral6',
-    borderRadius: '999px',
-    fontSize: '1.2rem',
-    fontWeight: '600',
-    textTransform: 'uppercase',
-    color: '$neutral4',
-  });
-  return (
-    <article className={card()}>
-      <Link
-        href={`/tags/${tag}`}
-        className={box({ css: { textDecoration: 'none', color: '$neutral0' } })}
-      >
-        <div className={container()}>
-          <div className={circle()}>#</div>
-          <span className={box({ css: { marginLeft: '1rem' } })}>
-            <h2
-              className={heading({ type: 'h4', css: { textTransform: 'capitalize', margin: '0' } })}
-            >
-              {tag}
-            </h2>
-            <p
-              className={text({ type: 'small', css: { margin: '2px 0 0 0' } })}
-            >{`Latest updates, tutorials, and news about ${tag}.`}</p>
-          </span>
-        </div>
-      </Link>
-    </article>
-  );
-};
-
 export const getStaticProps: GetStaticProps = async () => {
   const tags = allPosts.reduce(reduceTags, []).filter(filterTags);
+  const { name, title, menu } = info;
 
-  return { props: { tags } };
+  return { props: { tags, name, title, menu } };
 };
 
 export default TagsPage;

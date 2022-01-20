@@ -1,15 +1,16 @@
 import type { GetStaticProps, GetStaticPaths, NextPage } from 'next';
 import { allPosts } from '.contentlayer/data';
 import { capitalize, filterTags, keyGen, reduceTags, sizeLogger } from '@lib/helpers';
-import { IPageProps, IParams } from 'global';
+import { ILayoutInfo, IPageProps, IParams } from 'global';
 import Layout from 'Components/Layout';
 import { blogWrapper } from '@styles/common';
 import BlogCardNew from 'Components/BlogCard';
 import { css } from 'stitches.config';
 import Head from 'Components/Head';
+import { info } from '.contentlayer/data';
 
-const SingleTagPage: NextPage<IPageProps> = ({ posts, tag }) => {
-  const title = css({
+const SingleTagPage: NextPage<IPageProps & ILayoutInfo> = ({ posts, tag, name, title, menu }) => {
+  const titleCss = css({
     fontSize: '2.4rem',
     lineHeight: '1.1',
     letterSpacing: '-.05em',
@@ -26,14 +27,14 @@ const SingleTagPage: NextPage<IPageProps> = ({ posts, tag }) => {
   });
   const container = css({ margin: '3.4rem 0' });
   return (
-    <Layout>
+    <Layout menu={menu} name={name} title={title}>
       <Head
         title={`${capitalize(tag)} Tutorials`}
         description={`Latest ${capitalize(tag)} tutorials.`}
       />
       <div className={blogWrapper({})}>
         <div className={container()}>
-          <h1 className={title()}>{tag}</h1>
+          <h1 className={titleCss()}>{tag}</h1>
         </div>
         {posts && posts.map((post) => <BlogCardNew key={keyGen(post.slug)} post={post} />)}
       </div>
@@ -45,8 +46,8 @@ export const getStaticProps: GetStaticProps = async ({ params: { tag } }: IParam
   const posts = allPosts
     .map(({ body, _raw, ...post }) => post.tags.includes(tag) && post)
     .filter((o) => o);
-
-  return { props: { posts, tag } };
+  const { name, title, menu } = info;
+  return { props: { posts, tag, name, title, menu } };
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
