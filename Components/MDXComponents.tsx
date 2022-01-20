@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import * as Collapsible from '@radix-ui/react-collapsible';
-
 import Link from 'Components/Common/Link';
 import { heading, text } from '@styles/typography';
 import NextImage from 'next/image';
@@ -15,8 +14,13 @@ import {
   ulist,
   linkReset,
   hashH,
+  headingReset,
 } from '@styles/common';
 
+export const MDXHome = {
+  h1: (props) => <h1 className={headingReset(heading({ type: 'xlarge' }))} {...props} />,
+  p: (props) => <p className={text()} {...props} />,
+};
 export const components = {
   Box: ({ css, as: Comp = 'div', ...props }: any) => <Comp className={box(css)} {...props} />,
   h1: (props) => <h1 className={heading({ type: 'h1' })} {...props} />,

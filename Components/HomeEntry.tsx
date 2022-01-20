@@ -1,4 +1,6 @@
 import { box, Grid, linkReset, wrapper } from '@styles/common';
+import { useMDXComponent } from 'next-contentlayer/hooks';
+
 import { heading, text } from '@styles/typography';
 import { css, styled } from 'stitches.config';
 import Image from 'next/image';
@@ -6,8 +8,11 @@ import Link from './Common/Link';
 import { keyGen } from '@lib/helpers';
 import { NAME } from '@lib/constants';
 import React from 'react';
+import { MDXHome } from './MDXComponents';
 
-function HomeEntry({ about, socials, contact }): React.ReactElement {
+function HomeEntry({ avatar, code, socials, contact }): React.ReactElement {
+  const Component = useMDXComponent(code);
+
   const entry = css({
     alignItems: 'center',
     margin: '$5 auto',
@@ -46,11 +51,9 @@ function HomeEntry({ about, socials, contact }): React.ReactElement {
           width={164}
           height={164}
           className={box({ css: { borderRadius: '999px' } })}
-          src={about.avatar}
+          src={avatar}
         />
-        <h1 className={heading({ type: 'xlarge' })}>{about.title}</h1>
-        <p className={text()}>{about.para1}</p>
-        <p className={text()}>{about.para2}</p>
+        <Component components={MDXHome} />
       </div>
       <div className={contain()}>
         <div

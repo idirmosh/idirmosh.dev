@@ -1,10 +1,16 @@
 import React, { FC, ReactNode } from 'react';
-import NavbarNew from '@components/Navbar';
+import Navbar from '@components/Navbar';
 import Footer from './Footer';
-const Layout: FC<{ children: ReactNode }> = ({ children }) => {
+
+const Layout: FC<{
+  name: string;
+  title: string;
+  menu: Record<string, string>;
+  children: ReactNode;
+}> = ({ name, menu, title, children }) => {
   return (
     <>
-      <NavbarNew />
+      <Navbar menu={menu} name={name} title={title} />
       {children}
       <Footer />
     </>

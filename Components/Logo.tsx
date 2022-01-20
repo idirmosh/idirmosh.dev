@@ -5,7 +5,7 @@ import { css } from 'stitches.config';
 import * as Icons from 'Components/Common/icons';
 import audio from '../public/sounds/idir.mp3';
 
-function Logo(): React.ReactElement {
+function Logo({ name: fullName, title }): React.ReactElement {
   const logo = css({
     display: 'flex',
     flexDirection: 'column',
@@ -44,12 +44,12 @@ function Logo(): React.ReactElement {
   return (
     <div className={logo()}>
       <h1 className={name(heading({ type: 'h4' }))}>
-        Idir Hamouch
+        {fullName}
         <span className={flexRow(audioS())} onClick={() => new Audio(audio).play()}>
           <Icons.Audio width="12px" />
         </span>
       </h1>
-      <p className={sub(text({ type: 'small' }))}>making the web a better place</p>
+      <p className={sub(text({ type: 'small' }))}> {title} </p>
     </div>
   );
 }

@@ -5,7 +5,7 @@ import React from 'react';
 import { css } from 'stitches.config';
 import ProjectCard, { IProject } from './ProjectCard';
 
-function FeaturedWorks({ work }: { work: IProject[] }): React.ReactElement {
+function FeaturedWorks({ projects }: { projects: IProject[] }): React.ReactElement {
   const container = css({
     display: 'grid',
     gridTemplateColumns: `repeat(1,minmax(0,1fr))`,
@@ -29,8 +29,8 @@ function FeaturedWorks({ work }: { work: IProject[] }): React.ReactElement {
     <div className={wrapper({ css: { margin: '$6 auto' } })}>
       <h2 className={heading({ type: 'h2' })}>Selected Projects</h2>
       <div className={container()}>
-        {work &&
-          work.map((project) => <ProjectCard key={keyGen(project.name)} project={project} />)}
+        {projects &&
+          projects.map((project) => <ProjectCard key={keyGen(project.name)} project={project} />)}
       </div>
     </div>
   );
