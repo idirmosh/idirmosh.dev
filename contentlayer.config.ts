@@ -34,19 +34,26 @@ const Post = defineDocumentType(() => ({
   computedFields,
 }));
 
-const Page = defineDocumentType(() => ({
-  name: 'Page',
-  filePathPattern: 'pages/*.mdx',
+const Info = defineDocumentType(() => ({
+  name: 'Info',
+  filePathPattern: 'data/*.mdx',
   bodyType: 'mdx',
+  isSingleton: true,
   fields: {
     name: { type: 'string', required: true },
+    title: { type: 'string', required: true },
+    available: { type: 'boolean', required: true },
+    avatar: { type: 'string', required: true },
+    contact: { type: 'string', required: true },
+    menu: { type: 'json', required: true },
+    socials: { type: 'json', required: true },
+    projects: { type: 'json', required: true },
   },
   computedFields,
 }));
-
 const contentLayerConfig = makeSource({
   contentDirPath: 'content',
-  documentTypes: [Post],
+  documentTypes: [Post, Info],
   mdx: {
     remarkPlugins: [
       remarkGfm,
