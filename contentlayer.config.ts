@@ -1,8 +1,6 @@
 import { ComputedFields, defineDocumentType, makeSource } from 'contentlayer/source-files';
-
 import readingTime from 'reading-time';
 import remarkGfm from 'remark-gfm';
-//import rehypeCodeTitles from 'rehype-code-titles';
 import rehypePrism from 'rehype-prism-plus';
 import remarkAutolinkHeadings from 'remark-autolink-headings';
 import remarkSlug from 'remark-slug';

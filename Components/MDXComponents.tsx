@@ -30,7 +30,7 @@ export const components = {
   h5: (props) => <h5 className={heading({ type: 'h5' })} {...props} />,
   p: (props) => <p className={text()} {...props} />,
   a: ({ href = '', ...props }) => {
-    if (props.isHeading) {
+    if (props.isheading === 'true') {
       return (
         <a href={href} className={linkReset(hashH())}>
           {props.children}
