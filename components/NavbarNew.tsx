@@ -1,18 +1,20 @@
-import { flexRow, wrapper } from '@styles/common';
+import { box, flexColumn, flexRow, linkReset, wrapper } from '@styles/common';
 import React, { ReactNode, useEffect, useRef, useState } from 'react';
 import { css } from 'stitches.config';
 import MobileMenu from './MobileMenu';
 import Logo from './Logo';
 import { text } from '@styles/typography';
 import ThemeToggler from './common/ThemeTogglerMew';
+import Link from './common/Link';
+import MenuLink from './common/MenuLink';
 
 function NavbarNew(): React.ReactElement {
   const [isOpen, setIsOpen] = useState<Boolean>(false);
   const nodeRef = useRef(null);
   const navbar = css({
     borderBottom: '1px solid $neutral6',
-    marginBottom: '2rem',
-    height: '96px',
+    marginBottom: '$3',
+    height: '80px',
   });
   const menuBtn = css({
     marginRight: '16px',
@@ -69,21 +71,41 @@ function NavbarNew(): React.ReactElement {
   return (
     <div className={wrapper({ css: { margin: '0 auto $3 auto !important' } })}>
       <nav className={flexRow(navbar())}>
-        <div className={menuBtn()} onClick={() => setIsOpen(!isOpen)}>
+        {/* <div className={menuBtn()} onClick={() => setIsOpen(!isOpen)}>
           <div className={iconMenu()}>
             <div className={`${bar()} bar`}></div>
             <div className={`${bar()} bar`}></div>
             <div className={`${bar()} bar`}></div>
           </div>
           <span className={text({ type: 'menuCap' })}>Menu</span>
+        </div> */}
+        <div className={flexColumn()}>
+          <Logo />
+          {/* <Menu /> */}
         </div>
 
-        <Logo />
         <ThemeToggler />
       </nav>
-      <MobileMenu isOpen={isOpen} handleMenu={setIsOpen} />
+      <Menu />
+      {/* <MobileMenu isOpen={isOpen} handleMenu={setIsOpen} /> */}
     </div>
   );
 }
 
+function Menu() {
+  const item = css({
+    marginRight: '$4',
+    '&:hover': {
+      color: 'red',
+    },
+  });
+  return (
+    <ul className={flexRow({ css: { listStyle: 'none', margin: '0', padding: '0' } })}>
+      <MenuLink href="/" text="Home" />
+      <MenuLink href="/" text="Blog" />
+      <MenuLink href="/" text="Topics" />
+      <MenuLink href="/" text="Contact" />
+    </ul>
+  );
+}
 export default NavbarNew;

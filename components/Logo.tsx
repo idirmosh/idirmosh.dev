@@ -9,8 +9,8 @@ function Logo(): React.ReactElement {
   const logo = css({
     display: 'flex',
     flexDirection: 'column',
-    paddingLeft: '16px',
-    borderLeft: '1px solid $neutral6',
+    // paddingLeft: '16px',
+    // borderLeft: '1px solid $neutral6',
   });
   const name = css({
     margin: '0 0 .12rem 0 !important',
