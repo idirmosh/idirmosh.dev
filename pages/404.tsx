@@ -2,10 +2,12 @@ import Link from 'Components/Common/Link';
 import Layout from 'Components/Layout';
 import { wrapper } from '@styles/common';
 import { heading, text } from '@styles/typography';
+import { info } from '.contentlayer/data';
+import { GetStaticPropsContext } from 'next';
 
-function Custom404() {
+function Custom404({ name, title, menu, footerLinks }) {
   return (
-    <Layout>
+    <Layout name={name} title={title} menu={menu} links={footerLinks}>
       <div className={wrapper({ css: { margin: '$7 auto', textAlign: 'center' } })}>
         <h1 className={heading({ type: 'xlarge' })}>404</h1>
         <p
@@ -19,7 +21,7 @@ function Custom404() {
           })}
         >
           Sorry, we have misplaced that URL or it is pointing to something that doesn't exist. Head{' '}
-          <Link href="/" className={text({ type: 'link', css: { fontSize: '1.4rem' } })}>
+          <Link href="/" className={text({ type: 'link', css: { fontSize: '1.3rem' } })}>
             back home
           </Link>{' '}
           to try finding it again.
@@ -28,5 +30,11 @@ function Custom404() {
     </Layout>
   );
 }
+
+export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
+  const { name, title, menu, footerLinks } = info;
+
+  return { props: { name, title, menu, footerLinks } };
+};
 
 export default Custom404;
