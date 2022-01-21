@@ -3,14 +3,14 @@ import { allPosts } from '.contentlayer/data';
 import { filterTags, keyGen, reduceTags } from '@lib/helpers';
 import { ILayoutInfo, ITags } from 'global';
 import { css } from 'stitches.config';
-import Layout from 'Components/Layout';
+import Layout from 'components/Layout';
 import { blogWrapper, Grid } from '@styles/common';
-import Head from 'Components/Head';
-import BlogListHeader from 'Components/Common/BlogListHeader';
+import Head from 'components/Head';
+import BlogListHeader from 'components/common/BlogListHeader';
 import { info } from '.contentlayer/data';
-import TagCard from '@components/Common/TagCard';
+import TagCard from 'components/common/TagCard';
 
-const TagsPage: NextPage<ITags & ILayoutInfo> = ({ tags, name, title, menu }) => {
+const Topics: NextPage<ITags & ILayoutInfo> = ({ tags, name, title, menu }) => {
   const container = css(Grid, {
     gridAutoColumns: 'auto !important',
     gridTemplateColumns: '1fr !important',
@@ -42,4 +42,4 @@ export const getStaticProps: GetStaticProps = async () => {
   return { props: { tags, name, title, menu } };
 };
 
-export default TagsPage;
+export default Topics;

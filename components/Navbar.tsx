@@ -2,7 +2,7 @@ import { flexColumn, flexRow, wrapper } from '@styles/common';
 import { ReactElement } from 'react';
 import { css } from 'stitches.config';
 import Logo from './Logo';
-import ThemeToggler from './Common/ThemeToggler';
+import ThemeToggler from './common/ThemeToggler';
 import Menu from './Menu';
 
 function Navbar({ menu, name, title }): ReactElement {

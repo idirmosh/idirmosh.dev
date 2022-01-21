@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import * as Collapsible from '@radix-ui/react-collapsible';
-import Link from 'Components/Common/Link';
+import Link from 'components/common/Link';
 import { heading, text } from '@styles/typography';
 import NextImage from 'next/image';
 import {

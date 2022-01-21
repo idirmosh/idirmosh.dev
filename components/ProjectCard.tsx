@@ -2,7 +2,7 @@ import { box } from '@styles/common';
 import { heading, text } from '@styles/typography';
 import React from 'react';
 import { css } from 'stitches.config';
-import Link from './Common/Link';
+import Link from './common/Link';
 import Image from 'next/image';
 import { MAIN_CARD_WIDTH } from '@lib/constants';
 

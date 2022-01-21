@@ -3,15 +3,15 @@ import { useEffect, useState } from 'react';
 import { allPosts } from '.contentlayer/data';
 import { filterTags, postMetaFilter, reduceTags, subscribe } from '@lib/helpers';
 import { ILayoutInfo, IPageProps } from 'global';
-import BlogCardNew from 'Components/BlogCard';
-import Layout from 'Components/Layout';
+import BlogCardNew from 'components/BlogCard';
+import Layout from 'components/Layout';
 import { blogWrapper } from '@styles/common';
 import { info } from '.contentlayer/data';
 
-import Head from 'Components/Head';
+import Head from 'components/Head';
 
-import BlogListHeader from 'Components/Common/BlogListHeader';
-import BlogListTagsDisplay from 'Components/Common/BlogListTagsDisplay';
+import BlogListHeader from 'components/common/BlogListHeader';
+import BlogListTagsDisplay from 'components/common/BlogListTagsDisplay';
 
 const Blog: NextPage<IPageProps & ILayoutInfo> = ({ posts, tags, name, title, menu }) => {
   const [slugs, setSlugs] = useState(null);

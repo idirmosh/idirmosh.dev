@@ -2,14 +2,14 @@ import type { GetStaticProps, GetStaticPaths, NextPage } from 'next';
 import { allPosts } from '.contentlayer/data';
 import { capitalize, filterTags, keyGen, reduceTags, sizeLogger } from '@lib/helpers';
 import { ILayoutInfo, IPageProps, IParams } from 'global';
-import Layout from 'Components/Layout';
+import Layout from 'components/Layout';
 import { blogWrapper } from '@styles/common';
-import BlogCardNew from 'Components/BlogCard';
+import BlogCardNew from 'components/BlogCard';
 import { css } from 'stitches.config';
-import Head from 'Components/Head';
+import Head from 'components/Head';
 import { info } from '.contentlayer/data';
 
-const SingleTagPage: NextPage<IPageProps & ILayoutInfo> = ({ posts, tag, name, title, menu }) => {
+const SingleTopic: NextPage<IPageProps & ILayoutInfo> = ({ posts, tag, name, title, menu }) => {
   const titleCss = css({
     fontSize: '2.4rem',
     lineHeight: '1.1',
@@ -59,4 +59,4 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export default SingleTagPage;
+export default SingleTopic;

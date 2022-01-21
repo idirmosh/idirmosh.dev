@@ -1,9 +1,9 @@
 import { text } from '@styles/typography';
 import React from 'react';
 import { css } from 'stitches.config';
-import TagList from './Common/TagList';
-import PostMeta from './Common/PostMeta';
-import Link from 'Components/Common/Link';
+import TagList from './common/TagList';
+import PostMeta from './common/PostMeta';
+import Link from 'components/common/Link';
 import Image from 'next/image';
 import { box, flexRow, meta } from '@styles/common';
 import { Post } from '.contentlayer/types';

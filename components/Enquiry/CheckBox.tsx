@@ -1,4 +1,4 @@
-import { Done } from 'Components/Common/icons';
+import { Done } from 'components/common/icons';
 import React from 'react';
 import { css } from 'stitches.config';
 

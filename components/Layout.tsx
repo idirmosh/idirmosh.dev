@@ -1,5 +1,5 @@
 import React, { FC, ReactNode } from 'react';
-import Navbar from '@components/Navbar';
+import Navbar from 'components/Navbar';
 import Footer from './Footer';
 import { ILayoutInfo } from 'global';
 
