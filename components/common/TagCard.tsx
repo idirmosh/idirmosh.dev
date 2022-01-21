@@ -30,7 +30,7 @@ const TagCard = ({ tag }): React.ReactElement => {
   return (
     <article className={card()}>
       <Link
-        href={`/tags/${tag}`}
+        href={`/topics/${tag}`}
         className={box({ css: { textDecoration: 'none', color: '$neutral0' } })}
       >
         <div className={container()}>
