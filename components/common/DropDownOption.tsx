@@ -1,16 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState, ReactNode, ReactElement } from 'react';
 import { useTheme } from 'next-themes';
 import { css } from 'stitches.config';
 
-function DropDownOption({
-  value,
-  children,
-}: {
-  value: string;
-  children: React.ReactNode;
-}): React.ReactElement {
-  const { setTheme } = useTheme();
-
+function DropDownOption({ value, children }: { value: string; children: ReactNode }): ReactElement {
+  const { setTheme, resolvedTheme, systemTheme } = useTheme();
+  let log = console.log;
   const action = css({
     display: 'flex',
     alignItems: 'center',
@@ -25,10 +19,18 @@ function DropDownOption({
       fill: '$neutral4',
     },
   });
+  const active = css({
+    background: '#5700e308',
+  });
+  const selected = value === resolvedTheme;
+  log({ selected, systemTheme, value, resolvedTheme });
+  const jgh = systemTheme === value;
+  const temp = jgh && selected;
 
-  const handleClick = (value) => setTheme(value);
+  const handleClick = (value: string) => setTheme(value);
+
   return (
-    <li className={action()} onClick={() => handleClick(value)}>
+    <li className={action(selected && active())} onClick={() => handleClick(value)}>
       {children}
     </li>
   );

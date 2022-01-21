@@ -29,8 +29,11 @@ function ThemeToggler(): React.ReactElement {
     transition: 'all .5s ease 0s',
     cursor: 'pointer',
     svg: {
-      fill: '$blue',
+      fill: '$neutral4',
     },
+  });
+  const active = css({
+    fill: '$brand_main !important',
   });
 
   return (
@@ -41,7 +44,11 @@ function ThemeToggler(): React.ReactElement {
       role="button"
       aria-pressed={isLight}
     >
-      {isLight ? <Sun width="24" /> : <MoonStar width="24" />}
+      {isLight ? (
+        <Sun width="24" className={active()} />
+      ) : (
+        <MoonStar className={active()} width="24" />
+      )}
       {isOpen && <DropDown />}
     </div>
   );

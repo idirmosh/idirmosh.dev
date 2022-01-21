@@ -7,7 +7,6 @@ import DropDownOption from './DropDownOption';
 
 function DropDown(): React.ReactElement {
   const { systemTheme } = useTheme();
-
   const dropDown = css({
     position: 'absolute',
     right: '8px',
