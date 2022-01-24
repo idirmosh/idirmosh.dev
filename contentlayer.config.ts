@@ -7,17 +7,19 @@ import remarkSlug from 'remark-slug';
 import rehypeCodeTitles from './lib/plugins/rehypeCodeTitles';
 import { Post, Info } from './lib/docTypes';
 
+const options = {
+  remarkPlugins: [
+    remarkGfm,
+    remarkSlug,
+    [remarkAutolinkHeadings, { behavior: 'wrap', linkProperties: { isheading: 'true' } }],
+  ],
+  rehypePlugins: [rehypeCodeTitles, rehypePrism],
+};
+
 const contentLayerConfig = makeSource({
   contentDirPath: 'content',
   documentTypes: [Post, Info],
-  mdx: {
-    remarkPlugins: [
-      remarkGfm,
-      remarkSlug,
-      [remarkAutolinkHeadings, { behavior: 'wrap', linkProperties: { isheading: 'true' } }],
-    ],
-    rehypePlugins: [rehypeCodeTitles, rehypePrism],
-  },
+  mdx: { ...options },
 });
 
 export default contentLayerConfig;
