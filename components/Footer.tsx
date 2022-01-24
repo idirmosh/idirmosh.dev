@@ -1,8 +1,8 @@
-import { flexRow, Grid, linkReset, wrapper } from '@styles/common';
-import { text } from '@styles/typography';
 import React from 'react';
+import { Link } from 'components/common';
+import { flexRow, linkReset, wrapper } from '@styles/common';
+import { text } from '@styles/typography';
 import { css } from 'stitches.config';
-import Link from './common/Link';
 
 function Footer({ links }): React.ReactElement {
   const footer = css({

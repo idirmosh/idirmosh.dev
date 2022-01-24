@@ -1,13 +1,13 @@
-import { box, Grid, linkReset, wrapper } from '@styles/common';
-import { useMDXComponent } from 'next-contentlayer/hooks';
-import { heading, text } from '@styles/typography';
-import { css, styled } from 'stitches.config';
+import React from 'react';
 import Image from 'next/image';
-import Link from './common/Link';
+import { useMDXComponent } from 'next-contentlayer/hooks';
+import { MDXHome } from './MDXComponents';
+import { Link } from 'components/common';
 import { keyGen } from '@lib/helpers';
 import { NAME } from '@lib/constants';
-import React from 'react';
-import { MDXHome } from './MDXComponents';
+import { text } from '@styles/typography';
+import { css } from 'stitches.config';
+import { box, Grid, linkReset, wrapper } from '@styles/common';
 
 function HomeEntry({ avatar, code, socials, contact }): React.ReactElement {
   const Component = useMDXComponent(code);

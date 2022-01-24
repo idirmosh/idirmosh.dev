@@ -1,4 +1,4 @@
-import React, { useEffect, useState, ReactNode, ReactElement } from 'react';
+import React, { ReactNode, ReactElement } from 'react';
 import { useTheme } from 'next-themes';
 import { css } from 'stitches.config';
 

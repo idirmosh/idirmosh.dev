@@ -1,6 +1,6 @@
-import { text } from '@styles/typography';
 import React, { FC } from 'react';
 import Link from 'next/link';
+import { text } from '@styles/typography';
 import { css } from 'stitches.config';
 
 function Tag({ tag }: { tag: string }): React.ReactElement {

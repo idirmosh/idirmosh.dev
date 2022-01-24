@@ -1,8 +1,7 @@
-import { flexRow, linkReset } from '@styles/common';
 import React from 'react';
+import { Applause, Link } from 'components/common';
+import { flexRow, linkReset } from '@styles/common';
 import { css } from 'stitches.config';
-import Applause from './Applause';
-import Link from './Link';
 
 function BlogPostAction(): React.ReactElement {
   const wrap = css({

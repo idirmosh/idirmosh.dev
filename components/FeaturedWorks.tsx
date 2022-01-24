@@ -1,9 +1,9 @@
-import { keyGen } from '@lib/helpers';
-import { box, wrapper } from '@styles/common';
-import { heading } from '@styles/typography';
 import React from 'react';
-import { css } from 'stitches.config';
 import ProjectCard, { IProject } from './ProjectCard';
+import { keyGen } from '@lib/helpers';
+import { wrapper } from '@styles/common';
+import { heading } from '@styles/typography';
+import { css } from 'stitches.config';
 
 function FeaturedWorks({ projects }: { projects: IProject[] }): React.ReactElement {
   const container = css({

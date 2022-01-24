@@ -1,6 +1,6 @@
+import React from 'react';
 import { button, wrapper } from '@styles/common';
 import { heading } from '@styles/typography';
-import React from 'react';
 
 function FreelanceCTA(): React.ReactElement {
   return (

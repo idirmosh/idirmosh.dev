@@ -1,13 +1,11 @@
 import type { GetStaticProps, GetStaticPaths, NextPage } from 'next';
+import { Head, BlogCard, Layout } from 'components';
+import { ILayoutInfo, IPageProps, IParams } from 'global';
+import { blogWrapper } from '@styles/common';
+import { css } from 'stitches.config';
+import { info } from '.contentlayer/data';
 import { allPosts } from '.contentlayer/data';
 import { capitalize, filterTags, keyGen, reduceTags, sizeLogger } from '@lib/helpers';
-import { ILayoutInfo, IPageProps, IParams } from 'global';
-import Layout from 'components/Layout';
-import { blogWrapper } from '@styles/common';
-import BlogCardNew from 'components/BlogCard';
-import { css } from 'stitches.config';
-import Head from 'components/Head';
-import { info } from '.contentlayer/data';
 
 const SingleTopic: NextPage<IPageProps & ILayoutInfo> = ({ posts, tag, name, title, menu }) => {
   const titleCss = css({
@@ -36,7 +34,7 @@ const SingleTopic: NextPage<IPageProps & ILayoutInfo> = ({ posts, tag, name, tit
         <div className={container()}>
           <h1 className={titleCss()}>{tag}</h1>
         </div>
-        {posts && posts.map((post) => <BlogCardNew key={keyGen(post.slug)} post={post} />)}
+        {posts && posts.map((post) => <BlogCard key={keyGen(post.slug)} post={post} />)}
       </div>
     </Layout>
   );

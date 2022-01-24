@@ -1,6 +1,6 @@
+import { FC, ReactNode } from 'react';
 import { BLOG_CARD_GAP, MAIN_CARD_WIDTH } from '@lib/constants';
 import { wrapper } from '@styles/common';
-import { FC, ReactNode } from 'react';
 import { css } from 'stitches.config';
 
 const BlogListWrapper: FC<ReactNode> = ({ children }) => {

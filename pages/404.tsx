@@ -1,9 +1,9 @@
-import Link from '@components/common/Link';
-import Layout from 'components/Layout';
+import { GetStaticPropsContext } from 'next';
+import { Link } from 'components/common';
+import { Layout } from 'components';
 import { wrapper } from '@styles/common';
 import { heading, text } from '@styles/typography';
 import { info } from '.contentlayer/data';
-import { GetStaticPropsContext } from 'next';
 
 function Custom404({ name, title, menu, footerLinks }) {
   return (

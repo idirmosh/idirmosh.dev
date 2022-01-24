@@ -1,7 +1,6 @@
-import { text } from '@styles/typography';
 import React from 'react';
+import { Link } from 'components/common';
 import { css } from 'stitches.config';
-import Link from './Link';
 
 type Props = {
   href: string;

@@ -1,10 +1,10 @@
+import React from 'react';
+import { Link } from 'components/common';
+import * as Icons from 'components/common/icons';
 import { flexRow, linkReset } from '@styles/common';
 import { heading, text } from '@styles/typography';
-import React from 'react';
 import { css } from 'stitches.config';
-import * as Icons from 'components/common/icons';
 import audio from '../public/sounds/idir.mp3';
-import Link from './common/Link';
 
 function Logo({ name: fullName, title }): React.ReactElement {
   const logo = css({

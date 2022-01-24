@@ -1,14 +1,12 @@
 import type { GetStaticProps, NextPage } from 'next';
-import { allPosts } from '.contentlayer/data';
-import { filterTags, keyGen, reduceTags } from '@lib/helpers';
+import { Head, Layout } from 'components';
+import { TagCard, BlogListHeader } from 'components/common';
 import { ILayoutInfo, ITags } from 'global';
 import { css } from 'stitches.config';
-import Layout from 'components/Layout';
 import { blogWrapper, Grid } from '@styles/common';
-import Head from 'components/Head';
-import BlogListHeader from 'components/common/BlogListHeader';
+import { allPosts } from '.contentlayer/data';
 import { info } from '.contentlayer/data';
-import TagCard from 'components/common/TagCard';
+import { filterTags, keyGen, reduceTags } from '@lib/helpers';
 
 const Topics: NextPage<ITags & ILayoutInfo> = ({ tags, name, title, menu }) => {
   const container = css(Grid, {

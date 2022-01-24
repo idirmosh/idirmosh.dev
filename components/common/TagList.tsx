@@ -1,6 +1,6 @@
 import React from 'react';
+import { Tag } from 'components/common';
 import { css } from 'stitches.config';
-import Tag from './Tag';
 
 function TagList({ tags }: { tags: string[] }): React.ReactElement {
   const styles = css({

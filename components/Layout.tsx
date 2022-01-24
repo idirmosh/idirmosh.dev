@@ -1,6 +1,5 @@
 import React, { FC, ReactNode } from 'react';
-import Navbar from 'components/Navbar';
-import Footer from './Footer';
+import { Navbar, Footer } from 'components';
 import { ILayoutInfo } from 'global';
 
 const Layout: FC<

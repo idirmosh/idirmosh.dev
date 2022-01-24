@@ -1,6 +1,6 @@
+import { Link } from 'components/common';
 import { css } from 'stitches.config';
 import { box } from '@styles/common';
-import Link from 'components/common/Link';
 import { heading, text } from '@styles/typography';
 
 const TagCard = ({ tag }): React.ReactElement => {

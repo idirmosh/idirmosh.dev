@@ -1,11 +1,10 @@
-import { heading } from '@styles/typography';
 import React from 'react';
 import Image from 'next/image';
+import { PostMeta, Link } from 'components/common';
+import { heading } from '@styles/typography';
 import { css } from 'stitches.config';
 import { flexColumn, flexRow, linkReset, meta } from '@styles/common';
 import { AVATAR, NAME } from '@lib/constants';
-import PostMeta from './PostMeta';
-import Link from './Link';
 
 type Props = {
   date: string;

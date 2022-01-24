@@ -1,6 +1,6 @@
-import { flexRow } from '@styles/common';
 import { ReactElement } from 'react';
-import MenuLink from './common/MenuLink';
+import { flexRow } from '@styles/common';
+import { MenuLink } from 'components/common';
 
 function Menu({ menu }): ReactElement {
   return (

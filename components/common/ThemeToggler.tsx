@@ -1,8 +1,8 @@
-import { MoonStar, Sun } from './icons';
 import React, { useEffect, useState } from 'react';
 import { useTheme } from 'next-themes';
+import { DropDown } from 'components/common';
+import { MoonStar, Sun } from './icons';
 import { css } from 'stitches.config';
-import DropDown from './DropDown';
 
 function ThemeToggler(): React.ReactElement {
   const [mounted, setMounted] = useState<Boolean>(false);

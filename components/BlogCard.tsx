@@ -1,11 +1,9 @@
-import { text } from '@styles/typography';
 import React from 'react';
-import { css } from 'stitches.config';
-import TagList from './common/TagList';
-import PostMeta from './common/PostMeta';
-import Link from 'components/common/Link';
 import Image from 'next/image';
+import { Link, PostMeta, TagList } from 'components/common';
 import { box, flexRow, meta } from '@styles/common';
+import { text } from '@styles/typography';
+import { css } from 'stitches.config';
 import { Post } from '.contentlayer/types';
 
 function BlogCardNew({ post }: { post: Post }): React.ReactElement {

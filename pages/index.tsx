@@ -1,12 +1,7 @@
 import type { GetStaticPropsContext } from 'next';
+import { Layout, Head, FreelanceCTA, FeaturedWorks, HomeEntry, FeaturedPosts } from 'components';
 import { allPosts } from '.contentlayer/data';
-import Layout from 'components/Layout';
 import { sizeLogger, sortPosts } from '@lib/helpers';
-import FeaturedPosts from 'components/FeaturedPosts';
-import HomeEntry from 'components/HomeEntry';
-import FeaturedWorks from 'components/FeaturedWorks';
-import FreelanceCTA from 'components/FreelanceCTA';
-import Head from 'components/Head';
 import { NAME } from '@lib/constants';
 import { info } from '.contentlayer/data';
 

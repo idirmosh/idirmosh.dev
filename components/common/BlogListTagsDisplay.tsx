@@ -1,8 +1,8 @@
+import React from 'react';
+import { Link } from 'components/common';
 import { capitalize, keyGen } from '@lib/helpers';
 import { flexRow, linkReset } from '@styles/common';
-import React from 'react';
 import { css } from 'stitches.config';
-import Link from './Link';
 
 type Props = {
   tags: string[];

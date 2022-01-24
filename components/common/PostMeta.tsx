@@ -1,6 +1,6 @@
-import { text } from '@styles/typography';
-import { format, parseISO } from 'date-fns';
 import React, { FC } from 'react';
+import { format, parseISO } from 'date-fns';
+import { text } from '@styles/typography';
 
 const PostMeta: FC<{ date: string; readTime: string; [x: string]: any }> = ({
   date,

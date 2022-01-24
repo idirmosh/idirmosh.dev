@@ -1,10 +1,10 @@
-import { text } from '@styles/typography';
 import React, { useEffect, useState } from 'react';
+import { Link } from 'components/common';
+import { copyToClipboard } from '@lib/helpers';
+import { CopyURL, Twitter } from './icons';
+import { text } from '@styles/typography';
 import { css } from 'stitches.config';
 import { flexRow, linkReset } from '@styles/common';
-import { CopyURL, Twitter } from './icons';
-import Link from './Link';
-import { copyToClipboard } from '@lib/helpers';
 
 function BlogPostShare(): React.ReactElement {
   const [copyState, setCopyState] = useState<string>('Copy URL');

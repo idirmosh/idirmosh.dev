@@ -1,17 +1,12 @@
-import type { GetStaticProps, NextPage } from 'next';
 import { useEffect, useState } from 'react';
-import { allPosts } from '.contentlayer/data';
-import { filterTags, postMetaFilter, reduceTags, subscribe } from '@lib/helpers';
+import type { GetStaticProps, NextPage } from 'next';
+import { Head, Layout, BlogCard } from 'components';
+import { BlogListTagsDisplay, BlogListHeader } from 'components/common';
 import { ILayoutInfo, IPageProps } from 'global';
-import BlogCardNew from 'components/BlogCard';
-import Layout from 'components/Layout';
 import { blogWrapper } from '@styles/common';
 import { info } from '.contentlayer/data';
-
-import Head from 'components/Head';
-
-import BlogListHeader from 'components/common/BlogListHeader';
-import BlogListTagsDisplay from 'components/common/BlogListTagsDisplay';
+import { allPosts } from '.contentlayer/data';
+import { filterTags, postMetaFilter, reduceTags, subscribe } from '@lib/helpers';
 
 const Blog: NextPage<IPageProps & ILayoutInfo> = ({ posts, tags, name, title, menu }) => {
   const [slugs, setSlugs] = useState(null);
@@ -36,7 +31,7 @@ const Blog: NextPage<IPageProps & ILayoutInfo> = ({ posts, tags, name, title, me
         <BlogListHeader title="Blog">
           <BlogListTagsDisplay tags={tags} />
         </BlogListHeader>
-        {posts && posts.map((post) => <BlogCardNew key={post.slug} post={post} />)}
+        {posts && posts.map((post) => <BlogCard key={post.slug} post={post} />)}
       </div>
     </Layout>
   );

@@ -1,12 +1,11 @@
-import { format } from 'date-fns';
+import React from 'react';
+import { Link } from 'components/common';
+import { parseISO, format } from 'date-fns';
+import { keyGen } from '@lib/helpers';
+import { css } from 'stitches.config';
 import { box, flexRow, Grid, wrapper } from '@styles/common';
 import { heading, text } from '@styles/typography';
-import { css } from 'stitches.config';
-import Link from 'components/common/Link';
-import { parseISO } from 'date-fns';
-import { keyGen } from '@lib/helpers';
 import { Post } from '.contentlayer/types';
-import React from 'react';
 
 function FeaturedPosts({ posts }: { posts: Post[] }): React.ReactElement {
   const groupe = css({

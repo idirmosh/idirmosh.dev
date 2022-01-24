@@ -1,10 +1,10 @@
+import React from 'react';
+import Image from 'next/image';
+import { Link } from 'components/common';
+import { MAIN_CARD_WIDTH } from '@lib/constants';
 import { box } from '@styles/common';
 import { heading, text } from '@styles/typography';
-import React from 'react';
 import { css } from 'stitches.config';
-import Link from './common/Link';
-import Image from 'next/image';
-import { MAIN_CARD_WIDTH } from '@lib/constants';
 
 export interface IProject {
   preview: string;

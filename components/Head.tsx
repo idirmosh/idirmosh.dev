@@ -1,7 +1,7 @@
-import { NAME, ORIGIN_URL } from '@lib/constants';
+import React, { ReactNode } from 'react';
 import NextHead from 'next/head';
-import React, { FC, ReactNode } from 'react';
 import { useRouter } from 'next/router';
+import { NAME, ORIGIN_URL } from '@lib/constants';
 
 function Head({
   title,

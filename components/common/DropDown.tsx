@@ -1,9 +1,9 @@
-import { MoonStar, Sun, System } from './icons';
 import React from 'react';
 import { useTheme } from 'next-themes';
+import { DropDownOption } from 'components/common';
+import { MoonStar, Sun, System } from './icons';
 import { css } from 'stitches.config';
 import { text } from '@styles/typography';
-import DropDownOption from './DropDownOption';
 
 function DropDown(): React.ReactElement {
   const { systemTheme } = useTheme();

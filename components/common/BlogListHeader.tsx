@@ -1,6 +1,6 @@
+import React, { ReactNode } from 'react';
 import { flexColumn } from '@styles/common';
 import { heading } from '@styles/typography';
-import React, { ReactNode } from 'react';
 
 type Props = {
   title: string;

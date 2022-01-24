@@ -1,9 +1,8 @@
-import { flexColumn, flexRow, wrapper } from '@styles/common';
 import { ReactElement } from 'react';
+import { ThemeToggler } from 'components/common';
+import { Menu, Logo } from 'components';
+import { flexColumn, flexRow, wrapper } from '@styles/common';
 import { css } from 'stitches.config';
-import Logo from './Logo';
-import ThemeToggler from './common/ThemeToggler';
-import Menu from './Menu';
 
 function Navbar({ menu, name, title }): ReactElement {
   const navbar = css({

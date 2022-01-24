@@ -5,9 +5,7 @@ import { css } from 'stitches.config';
 import { flexRow } from '@styles/common';
 import Head from './Head';
 import { NAME } from '@lib/constants';
-import BlogPostAvatar from './common/BlogPostAvatar';
-import BlogPostShare from './common/BlogPostShare';
-import BlogPostAction from './common/BlogPostAction';
+import { BlogPostAction, BlogPostShare, BlogPostAvatar } from 'components/common';
 import { Post } from '.contentlayer/types';
 
 const FIRA_FONT = 'https://fonts.googleapis.com/css?family=Fira+Mono&display=swap';
