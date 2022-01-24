@@ -35,6 +35,7 @@ const Home = ({ posts, content }) => {
 export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
   const filter = ({ title, slug, publishedAt }) => ({ title, slug, publishedAt });
   const posts = allPosts.sort(sortPosts).slice(0, 3).map(filter);
+
   const {
     name,
     title,

@@ -10,7 +10,7 @@ import { Post } from '.contentlayer/types';
 
 const FIRA_FONT = 'https://fonts.googleapis.com/css?family=Fira+Mono&display=swap';
 
-function ArticleHeader({ post }: { post: Post }): React.ReactElement {
+function ArticleHeader({ post, applauses }: { post: Post; applauses: number }): React.ReactElement {
   const header = css({
     margin: '2rem auto',
   });
@@ -40,7 +40,7 @@ function ArticleHeader({ post }: { post: Post }): React.ReactElement {
         </noscript>
       </Head>
 
-      <BlogPostAction />
+      <BlogPostAction applauses={applauses} />
       <h1 className={heading({ type: 'h1' })}>{post.title}</h1>
       <div className={metaWrapper(flexRow())}>
         <BlogPostAvatar date={post.publishedAt} readTime={post.readingTime.text} />

@@ -25,6 +25,7 @@ export interface ILayoutInfo {
   title?: string;
   menu?: Record<string, string>;
   links?: Record<string, string>;
+  applauses?: number;
 }
 export interface IParams {
   params: {

@@ -8,19 +8,23 @@ import { IParams } from 'global';
 import { blogWrapper } from '@styles/common';
 import { info } from '.contentlayer/data';
 import { allPosts } from '.contentlayer/data';
+import { PrismaClient } from '@prisma/client';
+
+const prisma = new PrismaClient();
 
 const PostBySlug: NextPage<ISinglePostProps & ILayoutInfo> = ({
   post: { body, ...frontMatter },
   name,
   title,
   menu,
+  applauses,
 }): React.ReactElement => {
   const Component = useMemo(() => getMDXComponent(body.code), [body.code]);
 
   return (
     <Layout menu={menu} name={name} title={title}>
       <article className={blogWrapper({})}>
-        <ArticleHeader post={frontMatter} />
+        <ArticleHeader applauses={applauses} post={frontMatter} />
         <Component components={MDXComponents as any} />
       </article>
     </Layout>
@@ -30,7 +34,9 @@ const PostBySlug: NextPage<ISinglePostProps & ILayoutInfo> = ({
 export async function getStaticProps({ params: { slug } }: IParams) {
   const post = allPosts.find((post) => post.slug === slug);
   const { name, title, menu } = info;
-  return { props: { post, name, title, menu } };
+  const applauses = await prisma.applause.findFirst({ where: { slug: slug } });
+
+  return { props: { post, name, title, menu, applauses: { slug, value: applauses?.value || 0 } } };
 }
 
 export async function getStaticPaths() {
