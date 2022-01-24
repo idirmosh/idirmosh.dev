@@ -1,4 +1,5 @@
 import { ComputedFields, defineDocumentType } from 'contentlayer/source-files';
+import readingTime from 'reading-time';
 
 export const computedFields: ComputedFields = {
   slug: {
