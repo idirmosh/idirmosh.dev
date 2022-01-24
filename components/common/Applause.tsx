@@ -22,12 +22,11 @@ function Applause({ applauses }): React.ReactElement {
 
 export const applauseStyles = css({
   margin: '0 !important',
-
   svg: {
     cursor: 'pointer',
     marginLeft: '4px',
     path: {
-      fill: '#555555',
+      fill: '$neutral3',
     },
   },
 });
