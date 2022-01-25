@@ -20,12 +20,17 @@ export interface IView {
 export interface ISinglePostProps {
   post: Post;
 }
+export type IApplause = {
+  id?: string;
+  slug?: string;
+  value?: number;
+};
 export interface ILayoutInfo {
   name?: string;
   title?: string;
-  menu?: Record<string, string>;
-  links?: Record<string, string>;
-  applauses?: number;
+  menu?: Array<Record<string, string>>;
+  links?: Array<Record<string, string>>;
+  applauses?: IApplause;
 }
 export interface IParams {
   params: {
