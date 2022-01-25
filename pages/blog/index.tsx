@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import type { GetStaticProps, NextPage } from 'next';
+import type { GetStaticProps, NextPage, InferGetStaticPropsType } from 'next';
 import { Head, Layout, BlogCard } from 'components';
 import { BlogListTagsDisplay, BlogListHeader } from 'components/common';
 import { ILayoutInfo, IPageProps } from 'global';
@@ -8,7 +8,7 @@ import { info } from '.contentlayer/data';
 import { allPosts } from '.contentlayer/data';
 import { filterTags, postMetaFilter, reduceTags, subscribe } from '@lib/helpers';
 
-const Blog: NextPage<IPageProps & ILayoutInfo> = ({ posts, tags, name, title, menu }) => {
+const Blog: NextPage<IPageProps & ILayoutInfo> = ({ posts, tags, name, title, menu }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const [slugs, setSlugs] = useState(null);
 
   useEffect(() => {
@@ -20,7 +20,7 @@ const Blog: NextPage<IPageProps & ILayoutInfo> = ({ posts, tags, name, title, me
   }, []);
 
   return (
-    <Layout menu={menu} name={name} title={title}>
+    <Layout values={{ menu, name, title }}>
       <Head
         title={`The ${name}'s Blog`}
         description="I write about JavaScript, TypeScript, React, and share the things I've learned."

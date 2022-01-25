@@ -7,10 +7,11 @@ import Head from './Head';
 import { NAME } from '@lib/constants';
 import { BlogPostAction, BlogPostShare, BlogPostAvatar } from 'components/common';
 import { Post } from '.contentlayer/types';
+import { IFrontMatter } from 'global';
 
 const FIRA_FONT = 'https://fonts.googleapis.com/css?family=Fira+Mono&display=swap';
 
-function ArticleHeader({ post }: { post: Post }): ReactElement {
+function ArticleHeader({ post }: { post: IFrontMatter }): ReactElement {
   const header = css({
     margin: '2rem auto',
   });

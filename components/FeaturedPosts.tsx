@@ -5,9 +5,14 @@ import { keyGen } from '@lib/helpers';
 import { css } from 'stitches.config';
 import { box, flexRow, Grid, wrapper } from '@styles/common';
 import { heading, text } from '@styles/typography';
-import { Post } from '.contentlayer/types';
 
-function FeaturedPosts({ posts }: { posts: Post[] }): React.ReactElement {
+type HomePostType = {
+  title: string;
+  slug: string;
+  publishedAt: string;
+};
+
+function FeaturedPosts({ posts }: { posts: HomePostType[] }): React.ReactElement {
   const groupe = css({
     gridColumn: '1/13',
     '@desktop': {

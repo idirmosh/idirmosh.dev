@@ -10,7 +10,7 @@ import { box, blogWrapper } from '@styles/common';
 import { css } from 'stitches.config';
 import { heading } from '@styles/typography';
 
-function Enquiry() {
+function Enquiry(props) {
   const button = css({
     margin: '0',
     border: '0',
@@ -26,7 +26,7 @@ function Enquiry() {
       <Head>
         <title>Index</title>
       </Head>
-      <Layout>
+      <Layout values={{ menu: [], name: '', title: '' }}>
         <div className={blogWrapper({ css: { margin: '3.2rem auto' } })}>
           <div className={box({ css: { marginBottom: '2rem' } })}>
             <h1 className={heading({ type: 'h1' })}>

@@ -19,6 +19,7 @@ export interface IView {
 
 export interface ISinglePostProps {
   post: Post;
+  body?: any;
 }
 export type IApplause = {
   id?: string;
@@ -38,7 +39,19 @@ export interface IParams {
     tag: string;
   };
 }
-
+export interface IFrontMatter {
+  body?: { raw: string; code: string };
+  title?: string;
+  image?: string;
+  summary?: string;
+  publishedAt?: string;
+  readingTime?: {
+    minutes: number;
+    text: string;
+    time: number;
+    words: number;
+  };
+}
 export interface ITags {
   tags: Array<ITag>;
 }

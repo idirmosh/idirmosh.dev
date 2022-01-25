@@ -1,4 +1,4 @@
-import type { GetStaticProps, NextPage } from 'next';
+import type { GetStaticProps, NextPage, InferGetStaticPropsType } from 'next';
 import { Head, Layout } from 'components';
 import { TagCard, BlogListHeader } from 'components/common';
 import { ILayoutInfo, ITags } from 'global';
@@ -8,7 +8,7 @@ import { allPosts } from '.contentlayer/data';
 import { info } from '.contentlayer/data';
 import { filterTags, keyGen, reduceTags } from '@lib/helpers';
 
-const Topics: NextPage<ITags & ILayoutInfo> = ({ tags, name, title, menu }) => {
+const Topics: NextPage<ITags & ILayoutInfo> = ({ tags, name, title, menu }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const container = css(Grid, {
     gridAutoColumns: 'auto !important',
     gridTemplateColumns: '1fr !important',
@@ -19,7 +19,7 @@ const Topics: NextPage<ITags & ILayoutInfo> = ({ tags, name, title, menu }) => {
     },
   });
   return (
-    <Layout menu={menu} name={name} title={title}>
+    <Layout values={{ menu, name, title }}>
       <Head title="Tags" description="Latest articles about web development." />
       <div className={blogWrapper()}>
         <BlogListHeader title="Topics" />

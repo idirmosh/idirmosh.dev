@@ -1,13 +1,13 @@
-import { GetStaticPropsContext } from 'next';
+import { GetStaticPropsContext, InferGetStaticPropsType } from 'next';
 import { Link } from 'components/common';
 import { Layout } from 'components';
 import { wrapper } from '@styles/common';
 import { heading, text } from '@styles/typography';
 import { info } from '.contentlayer/data';
 
-function Custom404({ name, title, menu, footerLinks }) {
+function Custom404({ name, title, menu }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <Layout name={name} title={title} menu={menu} links={footerLinks}>
+    <Layout values={{ menu, name, title }}>
       <div className={wrapper({ css: { margin: '$7 auto', textAlign: 'center' } })}>
         <h1 className={heading({ type: 'xlarge' })}>404</h1>
         <p

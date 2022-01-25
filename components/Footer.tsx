@@ -65,7 +65,7 @@ function Footer(): React.ReactElement {
             </Link>
           </p>
           <p className={paragraph(text({ type: 'small' }))}>
-            All rights reserved © Idir Hamouch 2021.
+            All rights reserved © Idir Hamouch {new Date().getFullYear()} .
           </p>
         </div>
       </div>

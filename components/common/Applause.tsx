@@ -10,8 +10,6 @@ function Applause(): React.ReactElement {
   const applauses: IApplause = useContext(PostContext);
   const [value, setValue] = useState<number>(applauses.value);
 
-  console.log(applauses);
-
   const handleApplause = async () => {
     fetch(`/api/applause?slug=${applauses.slug}`, { method: 'POST' })
       .then((res) => res.json())

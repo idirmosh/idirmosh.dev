@@ -1,4 +1,4 @@
-import type { GetStaticProps, GetStaticPaths, NextPage } from 'next';
+import type { GetStaticProps, GetStaticPaths, NextPage, InferGetStaticPropsType } from 'next';
 import { Head, BlogCard, Layout } from 'components';
 import { ILayoutInfo, IPageProps, IParams } from 'global';
 import { blogWrapper } from '@styles/common';
@@ -7,7 +7,7 @@ import { info } from '.contentlayer/data';
 import { allPosts } from '.contentlayer/data';
 import { capitalize, filterTags, keyGen, reduceTags, sizeLogger } from '@lib/helpers';
 
-const SingleTopic: NextPage<IPageProps & ILayoutInfo> = ({ posts, tag, name, title, menu }) => {
+const SingleTopic: NextPage<IPageProps & ILayoutInfo> = ({ posts, tag, name, title, menu }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const titleCss = css({
     fontSize: '2.4rem',
     lineHeight: '1.1',
@@ -25,7 +25,7 @@ const SingleTopic: NextPage<IPageProps & ILayoutInfo> = ({ posts, tag, name, tit
   });
   const container = css({ margin: '3.4rem 0' });
   return (
-    <Layout menu={menu} name={name} title={title}>
+    <Layout values={{ menu, name, title }}>
       <Head
         title={`${capitalize(tag)} Tutorials`}
         description={`Latest ${capitalize(tag)} tutorials.`}
