@@ -1,5 +1,5 @@
-import React, { useMemo } from 'react';
-import type { NextPage } from 'next';
+import React, { ReactElement, useMemo } from 'react';
+import type { NextPage, InferGetStaticPropsType } from 'next';
 import { getMDXComponent } from 'mdx-bundler/client';
 import { ArticleHeader } from 'components';
 import { Layout, MDXComponents } from 'components';
@@ -9,6 +9,7 @@ import { blogWrapper } from '@styles/common';
 import { info } from '.contentlayer/data';
 import { allPosts } from '.contentlayer/data';
 import { PrismaClient } from '@prisma/client';
+import { PostContext } from 'context';
 
 const prisma = new PrismaClient();
 
@@ -18,14 +19,16 @@ const PostBySlug: NextPage<ISinglePostProps & ILayoutInfo> = ({
   title,
   menu,
   applauses,
-}): React.ReactElement => {
+}): ReactElement => {
   const Component = useMemo(() => getMDXComponent(body.code), [body.code]);
 
   return (
-    <Layout menu={menu} name={name} title={title}>
+    <Layout values={{ menu, name, title }}>
       <article className={blogWrapper({})}>
-        <ArticleHeader applauses={applauses} post={frontMatter} />
-        <Component components={MDXComponents as any} />
+        <PostContext.Provider value={applauses}>
+          <ArticleHeader post={frontMatter} />
+          <Component components={MDXComponents as any} />
+        </PostContext.Provider>
       </article>
     </Layout>
   );
@@ -33,10 +36,12 @@ const PostBySlug: NextPage<ISinglePostProps & ILayoutInfo> = ({
 
 export async function getStaticProps({ params: { slug } }: IParams) {
   const post = allPosts.find((post) => post.slug === slug);
-  const { name, title, menu } = info;
-  const applauses = await prisma.applause.findFirst({ where: { slug: slug } });
+  const data = await prisma.applause.findFirst({ where: { slug: slug } });
 
-  return { props: { post, name, title, menu, applauses: { slug, value: applauses?.value || 0 } } };
+  const { name, title, menu } = info;
+  const applauses = { slug, value: data?.value || 0 };
+
+  return { props: { post, name, title, menu, applauses } };
 }
 
 export async function getStaticPaths() {

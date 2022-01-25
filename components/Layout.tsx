@@ -1,18 +1,19 @@
 import React, { FC, ReactNode } from 'react';
 import { Navbar, Footer } from 'components';
 import { ILayoutInfo } from 'global';
+import { LayoutContext } from 'context';
 
-const Layout: FC<
-  ILayoutInfo & {
-    children: ReactNode;
-  }
-> = ({ name, links, menu, title, children }) => {
+type Props = {
+  children: ReactNode;
+  values: ILayoutInfo;
+};
+const Layout: FC<Props> = ({ values, children }) => {
   return (
-    <>
-      <Navbar menu={menu} name={name} title={title} />
+    <LayoutContext.Provider value={values}>
+      <Navbar />
       {children}
-      <Footer links={links} />
-    </>
+      <Footer />
+    </LayoutContext.Provider>
   );
 };
 

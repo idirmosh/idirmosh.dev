@@ -1,5 +1,5 @@
 import { heading, text } from '@styles/typography';
-import React from 'react';
+import React, { ReactElement } from 'react';
 import Image from 'next/image';
 import { css } from 'stitches.config';
 import { flexRow } from '@styles/common';
@@ -10,7 +10,7 @@ import { Post } from '.contentlayer/types';
 
 const FIRA_FONT = 'https://fonts.googleapis.com/css?family=Fira+Mono&display=swap';
 
-function ArticleHeader({ post, applauses }: { post: Post; applauses: number }): React.ReactElement {
+function ArticleHeader({ post }: { post: Post }): ReactElement {
   const header = css({
     margin: '2rem auto',
   });
@@ -40,7 +40,7 @@ function ArticleHeader({ post, applauses }: { post: Post; applauses: number }): 
         </noscript>
       </Head>
 
-      <BlogPostAction applauses={applauses} />
+      <BlogPostAction />
       <h1 className={heading({ type: 'h1' })}>{post.title}</h1>
       <div className={metaWrapper(flexRow())}>
         <BlogPostAvatar date={post.publishedAt} readTime={post.readingTime.text} />

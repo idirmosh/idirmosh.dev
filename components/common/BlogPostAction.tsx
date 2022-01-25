@@ -3,7 +3,7 @@ import { Applause, Link } from 'components/common';
 import { flexRow, linkReset } from '@styles/common';
 import { css } from 'stitches.config';
 
-function BlogPostAction({ applauses }: { applauses: number }): React.ReactElement {
+function BlogPostAction(): React.ReactElement {
   const wrap = css({
     margin: '$3 0',
     justifyContent: 'space-between',
@@ -25,7 +25,7 @@ function BlogPostAction({ applauses }: { applauses: number }): React.ReactElemen
         </Link>
         for web developers.
       </p>
-      <Applause applauses={applauses} />
+      <Applause />
     </div>
   );
 }

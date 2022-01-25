@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'components/common';
 import { flexRow, linkReset, wrapper } from '@styles/common';
 import { text } from '@styles/typography';
 import { css } from 'stitches.config';
+import { LayoutContext } from 'context';
 
-function Footer({ links }): React.ReactElement {
+function Footer(): React.ReactElement {
+  const { links } = useContext(LayoutContext);
+
   const footer = css({
     borderTop: '1px solid $neutral6',
   });

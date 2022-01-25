@@ -1,10 +1,13 @@
-import { ReactElement } from 'react';
+import { ReactElement, useContext } from 'react';
 import { ThemeToggler } from 'components/common';
 import { Menu, Logo } from 'components';
 import { flexColumn, flexRow, wrapper } from '@styles/common';
 import { css } from 'stitches.config';
+import { LayoutContext } from 'context';
 
-function Navbar({ menu, name, title }): ReactElement {
+function Navbar(): ReactElement {
+  const { name, title } = useContext(LayoutContext);
+
   const navbar = css({
     borderBottom: '1px solid $neutral6',
     marginBottom: '$3',
@@ -19,7 +22,7 @@ function Navbar({ menu, name, title }): ReactElement {
         </div>
         <ThemeToggler />
       </nav>
-      <Menu menu={menu} />
+      <Menu />
     </div>
   );
 }
