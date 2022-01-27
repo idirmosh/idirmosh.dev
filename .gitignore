@@ -5,6 +5,7 @@
 .next
 
 .vercel
+.vscode
 .env
 node_modules
 
