@@ -44,7 +44,7 @@ function ProjectCard({ project }: { project: IProject }): React.ReactElement {
           width={MAIN_CARD_WIDTH - 40}
           height={280}
           layout="responsive"
-          // objectFit="cover"
+          objectFit="cover"
           alt={project.name}
           title={project.name}
           src={project.preview}
