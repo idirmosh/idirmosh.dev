@@ -1,27 +1,36 @@
-import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next';
+// @ts-nocheck
+import type { GetStaticPropsContext, NextPage } from 'next';
 import { Layout, Head, FreelanceCTA, FeaturedWorks, HomeEntry, FeaturedPosts } from 'components';
 import { allPosts } from '.contentlayer/data';
 import { sizeLogger, sortPosts } from '@lib/helpers';
-import { NAME } from '@lib/constants';
 import { info } from '.contentlayer/data';
+import { Info } from '.contentlayer/types';
 
-const Home = ({ posts, content }: InferGetStaticPropsType<typeof getStaticProps>) => {
+type PostProps = {
+  title: string;
+  slug: string;
+  publishedAt: string;
+};
+type Props = {
+  posts: PostProps[];
+  info: Info;
+};
+
+const Home = ({ posts, info }: NextPage<Props>) => {
+  const { name, title, menu, footerLinks: links, avatar, socials, projects, contact, body } = info;
+  const entryProps = { avatar, socials, contact, code: body.code };
+
   return (
     <div>
       <Head
-        title={NAME}
+        title={name}
         description="Hi, I'm Idir Hamouch. I’m a self-taught full-stack javaScript developer, I am passionate about building things for the web using newest technologies."
       />
-      <Layout values={{ ...content }}>
-        <HomeEntry
-          avatar={content.avatar}
-          socials={content.socials}
-          contact={content.contact}
-          code={content.code}
-        />
+      <Layout values={{ name, title, menu, links }}>
+        <HomeEntry {...entryProps} />
         <FeaturedPosts posts={posts} />
-        <FeaturedWorks projects={content.projects} />
-        {content.available && <FreelanceCTA />}
+        <FeaturedWorks projects={projects} />
+        {info.available && <FreelanceCTA />}
       </Layout>
     </div>
   );
@@ -29,34 +38,11 @@ const Home = ({ posts, content }: InferGetStaticPropsType<typeof getStaticProps>
 
 export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
   const filter = ({ title, slug, publishedAt }) => ({ title, slug, publishedAt });
-  const posts = allPosts.sort(sortPosts).slice(0, 3).map(filter);
+  const posts: PostProps[] = allPosts.sort(sortPosts).slice(0, 3).map(filter);
 
-  const {
-    name,
-    title,
-    menu,
-    available,
-    footerLinks,
-    contact,
-    avatar,
-    socials,
-    projects,
-    body: { code },
-  } = info;
-  //console.log(footerLinks);
-  const content = {
-    name,
-    menu,
-    title,
-    avatar,
-    footerLinks,
-    code,
-    socials,
-    projects,
-    available,
-    contact,
-  };
-  return { props: { posts, content } };
+  // sizeLogger(info);
+
+  return { props: { posts, info } };
 };
 
 export default Home;
