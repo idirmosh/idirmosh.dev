@@ -16,35 +16,6 @@ function BlogPostShare(): React.ReactElement {
     setUrl(window.location.href);
   }, []);
 
-  const share = css({
-    justifyContent: 'space-around',
-    cursor: 'pointer',
-    borderRadius: '9px',
-    backgroundColor: '$neutral6',
-    transition: 'all .2s ease',
-    flexDirection: 'column',
-    textAlign: 'center',
-    padding: '$2 $2',
-    '@mobile': {
-      flexDirection: 'row',
-      svg: {
-        fill: '$neutral1',
-        marginBottom: '0 !important',
-      },
-    },
-    svg: {
-      fill: '$neutral2',
-      marginBottom: '$1 ',
-      marginRight: '4px',
-    },
-    '&:hover': {
-      backgroundColor: '$neutral5',
-    },
-  });
-  const textP = css({
-    margin: '0',
-    color: '$neutral3',
-  });
   return (
     <div className={flexRow()}>
       <Link
@@ -78,4 +49,34 @@ function BlogPostShare(): React.ReactElement {
   );
 }
 
+// Styles
+const share = css({
+  justifyContent: 'space-around',
+  cursor: 'pointer',
+  borderRadius: '9px',
+  backgroundColor: '$neutral6',
+  transition: 'all .2s ease',
+  flexDirection: 'column',
+  textAlign: 'center',
+  padding: '$2 $2',
+  '@mobile': {
+    flexDirection: 'row',
+    svg: {
+      fill: '$neutral1',
+      marginBottom: '0 !important',
+    },
+  },
+  svg: {
+    fill: '$neutral2',
+    marginBottom: '$1 ',
+    marginRight: '4px',
+  },
+  '&:hover': {
+    backgroundColor: '$neutral5',
+  },
+});
+const textP = css({
+  margin: '0',
+  color: '$neutral3',
+});
 export default BlogPostShare;

@@ -4,8 +4,6 @@ import { getCssText } from 'stitches.config';
 import { GA_ID } from '@lib/analytics';
 import Script from 'next/script';
 
-const INTER_FONT = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"';
-
 export default class Document extends NextDocument {
   render() {
     return (

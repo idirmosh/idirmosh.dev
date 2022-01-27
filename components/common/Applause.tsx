@@ -1,17 +1,23 @@
 import { text } from '@styles/typography';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { css } from 'stitches.config';
 import { Clap } from 'components/common/icons';
 import { flexRow } from '@styles/common';
 import { PostContext } from 'context';
-import { IApplause } from 'global';
 
 function Applause(): React.ReactElement {
-  const applauses: IApplause = useContext(PostContext);
-  const [value, setValue] = useState<number>(applauses.value);
+  const { slug } = useContext(PostContext);
+
+  const [value, setValue] = useState<number>(0);
+
+  useEffect(() => {
+    fetch(`/api/applause?slug=${slug}`)
+      .then((res) => res.json())
+      .then((data) => setValue(data.value));
+  }, [value]);
 
   const handleApplause = async () => {
-    fetch(`/api/applause?slug=${applauses.slug}`, { method: 'POST' })
+    fetch(`/api/applause?slug=${slug}`, { method: 'POST' })
       .then((res) => res.json())
       .then((data) => setValue(data.value));
   };

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import Head from 'next/head';
 import { Layout } from 'components';
 import { Link } from 'components/common';
