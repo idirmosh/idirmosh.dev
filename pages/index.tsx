@@ -21,7 +21,7 @@ type Props = {
 
 const Home = ({ posts, info }: NextPage<Props>) => {
   const { name, title, menu, footerLinks: links, avatar, socials, projects, contact, body } = info;
-  const entryProps = { avatar, socials, contact, code: body.code };
+  const entryProps = { name, avatar, socials, contact, code: body.code };
 
   return (
     <div>
