@@ -6,6 +6,9 @@ import { sizeLogger, sortPosts } from '@lib/helpers';
 import { info } from '.contentlayer/data';
 import { Info } from '.contentlayer/types';
 
+const seoDesc =
+  "Hi, I'm Idir Hamouch. I’m a self-taught full-stack javaScript developer, I am passionate about building things for the web using newest technologies.";
+
 type PostProps = {
   title: string;
   slug: string;
@@ -22,10 +25,7 @@ const Home = ({ posts, info }: NextPage<Props>) => {
 
   return (
     <div>
-      <Head
-        title={name}
-        description="Hi, I'm Idir Hamouch. I’m a self-taught full-stack javaScript developer, I am passionate about building things for the web using newest technologies."
-      />
+      <Head title={name} description={seoDesc} />
       <Layout values={{ name, title, menu, links }}>
         <HomeEntry {...entryProps} />
         <FeaturedPosts posts={posts} />
