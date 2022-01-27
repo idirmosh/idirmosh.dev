@@ -1,36 +1,21 @@
 import { heading, text } from '@styles/typography';
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useContext } from 'react';
 import Image from 'next/image';
 import { css } from 'stitches.config';
 import { flexRow } from '@styles/common';
 import Head from './Head';
-import { NAME } from '@lib/constants';
 import { BlogPostAction, BlogPostShare, BlogPostAvatar } from 'components/common';
-import { Post } from '.contentlayer/types';
 import { IFrontMatter } from 'global';
+import { PostContext } from 'context';
 
 const FIRA_FONT = 'https://fonts.googleapis.com/css?family=Fira+Mono&display=swap';
 
 function ArticleHeader({ post }: { post: IFrontMatter }): ReactElement {
-  const header = css({
-    margin: '2rem auto',
-  });
-
-  const metaWrapper = css({
-    justifyContent: 'space-between',
-    margin: '0 0 $4 0',
-  });
-
-  const preview = css({
-    display: 'flex',
-    borderRadius: '6px',
-    border: '1px solid $neutral5 !important',
-    // margin: '1rem 0 !important',
-  });
+  const { name } = useContext(PostContext);
   return (
     <header className={header()}>
       <Head
-        title={`${post.title} - The ${NAME}'s Blog`}
+        title={`${post.title} - The ${name}'s Blog`}
         description={post.summary}
         image={post.image}
       >
@@ -62,4 +47,20 @@ function ArticleHeader({ post }: { post: IFrontMatter }): ReactElement {
   );
 }
 
+// Styles
+const header = css({
+  margin: '2rem auto',
+});
+
+const metaWrapper = css({
+  justifyContent: 'space-between',
+  margin: '0 0 $4 0',
+});
+
+const preview = css({
+  display: 'flex',
+  borderRadius: '6px',
+  border: '1px solid $neutral5 !important',
+  // margin: '1rem 0 !important',
+});
 export default ArticleHeader;

@@ -1,44 +1,32 @@
 import React, { ReactElement, useMemo } from 'react';
 import type { NextPage, InferGetStaticPropsType } from 'next';
-import { getMDXComponent } from 'mdx-bundler/client';
+import { useMDXComponent } from 'next-contentlayer/hooks';
 import { ArticleHeader } from 'components';
-import { Layout, MDXComponents } from 'components';
-import { IApplause, IFrontMatter, ILayoutInfo } from 'global';
+import { components } from '@components/MDXComponents';
+import { Layout } from 'components';
 import { IParams } from 'global';
 import { blogWrapper } from '@styles/common';
 import { info } from '.contentlayer/data';
+import { Post, Info } from '.contentlayer/types';
 import { allPosts } from '.contentlayer/data';
-import { PrismaClient } from '@prisma/client';
 import { PostContext } from 'context';
 
-const prisma = new PrismaClient();
-
-type PageProps = {
-  globalData: ILayoutInfo;
-  post: IFrontMatter;
-  applauses: IApplause;
+type Props = {
+  post: Post;
+  info: Info;
+  slug: string;
 };
 
-const PostBySlug: NextPage<PageProps> = ({
-  post: {
-    body: { code },
-    title,
-    summary,
-    image,
-    publishedAt,
-    readingTime,
-  },
-  globalData,
-  applauses,
-}: InferGetStaticPropsType<typeof getStaticProps>): ReactElement => {
-  const Component = useMemo(() => getMDXComponent(code), [code]);
+const PostBySlug: NextPage<Props> = ({ post, info, slug }): ReactElement => {
+  const { name, title, menu, footerLinks: links } = info;
+  const Component = useMDXComponent(post.body.code);
 
   return (
-    <Layout values={{ ...globalData }}>
-      <article className={blogWrapper({})}>
-        <PostContext.Provider value={applauses}>
-          <ArticleHeader post={{ title, summary, image, publishedAt, readingTime }} />
-          <Component components={MDXComponents as any} />
+    <Layout values={{ name, title, menu, links }}>
+      <article className={blogWrapper()}>
+        <PostContext.Provider value={{ slug, name }}>
+          <ArticleHeader post={post} />
+          <Component components={components as any} />
         </PostContext.Provider>
       </article>
     </Layout>
@@ -47,13 +35,8 @@ const PostBySlug: NextPage<PageProps> = ({
 
 export async function getStaticProps({ params: { slug } }: IParams) {
   const post = allPosts.find((post) => post.slug === slug);
-  const data = await prisma.applause.findFirst({ where: { slug: slug } });
-  const { name, title, menu, footerLinks: links } = info;
 
-  const globalData: ILayoutInfo = { name, title, menu, links };
-  const applauses = { slug, value: data?.value || 0 };
-
-  return { props: { post, globalData, applauses } };
+  return { props: { post, info, slug } };
 }
 
 export async function getStaticPaths() {
