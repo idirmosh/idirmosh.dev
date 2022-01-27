@@ -2,8 +2,6 @@ import React, { ReactNode } from 'react';
 import NextHead from 'next/head';
 import { useRouter } from 'next/router';
 import { NAME, ORIGIN_URL } from '@lib/constants';
-import Script from 'next/script';
-import { GA_ID } from '@lib/analytics';
 
 function Head({
   title,
@@ -50,19 +48,6 @@ function Head({
         data-title="idirmosh.dev feed"
       />
 
-      <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-        strategy="afterInteractive"
-      />
-      <Script id="google-analytics" strategy="afterInteractive">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){window.dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', ${GA_ID});
-        `}
-      </Script>
       {children}
     </NextHead>
   );

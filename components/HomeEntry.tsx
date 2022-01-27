@@ -19,30 +19,30 @@ type Props = {
 function HomeEntry({ name, avatar, code, socials, contact }: Props): React.ReactElement {
   const Component = useMDXComponent(code);
   return (
-    <Grid className={wrapper(styles.entry())}>
-      <div className={styles.content()}>
+    <Grid className={wrapper(entry())}>
+      <div className={content()}>
         <Image alt={name} width={164} height={164} className={radius()} src={avatar} />
         <Component components={MDXHome} />
       </div>
-      <div className={styles.contain()}>
-        <div className={styles.social()}>
-          <p className={text(styles.socialText())}>Find me.</p>
+      <div className={contain()}>
+        <div className={social()}>
+          <p className={text(socialText())}>Find me.</p>
           {socials.map((social, idx) => (
             <Link
               key={keyGen(social.name)}
-              className={linkReset(styles.socialLink())}
+              className={linkReset(socialLink())}
               href={social.link}
               target="_blank"
             >
               {social.name}
-              {idx < socials.length - 1 && <span className={styles.linkSpacer()}>/</span>}
+              {idx < socials.length - 1 && <span className={linkSpacer()}>/</span>}
             </Link>
           ))}
         </div>
         <div>
-          <p className={text(styles.socialText())}>Contact me.</p>
+          <p className={text(socialText())}>Contact me.</p>
           <Link
-            className={linkReset(styles.socialLink())}
+            className={linkReset(socialLink())}
             href={`https://mail.google.com/mail/u/0/?fs=1&tf=cm&source=mailto&to=${contact}`}
             target="_blank"
           >
@@ -54,50 +54,48 @@ function HomeEntry({ name, avatar, code, socials, contact }: Props): React.React
   );
 }
 
-const styles = {
-  entry: css({
-    alignItems: 'center',
-    margin: '$5 auto',
-    '@desktop': {
-      margin: '$6 auto',
-    },
-  }),
-  content: css({
-    gridColumn: '1/13',
-    gridRow: '1',
-    '@tablet': {
-      gridColumn: '1/10',
-    },
-    '@desktop': {
-      gridColumn: '1/10',
-    },
-  }),
+// Styles
+const entry = css({
+  alignItems: 'center',
+  margin: '$5 auto',
+  '@desktop': {
+    margin: '$6 auto',
+  },
+});
+const content = css({
+  gridColumn: '1/13',
+  gridRow: '1',
+  '@tablet': {
+    gridColumn: '1/10',
+  },
+  '@desktop': {
+    gridColumn: '1/10',
+  },
+});
 
-  linkSpacer: css({
-    fontWeight: '100',
-    color: '$neutral4',
-    padding: '0 $2',
-  }),
-  contain: css({
-    gridColumn: '1/13',
-    gridRow: '2',
-    display: 'flex',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-  }),
-  social: css({
-    marginRight: '$5',
-    marginBottom: '$3',
-    '@mobile': { marginBottom: '0' },
-  }),
-  socialText: css({
-    marginBottom: '$1 !important',
-    color: '$neutral2',
-  }),
-  socialLink: css({
-    color: '$neutral0',
-    fontWeight: '600',
-  }),
-};
-
+const linkSpacer = css({
+  fontWeight: '100',
+  color: '$neutral4',
+  padding: '0 $2',
+});
+const contain = css({
+  gridColumn: '1/13',
+  gridRow: '2',
+  display: 'flex',
+  flexDirection: 'row',
+  flexWrap: 'wrap',
+});
+const social = css({
+  marginRight: '$5',
+  marginBottom: '$3',
+  '@mobile': { marginBottom: '0' },
+});
+const socialText = css({
+  marginBottom: '$1 !important',
+  color: '$neutral2',
+});
+const socialLink = css({
+  color: '$neutral0',
+  fontWeight: '600',
+});
 export default HomeEntry;

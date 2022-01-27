@@ -8,7 +8,7 @@ import { useEffect } from 'react';
 import Script from 'next/script';
 
 import * as gtag from '@lib/analytics';
-import Head from 'next/head';
+import { GA_ID } from '@lib/analytics';
 
 globalStyles();
 
@@ -36,6 +36,19 @@ function MyApp({ Component, pageProps }: AppProps) {
       }}
     >
       <Component {...pageProps} />
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){window.dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', "${GA_ID}");
+        `}
+      </Script>
     </ThemeProvider>
   );
 }
