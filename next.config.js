@@ -32,6 +32,7 @@ const nextConfig = {
   webpack: (config, options) => {
     if (!options.dev && !options.isServer) {
       Object.assign(config.resolve.alias, {
+        'react/jsx-runtime.js': 'preact/compat/jsx-runtime',
         react: 'preact/compat',
         'react-dom/test-utils': 'preact/test-utils',
         'react-dom': 'preact/compat',
@@ -42,10 +43,10 @@ const nextConfig = {
       require('./lib/rss');
     }
 
-    config.experiments = {
-      topLevelAwait: true,
-      layers: true,
-    };
+    // config.experiments = {
+    //   topLevelAwait: true,
+    //   layers: true,
+    // };
 
     config.module.rules.push({
       test: /\.(mp3)$/,
