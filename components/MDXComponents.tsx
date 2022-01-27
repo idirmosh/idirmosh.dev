@@ -71,6 +71,7 @@ export const components = {
     </figure>
   ),
   img: ({ children, ...props }) => {
+    // eslint-disable-next-line react/display-name
     return ({ children, ...props }) => (
       <div
         className={img({
@@ -99,11 +100,13 @@ export const components = {
   },
   code: ({ children, id, collapsible, className }) => {
     const isCollapsible = typeof collapsible !== 'undefined';
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const [isOpen, setIsOpen] = useState(!isCollapsible);
     const isInline = typeof children === 'string';
     const content = (
       <code
         className={`${className} ${isInline ? text({ type: 'code' }) : ''}`}
+        // eslint-disable-next-line react/no-children-prop
         children={children}
         id={id}
       />

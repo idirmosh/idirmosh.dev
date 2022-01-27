@@ -5,7 +5,10 @@ import { globalStyles } from '@styles/global';
 import { useRouter } from 'next/router';
 import { isProd } from '@lib/constants';
 import { useEffect } from 'react';
+import Script from 'next/script';
+
 import * as gtag from '@lib/analytics';
+import Head from 'next/head';
 
 globalStyles();
 

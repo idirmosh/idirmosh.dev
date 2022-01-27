@@ -14,7 +14,7 @@ function Applause(): React.ReactElement {
     fetch(`/api/applause?slug=${slug}`)
       .then((res) => res.json())
       .then((data) => setValue(data.value));
-  }, [value]);
+  }, [slug, value]);
 
   const handleApplause = async () => {
     fetch(`/api/applause?slug=${slug}`, { method: 'POST' })

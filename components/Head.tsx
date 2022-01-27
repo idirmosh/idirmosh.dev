@@ -2,6 +2,8 @@ import React, { ReactNode } from 'react';
 import NextHead from 'next/head';
 import { useRouter } from 'next/router';
 import { NAME, ORIGIN_URL } from '@lib/constants';
+import Script from 'next/script';
+import { GA_ID } from '@lib/analytics';
 
 function Head({
   title,
@@ -27,14 +29,14 @@ function Head({
       <meta content={description} name="description" />
       <meta name="robots" content="follow, index" />
       <link rel="canonical" href={asPath} />
-      // openGraph
+      {/* openGraph */}
       <meta property="og:url" content={asPath} />
       <meta property="og:type" content={siteType} />
       <meta property="og:site_name" content={NAME} />
       <meta property="og:description" content={description} />
       <meta property="og:title" content={title} />
       <meta property="og:image" content={siteImg} />
-      // twitter
+      {/* twitter */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@idirmosh" />
       <meta name="twitter:title" content={title} />
@@ -47,6 +49,20 @@ function Head({
         type="application/atom+xml"
         data-title="idirmosh.dev feed"
       />
+
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){window.dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', ${GA_ID});
+        `}
+      </Script>
       {children}
     </NextHead>
   );

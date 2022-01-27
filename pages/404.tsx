@@ -20,10 +20,10 @@ function Custom404({ name, title, menu }: InferGetStaticPropsType<typeof getStat
             },
           })}
         >
-          Sorry, we have misplaced that URL or it is pointing to something that doesn't exist. Head{' '}
+          Sorry, we have misplaced that URL or it is pointing to something that doesnt exist. Head
           <Link href="/" className={text({ type: 'link', css: { fontSize: '1.3rem' } })}>
             back home
-          </Link>{' '}
+          </Link>
           to try finding it again.
         </p>
       </div>
