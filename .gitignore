@@ -13,3 +13,4 @@ public/feed.xml
 
 # Contentlayer
 .contentlayer
+.vscode/settings.json
