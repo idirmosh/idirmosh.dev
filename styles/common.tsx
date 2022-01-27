@@ -71,6 +71,9 @@ export const headingReset = css({
     pointerEvents: 'none',
   },
 });
+export const radius = css({
+  borderRadius: '999px',
+});
 export const hidden = css({
   border: '0',
   clip: 'rect(0 0 0 0)',

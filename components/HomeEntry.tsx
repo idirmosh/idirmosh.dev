@@ -4,84 +4,45 @@ import { useMDXComponent } from 'next-contentlayer/hooks';
 import { MDXHome } from './MDXComponents';
 import { Link } from 'components/common';
 import { keyGen } from '@lib/helpers';
-import { NAME } from '@lib/constants';
 import { text } from '@styles/typography';
 import { css } from 'stitches.config';
-import { box, Grid, linkReset, wrapper } from '@styles/common';
+import { Grid, linkReset, radius, wrapper } from '@styles/common';
 
-function HomeEntry({ avatar, code, socials, contact }): React.ReactElement {
+type Props = {
+  name: string;
+  avatar: string;
+  code: string;
+  socials: Array<Record<string, string>>;
+  contact: string;
+};
+
+function HomeEntry({ name, avatar, code, socials, contact }: Props): React.ReactElement {
   const Component = useMDXComponent(code);
-
-  const entry = css({
-    alignItems: 'center',
-    margin: '$5 auto',
-    '@desktop': {
-      margin: '$6 auto',
-    },
-  });
-  const content = css({
-    gridColumn: '1/13',
-    gridRow: '1',
-    '@tablet': {
-      gridColumn: '1/10',
-    },
-    '@desktop': {
-      gridColumn: '1/10',
-    },
-  });
-
-  const linkSpacer = css({
-    fontWeight: '100',
-    color: '$neutral4',
-    padding: '0 $2',
-  });
-  const contain = css({
-    gridColumn: '1/13',
-    gridRow: '2',
-    display: 'flex',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-  });
   return (
-    <Grid className={wrapper(entry())}>
-      <div className={content()}>
-        <Image
-          alt={NAME}
-          width={164}
-          height={164}
-          className={box({ css: { borderRadius: '999px' } })}
-          src={avatar}
-        />
+    <Grid className={wrapper(styles.entry())}>
+      <div className={styles.content()}>
+        <Image alt={name} width={164} height={164} className={radius()} src={avatar} />
         <Component components={MDXHome} />
       </div>
-      <div className={contain()}>
-        <div
-          className={box({
-            css: { marginRight: '$5', marginBottom: '$3', '@mobile': { marginBottom: '0' } },
-          })}
-        >
-          <p className={text({ css: { marginBottom: '$1 !important', color: '$neutral2' } })}>
-            Find me.
-          </p>
-
+      <div className={styles.contain()}>
+        <div className={styles.social()}>
+          <p className={text(styles.socialText())}>Find me.</p>
           {socials.map((social, idx) => (
             <Link
               key={keyGen(social.name)}
-              className={linkReset({ css: { color: '$neutral0', fontWeight: '600' } })}
+              className={linkReset(styles.socialLink())}
               href={social.link}
               target="_blank"
             >
               {social.name}
-              {idx < socials.length - 1 && <span className={linkSpacer()}>/</span>}
+              {idx < socials.length - 1 && <span className={styles.linkSpacer()}>/</span>}
             </Link>
           ))}
         </div>
         <div>
-          <p className={text({ css: { marginBottom: '$1 !important', color: '$neutral2' } })}>
-            Contact me.
-          </p>
+          <p className={text(styles.socialText())}>Contact me.</p>
           <Link
-            className={linkReset({ css: { color: '$neutral0', fontWeight: '600' } })}
+            className={linkReset(styles.socialLink())}
             href={`https://mail.google.com/mail/u/0/?fs=1&tf=cm&source=mailto&to=${contact}`}
             target="_blank"
           >
@@ -92,5 +53,51 @@ function HomeEntry({ avatar, code, socials, contact }): React.ReactElement {
     </Grid>
   );
 }
+
+const styles = {
+  entry: css({
+    alignItems: 'center',
+    margin: '$5 auto',
+    '@desktop': {
+      margin: '$6 auto',
+    },
+  }),
+  content: css({
+    gridColumn: '1/13',
+    gridRow: '1',
+    '@tablet': {
+      gridColumn: '1/10',
+    },
+    '@desktop': {
+      gridColumn: '1/10',
+    },
+  }),
+
+  linkSpacer: css({
+    fontWeight: '100',
+    color: '$neutral4',
+    padding: '0 $2',
+  }),
+  contain: css({
+    gridColumn: '1/13',
+    gridRow: '2',
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+  }),
+  social: css({
+    marginRight: '$5',
+    marginBottom: '$3',
+    '@mobile': { marginBottom: '0' },
+  }),
+  socialText: css({
+    marginBottom: '$1 !important',
+    color: '$neutral2',
+  }),
+  socialLink: css({
+    color: '$neutral0',
+    fontWeight: '600',
+  }),
+};
 
 export default HomeEntry;
