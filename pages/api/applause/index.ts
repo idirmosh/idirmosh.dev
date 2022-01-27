@@ -10,14 +10,13 @@ type Applause = {
   slug?: string;
   value?: string;
 };
-
 export default async function handler(req: NextApiRequest, res: NextApiResponse & Applause) {
+  let slug = req.query?.slug?.toString();
   // check if the request is not from the origin
-  if (req.headers.referer == undefined || new URL(req.headers.referer).origin !== ORIGIN_URL) {
-    res.status(401).json({ message: `Forbidden operation`, code: 401 });
-  }
+  // if (req.headers.referer == undefined || new URL(req.headers.referer).origin !== ORIGIN_URL) {
+  //   res.status(401).json({ message: `Forbidden operation`, code: 401 });
+  // }
   if (req.method === 'POST') {
-    let slug = req.query.slug.toString();
     const applause = await prisma.applause.findFirst({ where: { slug: slug } });
     if (!applause) {
       const data = { slug, value: 1 };
@@ -30,5 +29,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse 
       });
       res.status(200).json(updatedRes);
     }
-  } else res.status(200).json({ method: 'GET', operation: 'none' });
+  } else if (req.method === 'GET') {
+    if (!slug) {
+      res.status(401).json({ error: 'slug is required!' });
+    } else {
+      const applause = await prisma.applause.findFirst({ where: { slug: slug } });
+      if (!applause) res.status(401).json({ error: 'not found' });
+      res.status(200).json(applause);
+    }
+  }
 }
