@@ -13,45 +13,19 @@ type HomePostType = {
 };
 
 function FeaturedPosts({ posts }: { posts: HomePostType[] }): React.ReactElement {
-  const groupe = css({
-    gridColumn: '1/13',
-    '@desktop': {
-      gridColumn: '1/7',
-      //TODO: uncomment when there is two cards
-      //'&:last-of-type': {
-      //  gridColumnStart: '7',
-      //  gridColumnEnd: '13',
-      //},
-    },
-  });
-
-  const link = css({
-    justifyContent: 'space-between',
-    textDecoration: 'none',
-    padding: '0.8rem 0',
-    borderBottom: '1px solid $neutral6',
-  });
-
-  const title = css({
-    color: '$neutral2',
-    maxWidth: '22ch',
-    overflow: 'hidden',
-    whiteSpace: 'nowrap',
-    textOverflow: 'ellipsis',
-    margin: '0 !important',
-    '@mobile': {
-      maxWidth: '100%',
-    },
-  });
   return (
     <Grid className={wrapper()}>
-      <div className={groupe()}>
+      <div className={styles.groupe()}>
         <h2 className={heading({ type: 'h2' })}>Writing</h2>
         <div className={box({ css: { marginBottom: '$4' } })}>
           {posts &&
             posts.map((post) => (
-              <Link key={keyGen(post.slug)} href={`/blog/${post.slug}`} className={flexRow(link())}>
-                <h3 className={title(heading({ type: 'h4' }))} title={post.title}>
+              <Link
+                key={keyGen(post.slug)}
+                href={`/blog/${post.slug}`}
+                className={flexRow(styles.link())}
+              >
+                <h3 className={styles.title(heading({ type: 'h4' }))} title={post.title}>
                   {post.title}
                 </h3>
                 <time className={text({ type: 'small', css: { color: '$neutral3', margin: '0' } })}>
@@ -68,4 +42,35 @@ function FeaturedPosts({ posts }: { posts: HomePostType[] }): React.ReactElement
   );
 }
 
+const styles = {
+  groupe: css({
+    gridColumn: '1/13',
+    '@desktop': {
+      gridColumn: '1/7',
+      //TODO: uncomment when there is two cards
+      //'&:last-of-type': {
+      //  gridColumnStart: '7',
+      //  gridColumnEnd: '13',
+      //},
+    },
+  }),
+  link: css({
+    justifyContent: 'space-between',
+    textDecoration: 'none',
+    padding: '0.8rem 0',
+    borderBottom: '1px solid $neutral6',
+  }),
+
+  title: css({
+    color: '$neutral2',
+    maxWidth: '22ch',
+    overflow: 'hidden',
+    whiteSpace: 'nowrap',
+    textOverflow: 'ellipsis',
+    margin: '0 !important',
+    '@mobile': {
+      maxWidth: '100%',
+    },
+  }),
+};
 export default FeaturedPosts;
