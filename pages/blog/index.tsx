@@ -1,31 +1,27 @@
-import { useEffect, useState } from 'react';
-import type { GetStaticProps, NextPage, InferGetStaticPropsType } from 'next';
+import { ReactElement } from 'react';
+import type { GetStaticProps, NextPage } from 'next';
 import { Head, Layout, BlogCard } from 'components';
 import { BlogListTagsDisplay, BlogListHeader } from 'components/common';
-import { ILayoutInfo, IPageProps } from 'global';
 import { blogWrapper } from '@styles/common';
 import { info } from '.contentlayer/data';
 import { allPosts } from '.contentlayer/data';
-import { filterTags, postMetaFilter, reduceTags, subscribe } from '@lib/helpers';
+import { filterTags, postMetaFilter, reduceTags } from '@lib/helpers';
+import { Info, Post } from '.contentlayer/types';
 
-const Blog: NextPage<IPageProps & ILayoutInfo> = ({ posts, tags, name, title, menu }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const [slugs, setSlugs] = useState(null);
+const seoDesc = "I write about JavaScript, TypeScript, React, and share the things I've learned.";
 
-  useEffect(() => {
-    let isSubscribed = true;
-    if (isSubscribed) subscribe(setSlugs, 'http://localhost:3000/api/views');
-    return () => {
-      isSubscribed = false;
-    };
-  }, []);
+type Props = {
+  posts: Post[];
+  tags: Array<string>;
+  info: Info;
+};
+
+const Blog: NextPage<Props> = ({ posts, tags, info }): ReactElement => {
+  const { name, title, menu } = info;
 
   return (
     <Layout values={{ menu, name, title }}>
-      <Head
-        title={`The ${name}'s Blog`}
-        description="I write about JavaScript, TypeScript, React, and share the things I've learned."
-      />
-
+      <Head title={`The ${name}'s Blog`} description={seoDesc} />
       <div className={blogWrapper()}>
         {/* //TODO: imporve Bellow */}
         <BlogListHeader title="Blog">
@@ -40,9 +36,8 @@ const Blog: NextPage<IPageProps & ILayoutInfo> = ({ posts, tags, name, title, me
 export const getStaticProps: GetStaticProps = async () => {
   const posts = allPosts.map(postMetaFilter);
   const tags = allPosts.reduce(reduceTags, []).filter(filterTags);
-  const { name, title, menu } = info;
 
-  return { props: { posts, tags, name, title, menu } };
+  return { props: { posts, tags, info } };
 };
 
 export default Blog;
