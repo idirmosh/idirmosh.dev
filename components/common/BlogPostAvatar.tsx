@@ -12,13 +12,6 @@ type Props = {
 };
 
 function BlogPostAvatar({ date, readTime }: Props): React.ReactElement {
-  const avatar = css({
-    width: '$4',
-    height: '$4',
-    marginRight: '$2',
-    borderRadius: '9999px',
-    boxShadow: '0px 0px 0px 1px $colors$neutral4',
-  });
   return (
     <div className={flexRow({ css: { alignItems: 'center' } })}>
       <Link className={flexRow({ css: { marginRight: '$2' } })} href="/about">
@@ -34,4 +27,12 @@ function BlogPostAvatar({ date, readTime }: Props): React.ReactElement {
   );
 }
 
+// Styles
+const avatar = css({
+  width: '$4',
+  height: '$4',
+  marginRight: '$2',
+  borderRadius: '9999px',
+  boxShadow: '0px 0px 0px 1px $colors$neutral4',
+});
 export default BlogPostAvatar;
