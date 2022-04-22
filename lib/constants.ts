@@ -1,6 +1,6 @@
 export const ORIGIN_URL =
   process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : 'https://idirmosh.dev';
-export const NAME = 'Idir Hamouch';
+export const NAME = 'Mohamed Hamouch';
 export const AVATAR = '/avatar.webp';
 export const MAIN_WIDTH = 1280;
 export const BLOG_WIDTH = 768;
