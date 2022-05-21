@@ -7,7 +7,7 @@ import { info } from '.contentlayer/data';
 import { Info } from '.contentlayer/types';
 
 const seoDesc =
-  "Hi, I'm Idir Hamouch. I’m a self-taught full-stack javaScript developer, I am passionate about building things for the web using newest technologies.";
+  `Hi, I'm ${info.name} Hamouch. I’m a self-taught full-stack javaScript developer, I am passionate about building things for the web using newest technologies.`;
 
 type PostProps = {
   title: string;
